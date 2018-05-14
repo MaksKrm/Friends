@@ -30,12 +30,14 @@
                 <h6>Вы можете с нами связаться</h6>
                 <p>Claritas est etiam processus dynamicus, qui sequitur mutationem consuetudium lectorum.</p>
                 <p class="social">
-                    <a href="#" class="fa fa-facebook"></a> <a href="#" class="fa fa-vk"></a>
+                    <a href="https://www.facebook.com/groups/krmdrug/" target="_blank" class="fa fa-facebook"></a>
+                    <a href="https://vk.com/protectionanimals" target="_blank" class="fa fa-vk"></a>
                 </p>
                 <p class="c-details">
-                    <span>Mail</span> <a href="#" title=""><span class="__cf_email__"
-                                                                 data-cfemail="630a0d050c23130617000211064d000c0e">[email&#160;protected]</span></a><br>
-                    <span>Tel</span> 0203 000 444
+                    <span>Mail</span> <a href="#" title="">
+                        <span class="__cf_email__"
+                              data-cfemail="630a0d050c23130617000211064d000c0e">[email&#160;protected]</span></a><br>
+                    <span>Tel</span>+38 050 705 01 76
                 </p>
             </div>
         </div>

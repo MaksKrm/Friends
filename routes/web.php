@@ -14,7 +14,3 @@
 Route::get('/', function () {
     return view('index');
 });
-
-Route::get('/1', function () {
-    return view('example');
-});

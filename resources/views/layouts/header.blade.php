@@ -20,8 +20,10 @@
             <div class="col-5 col-sm-4 pull-sm-4 col-md-1 col-lg-2 order-lg-12">
                 <div class="social">
                     <ul class="menu">
-                        <li><a href="#"><i class="fa fa-facebook fa-1x"></i></a></li>
-                        <li><a href="#"><i class="fa fa-vk fa-1x"></i></a></li>
+                        <li><a href="https://www.facebook.com/groups/krmdrug/" target="_blank"><i
+                                        class="fa fa-facebook fa-1x"></i></a></li>
+                        <li><a href="https://vk.com/protectionanimals" target="_blank"><i
+                                        class="fa fa-vk fa-1x"></i></a></li>
                     </ul>
                 </div>
             </div>
@@ -29,5 +31,4 @@
         @include('layouts.nav')
     </div>
 </header>
-
 <!-- Header ends -->
