@@ -5,7 +5,7 @@
     <button class="btn btn-default" data-toggle="modal" data-target="#modal-update" onclick="create()">
         Добавить животное
     </button>
-    <button>[{{$expectations}}] Ожидают публикации</button>
+    <button data-toggle="modal" data-target="#modal-update" onclick="publish()">[{{count($expectations)}}] Ожидают публикации</button>
     <table class="table">
         <thead>
         <tr>
@@ -91,6 +91,16 @@
         $.ajax({
             type: 'GET',
             url: '/animals/create',
+            success: function (response) {
+                $('.modal-body').empty().append(response);
+            }
+        });
+    }
+
+    function publish() {
+        $.ajax({
+            type: 'GET',
+            url: '/publish',
             success: function (response) {
                 $('.modal-body').empty().append(response);
             }

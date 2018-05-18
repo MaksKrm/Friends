@@ -1,4 +1,4 @@
-<form action="/animals" method="POST" enctype="multipart/form-data" class="form-horizontal">
+<form action="{{route('animals.update')}}" method="POST" enctype="multipart/form-data" class="form-horizontal">
     {{ csrf_field() }}
     <input name="_method" type="hidden" value="PUT">
     <input type="hidden" name="id" value="{{$animal->id}}">
@@ -110,5 +110,5 @@
             </span>
         </div>
     </div>
-    <input type="submit" name="enter" value="Редактировать">
+    <input type="submit" value="Редактировать">
 </form>

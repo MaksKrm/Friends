@@ -1,4 +1,4 @@
-<form action="/animals" method="POST" enctype="multipart/form-data" class="form-horizontal">
+<form action="{{route('animals.store')}}" method="POST" enctype="multipart/form-data" class="form-horizontal">
     {{ csrf_field() }}
     <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}" id="div_name">
         <label for="name">Кличка: </label>

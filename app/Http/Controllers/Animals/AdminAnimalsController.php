@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Animals;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\AnimalsRequest;
 use App\Models\Animal;
+use Illuminate\Http\Request;
 
 class AdminAnimalsController extends Controller
 {
@@ -16,7 +17,7 @@ class AdminAnimalsController extends Controller
     public function index()
     {
         $animals = Animal::where('published', 1)->get();
-        $expectations = Animal::where('published', null)->count();
+        $expectations = Animal::where('published', null)->get();
         return view('admin/animals/index', ['animals' => $animals, 'expectations' => $expectations]);
 
     }
@@ -50,7 +51,8 @@ class AdminAnimalsController extends Controller
         $model->main_foto = $model->saveLocalFoto($request->file('main_foto'));
         $model->fill($request->only('name', 'species', 'breed', 'sex', 'age', 'notes', 'contacts'));
         $model->save();
-        return view('admin/animals');
+
+        return redirect()->route('animals.index');
     }
 
     /**
@@ -61,9 +63,34 @@ class AdminAnimalsController extends Controller
      */
     public function show($id)
     {
-
+        //
     }
 
+    /**
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
+    public function getpublish()
+    {
+        $animals = Animal::where('published', null)->get();
+        return view('admin/animals/publish',['animals' => $animals]);
+    }
+
+    /**
+     * @param $request
+     */
+    public function confirm(Request $request)
+    {
+        foreach ($request as $id){
+            $animal=Animal::find($id);
+            $animal->Animal->published=1;
+        }
+    }
+    /**
+     * Show modal-windows for warning delete publication
+     *
+     * @param $id
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
     public function warning($id)
     {
         $animal = Animal::find($id);
