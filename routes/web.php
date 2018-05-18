@@ -15,6 +15,9 @@ Route::get('/', function () {
     return view('index');
 });
 
+Route::get('/warning/{id}', 'Animals\AdminAnimalsController@warning');
+Route::resource('/animals', 'Animals\AdminAnimalsController');
+
 //Страница - Полезная информация
 Route::get('/helpful_informations', 'InformationsController@index')->name('index');
 

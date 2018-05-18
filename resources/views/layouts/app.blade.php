@@ -45,7 +45,7 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/3.0.6/isotope.pkgd.min.js"></script>
 <script src="/js/imagelightbox.min.js"></script>
 <script src="/js/script.js"></script>
-
+<script src="/js/global.js"></script>
 <!-- Scripts Ends! -->
 </body>
 </html>
