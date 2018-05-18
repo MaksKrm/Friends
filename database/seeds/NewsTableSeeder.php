@@ -16,7 +16,7 @@ class NewsTableSeeder extends Seeder
         for ($i = 0; $i < 10; $i++) {
             $news[] = [
                 'title' => $faker->sentence,
-                'article' => $faker->text,
+                'text' => $faker->text,
                 'file' => $faker->randomNumber . '.jpg'
             ];
         }

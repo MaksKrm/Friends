@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('adminlte::page')
 
 @section('content')
     <meta name="csrf-token" content="{{ csrf_token() }}"/>

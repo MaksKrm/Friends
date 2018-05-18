@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('adminlte::page')
 
 @section('content')
     <div class="container">
@@ -18,7 +18,7 @@
                                                    href="{{ route('admin.news.show', $article->id) }}">{{ $article->title }}</a>
                                             </h3>
                                             <div class="mb-1 text-muted">{{ $article->title }}</div>
-                                            <p class="card-text mb-auto">{{$article->article }}</p>
+                                            <p class="card-text mb-auto">{{$article->text }}</p>
                                             <a href="{{ route('admin.news.show', $article->id) }}">Открыть</a>
                                             <form action="{{ route('admin.news.destroy', $article->id) }}" method="POST">
                                                 {!! csrf_field() !!}

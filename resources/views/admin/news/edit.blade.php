@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('adminlte::page')
 
 @section('content')
     <div class="container">
@@ -22,11 +22,11 @@
                                 @endif
                                 <div class="form-group">
                                     <label for="exampleFormControlTextarea1">Описание новости</label>
-                                    <textarea class="form-control" name="article" id="exampleFormControlTextarea1"
+                                    <textarea class="form-control" name="text" id="exampleFormControlTextarea1"
                                               rows="3">{{ $article->article }}</textarea>
                                 </div>
-                                @if ($errors->first('article'))
-                                    <div class="alert alert-danger">{{  $errors->first('article') }}</div>
+                                @if ($errors->first('text'))
+                                    <div class="alert alert-danger">{{  $errors->first('text') }}</div>
                                 @endif
                                 <div class="form-group">
                                     <label for="inputFile">Загрузить файл</label>

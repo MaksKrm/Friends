@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('adminlte::page')
 
 @section('content')
     <div class="container">
@@ -26,7 +26,7 @@
                                 </div>
                                 <h2 class="card-title"> {{ $article->title }}</h2>
                                 <h4>Дополнительная информация</h4>
-                                <p class="card-text">{{ $article->article }}</p>
+                                <p class="card-text">{{ $article->text }}</p>
                             </div>
                             <div class="col-md-4">
                                 <img class="card-img-right flex-auto d-none d-md-block"

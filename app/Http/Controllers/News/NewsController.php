@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Http\Requests\StoreNewsPost;
+use App\Http\Requests\NewsRequest;
 use Illuminate\Support\Facades\Storage;
 use App\Models\News;
 
@@ -36,7 +36,7 @@ class NewsController extends Controller
      * @param  \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreNewsPost $request)
+    public function store(NewsRequest $request)
     {
         $data = $request->all();
         $data['file'] = basename($request->file('file')->store('public'));
@@ -75,7 +75,7 @@ class NewsController extends Controller
      * @param  int $id
      * @return \Illuminate\Http\Response
      */
-    public function update(StoreNewsPost $request, $id)
+    public function update(NewsRequest $request, $id)
     {
         // dd($request);
         $data = $request->all();

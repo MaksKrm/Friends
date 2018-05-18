@@ -21,20 +21,17 @@ Route::get('/publish', 'Animals\AdminAnimalsController@getpublish');
 Route::get('/confirm', 'Animals\AdminAnimalsController@confirm')->name('confirm');
 Route::resource('helpful_informations', 'Informations\Helpful_informationController');
 
-Route::resource('news', 'NewsController', ['as'=>'admin']);
-
-//Test views
-/*
-Route::get('/ct', function () {
-    return view('pages.contacts');
+Route::group( ['prefix' => 'admin'], function () {
+    Route::resource('news', 'NewsController', ['as'=>'admin']);
 });
 
-Route::get('/at', function () {
-    return view('pages.animals');
-});
+Auth::routes();
 
-Route::get('/ht', function () {
-    return view('pages.help');
-});
+Route::get('/admin', 'HomeController@index')->name('home');
 
-*/
+Auth::routes();
+
+Route::get('/admin', 'HomeController@index')->name('home');
+
+
+
