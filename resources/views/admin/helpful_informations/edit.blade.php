@@ -1,9 +1,9 @@
-@extends('layouts.admin.app')
+@extends('adminlte::page')
  
 @section('content')
-    <h1>Edit Task</h1>
+    <h1>Редактирование информации</h1>
     <hr>
-	<form action="{{url('helpful_informations', [$helpful_information->id])}}" method="POST" enctype="multipart/form-data" />
+	<form action="{{ route('admin.helpful_informations.update', $helpful_information->id) }}" method="POST" enctype="multipart/form-data" />
 		<input type="hidden" name="_method" value="PATCH">
         <input type="hidden" name="_token" value="{{ csrf_token() }}">
 		<div class="form-group">

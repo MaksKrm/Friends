@@ -19,10 +19,11 @@ Route::get('/warning/{id}', 'Animals\AdminAnimalsController@warning');
 Route::resource('/animals', 'Animals\AdminAnimalsController');
 Route::get('/publish', 'Animals\AdminAnimalsController@getpublish');
 Route::get('/confirm', 'Animals\AdminAnimalsController@confirm')->name('confirm');
-Route::resource('helpful_informations', 'Informations\Helpful_informationController');
+
 
 Route::group( ['prefix' => 'admin'], function () {
     Route::resource('news', 'NewsController', ['as'=>'admin']);
+	Route::resource('helpful_informations', 'Informations\Helpful_informationController', ['as'=>'admin']);
 });
 
 Auth::routes();

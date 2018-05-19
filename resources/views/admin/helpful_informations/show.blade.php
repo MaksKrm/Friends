@@ -1,4 +1,4 @@
-@extends('layouts.admin.app')
+@extends('adminlte::page')
  
 @section('content')
     <h1>Просмотр информации</h1>

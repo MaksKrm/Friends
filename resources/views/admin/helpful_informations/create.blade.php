@@ -1,9 +1,9 @@
-@extends('layouts.admin.app')
+@extends('adminlte::page')
  
 @section('content')
     <h1>Добавить информацию</h1>
     <hr>
-    <form action="/helpful_informations" method="POST" enctype="multipart/form-data">
+    <form action="{{ route('admin.helpful_informations.store') }}" method="POST" enctype="multipart/form-data">
 		{{ csrf_field() }}
 		<div class="form-group">
 			<label for="tittle">Заголовок</label>

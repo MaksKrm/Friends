@@ -42,7 +42,7 @@ class Helpful_informationController extends Controller
 		$data = $request->all();
         $data['file'] = basename($request->file('file')->store('public'));
 		helpful_information::create($data);
-        return redirect('helpful_informations');
+        return redirect()->route('admin.helpful_informations.index');
     }
 
     /**
@@ -80,7 +80,7 @@ class Helpful_informationController extends Controller
         $data['file'] = basename($request->file('file')->store('public'));
         $helpful_information = helpful_information::findOrFail($id);
         $helpful_information = helpful_information::find($id)->update($data);
-        return redirect('helpful_informations');
+        return redirect()->route('admin.helpful_informations.index');
     }
 
     /**
@@ -89,11 +89,12 @@ class Helpful_informationController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Request $request, helpful_information $helpful_information)
+    public function destroy($id)
     {
-        $helpful_information->delete();
-        $request->session()->flash('message', 'Информация удалена!');
-        return redirect('helpful_informations');
+		$file = helpful_information::select(['file'])->where('id', $id)->first();
+        Storage::disk('public')->delete($file["file"]);
+        helpful_information::destroy($id);
+        return redirect()->route('admin.helpful_informations.index');
     }
 	
 }
