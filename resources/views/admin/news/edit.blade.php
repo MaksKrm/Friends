@@ -23,7 +23,7 @@
                                 <div class="form-group">
                                     <label for="exampleFormControlTextarea1">Описание новости</label>
                                     <textarea class="form-control" name="text" id="exampleFormControlTextarea1"
-                                              rows="3">{{ $article->article }}</textarea>
+                                              rows="3">{{ $article->text }}</textarea>
                                 </div>
                                 @if ($errors->first('text'))
                                     <div class="alert alert-danger">{{  $errors->first('text') }}</div>

@@ -93,6 +93,8 @@ class NewsController extends Controller
      */
     public function destroy($id)
     {
+        $file = News::select(['file'])->where('id', $id)->first();
+        Storage::disk('public')->delete($file["file"]);
         News::destroy($id);
         return redirect()->route('admin.news.index');
     }
