@@ -19,7 +19,7 @@ class Animal extends Model
         if(is_string($foto)){
             return $foto;
         }
-        $file_name = str_random(7) . '_' . time();
+        $file_name = str_random(7) . '_' . time() . '.' . $foto->getClientOriginalExtension();
         $foto->move(storage_path('app/public'), $file_name);
 
         return $file_name;
