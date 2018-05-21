@@ -161,7 +161,8 @@
                                 <div class="animal">
                                     <div class="{{ $animal->species }} animal-block">
                                         <div class="crop">
-                                            <img src="{{asset("storage/$animal->main_foto")}}" alt="Фото животного">
+                                           {{-- <img src="{{asset("storage/$animal->main_foto")}}" alt="Фото животного">--}}
+                                            <img src="{{ $animal->main_foto }}" alt="Фото животного">
                                         </div>
                                         <p class="title"></p>
                                         <a href="#" data-group="paws_1"><span>{{ $animal->name }}</span></a>
