@@ -17,6 +17,8 @@ Route::get('/', function () {
 
 Route::resource('/animalsClient', 'Animals\IndexController');
 
+Route::resource('/informations', 'Informations\IndexController');
+
 Route::group( ['prefix' => 'admin'], function () {
     //admins modules animals
     Route::resource('/animals', 'admin\animals\AdminAnimalsController');
