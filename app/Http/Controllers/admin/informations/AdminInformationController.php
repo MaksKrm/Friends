@@ -1,14 +1,14 @@
 <?php
 
-namespace App\Http\Controllers\Informations;
+namespace App\Http\Controllers\Admin\Informations;
 
 use Illuminate\Http\Request;
 use App\Http\Requests\InformationsRequest;
 use Illuminate\Support\Facades\Storage;
-use App\Models\Helpful_information;
+use App\Models\Information;
 use App\Http\Controllers\Controller;
 
-class Helpful_informationController extends Controller
+class AdminInformationController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -17,8 +17,8 @@ class Helpful_informationController extends Controller
      */
     public function index()
     {
-        $helpful_informations = Helpful_information::all();
-		return view('admin.helpful_informations.index', compact('helpful_informations', $helpful_informations));
+        $informations = Information::all();
+		return view('admin.informations.index', compact('informations', $informations));
     }
 
     /**
@@ -28,7 +28,7 @@ class Helpful_informationController extends Controller
      */
     public function create(Request $request)
     {	
-        return view('admin.helpful_informations.create');
+        return view('admin.informations.create');
     }
 
     /**
@@ -41,8 +41,8 @@ class Helpful_informationController extends Controller
     {
 		$data = $request->all();
         $data['file'] = basename($request->file('file')->store('public'));
-		helpful_information::create($data);
-        return redirect()->route('admin.helpful_informations.index');
+		information::create($data);
+        return redirect()->route('admin.informations.index');
     }
 
     /**
@@ -51,9 +51,9 @@ class Helpful_informationController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(helpful_information $helpful_information)
+    public function show(information $information)
     {
-        return view('admin.helpful_informations.show',compact('helpful_information',$helpful_information));
+        return view('admin.informations.show',compact('information',$information));
     }
 
     /**
@@ -62,9 +62,9 @@ class Helpful_informationController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Request $request, helpful_information $helpful_information)
+    public function edit(Request $request, information $information)
     {
-        return view('admin.helpful_informations.edit',compact('helpful_information',$helpful_information));
+        return view('admin.informations.edit',compact('information',$information));
     }
 
     /**
@@ -78,9 +78,9 @@ class Helpful_informationController extends Controller
     { 
         $data = $request->all();
         $data['file'] = basename($request->file('file')->store('public'));
-        $helpful_information = helpful_information::findOrFail($id);
-        $helpful_information = helpful_information::find($id)->update($data);
-        return redirect()->route('admin.helpful_informations.index');
+        $information = information::findOrFail($id);
+        $information = information::find($id)->update($data);
+        return redirect()->route('admin.informations.index');
     }
 
     /**
@@ -91,10 +91,10 @@ class Helpful_informationController extends Controller
      */
     public function destroy($id)
     {
-		$file = helpful_information::select(['file'])->where('id', $id)->first();
+		$file = information::select(['file'])->where('id', $id)->first();
         Storage::disk('public')->delete($file["file"]);
-        helpful_information::destroy($id);
-        return redirect()->route('admin.helpful_informations.index');
+        information::destroy($id);
+        return redirect()->route('admin.informations.index');
     }
 	
 }

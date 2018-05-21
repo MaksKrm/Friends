@@ -133,7 +133,7 @@ return [
         ],
         [
             'text'    => 'Полезная информация',
-            'url'  => 'admin/helpful_informations',
+            'url'  => 'admin/informations',
             'icon'        => 'file',
         ],
         [
