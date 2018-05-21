@@ -1,8 +1,12 @@
-<form action="{{route('confirm')}}" method="GET">
-    <table class="table">
+@extends('adminlte::page')
+
+@section('content')
+    <button class="btn btn-default">
+        <a href="{{route('animals.index')}}">[{{$activ}}] Активные объявления</a>
+    </button>
+ <table class="table">
         <thead>
         <tr>
-            <th scope="col">Выбрать</th>
             <th scope="col">Кличка</th>
             <th scope="col">Вид</th>
             <th scope="col">Порода</th>
@@ -18,9 +22,6 @@
         <tbody>
         @foreach($animals as  $animal)
             <tr>
-                <td>
-                    <input type="checkbox" name="id[]" value="{{$animal->id}}">
-                </td>
                 <td>
                     @if($animal->name==null) Не указанно @endif
                     {{$animal->name}}</td>
@@ -48,16 +49,56 @@
                     {{$animal->notes}}
                 </td>
                 <td>{{$animal->contacts}}</td>
-                <td><img src="{{asset("storage/$animal->main_foto")}}" alt="Main foto animal" width="70px"
-                         height="70px"></td>
+                <td><img src="{{asset("storage/$animal->main_foto")}}" alt="Main foto animal"></td>
                 <td>
                     @foreach(explode(',', $animal->other_foto) as $foto)
-                        <img src="{{asset("storage/$foto")}}" alt="other foto animal" width="70px" height="70px">
+                        <img src="{{asset("storage/$foto")}}" alt="other foto animal" id="other_foto">
                     @endforeach
+                </td>
+                <td>
+                    <button class="btn btn-info btn-lg" onclick="edit({{$animal->id}})">Опубликовать
+                    </button>
+                    <button class="btn btn-info btn-lg" data-toggle="modal" data-target="#modal-update"
+                            onclick="show({{$animal->id}})">Удолить
+                    </button>
                 </td>
             </tr>
         @endforeach
         </tbody>
     </table>
-    <input type="submit" value="Опубликовать">
-</form>
+    <div id="modal-update" class="modal fade">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-body">
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-default" type="button" data-dismiss="modal">
+                        Закрыть
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script type='text/javascript'>
+
+        function edit(id) {
+            $.ajax({
+                type: 'GET',
+                url: '/admin/publication/' + id + '/edit',
+                success: function(response) {
+                    location.reload();
+                }
+            });
+        }
+
+        function show(id) {
+            $.ajax({
+                type: 'GET',
+                url: '/admin/publication/' + id,
+                success: function (response) {
+                    $('.modal-body').empty().append(response);
+                }
+            });
+        }
+    </script>
+@endsection

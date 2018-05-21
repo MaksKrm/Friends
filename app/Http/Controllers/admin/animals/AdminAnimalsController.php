@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Animals;
+namespace App\Http\Controllers\admin\animals;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\AnimalsRequest;
@@ -18,6 +18,7 @@ class AdminAnimalsController extends Controller
     {
         $animals = Animal::where('published', 1)->get();
         $expectations = Animal::where('published', null)->get();
+
         return view('admin/animals/index', ['animals' => $animals, 'expectations' => $expectations]);
 
     }
@@ -63,39 +64,11 @@ class AdminAnimalsController extends Controller
      */
     public function show($id)
     {
-        //
-    }
-
-    /**
-     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
-     */
-    public function getpublish()
-    {
-        $animals = Animal::where('published', null)->get();
-        return view('admin/animals/publish',['animals' => $animals]);
-    }
-
-    /**
-     * @param $request
-     */
-    public function confirm(Request $request)
-    {
-        foreach ($request as $id){
-            $animal=Animal::find($id);
-            $animal->Animal->published=1;
-        }
-    }
-    /**
-     * Show modal-windows for warning delete publication
-     *
-     * @param $id
-     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
-     */
-    public function warning($id)
-    {
         $animal = Animal::find($id);
-        return view('admin/animals/warning', ['animal' => $animal]);
+
+        return view('admin/animals/show', ['animal' => $animal]);
     }
+
     /**
      * Show the form for editing the specified resource.
      *
@@ -107,19 +80,32 @@ class AdminAnimalsController extends Controller
         $animal = Animal::find($id);
         $others_foto=$animal['other_foto'];
         $others_foto=explode(',' , $others_foto);
+
         return view('admin/animals/update', ['animal' => $animal, 'others_foto' => $others_foto]);
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param AnimalsRequest $request
-     * @param  int $id
+     * @param Request $request
+     * @param Animal $model
      * @return void
      */
-    public function update(AnimalsRequest $request, $id)
+    public function update(Request $request, Animal $model)
     {
-        dd($request);
+        $animal=$model->find($request['id']);
+        if (!empty($request['other_foto'])) {
+            $other_path = [];
+            foreach ($request->other_foto as $foto) {
+                $other_path[] = $model->saveLocalFoto($foto);
+            }
+            $animal->other_foto = implode(",", $other_path);
+        }
+        $animal->main_foto = $model->saveLocalFoto($request['main_foto']);
+        $animal->fill($request->only('name', 'species', 'breed', 'sex', 'age', 'notes', 'contacts'));
+        $animal->save();
+
+        return redirect()->route('animals.index');
     }
 
     /**

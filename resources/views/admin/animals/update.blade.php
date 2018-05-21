@@ -1,7 +1,14 @@
-<form action="{{route('animals.update')}}" method="POST" enctype="multipart/form-data" class="form-horizontal">
+<style>
+    img {
+        width: 60px;
+        height: 50px;
+    }
+</style>
+<form action="{{ route('animals.update',$animal->id) }}" method="POST" enctype="multipart/form-data" class="form-horizontal">
     {{ csrf_field() }}
-    <input name="_method" type="hidden" value="PUT">
-    <input type="hidden" name="id" value="{{$animal->id}}">
+    <input type="hidden" name="_method" value="PATCH">
+    <input type="hidden" name="_token" value="{{ csrf_token() }}">
+    <input type="hidden" name="id" value="{{ $animal->id }}">
     <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}" id="div_name">
         <label for="name">Кличка: </label>
         <div class="col-md-4">
@@ -16,13 +23,8 @@
         <label for="species">Вид: * </label>
         <div class="col-md-4">
             <select name="species" id="species" class="form-control" required >
-                <option >
-                    @if($animal->species==1) Кошки
-                    @elseif($animal->species==2) Собаки
-                    @endif
-                </option>
-                <option value="1">Кошки</option>
-                <option value="2">Собаки</option>
+                <option value="1" @if($animal->species==1) selected  > Кошки </option>
+                <option value="1" @elseif($animal->species==2) selected @endif > Собаки </option>
             </select>
             <span class="help-block">
                 <strong>{{ $errors->first('species') }}</strong>
@@ -42,15 +44,10 @@
     <div class="form-group{{ $errors->has('sex') ? ' has-error' : '' }}" id="div_sex">
         <label for="sex">Пол:  </label>
         <div class="col-md-4">
-            <select name="sex" id="sex" class="form-control" required>
-                <option>
-                    @if($animal->sex==0) Не указанно
-                    @elseif($animal->sex==1) Мужской
-                    @elseif($animal->sex==2) Женский
-                    @endif
-                </option>
-                <option value="1">Мужской</option>
-                <option value="2">Женский</option>
+            <select name="sex" id="sex" class="form-control" required >
+                <option value="0" @if($animal->sex==0) selected > Не указанно </option>
+                <option value="1" @elseif($animal->sex==1) selected > Мужской </option>
+                <option value="2" @elseif($animal->sex==2) selected  @endif> Женский </option>
             </select>
             <span class="help-block">
                 <strong>{{ $errors->first('sex') }}</strong>
@@ -88,11 +85,15 @@
             </span>
         </div>
     </div>
+    <input type="hidden" name="main_foto" value="{{$animal->main_foto}}">
+    @foreach($others_foto as $foto)
+    <input type="hidden" name="other_foto[]" value="{{$foto}}">
+    @endforeach
     <div class="form-group{{ $errors->has('main_foto') ? ' has-error' : '' }}" id="div_main_foto">
         <label for="main_foto">Главное фото: * </label>
         <div class="col-md-4">
-            <img src="{{asset("storage/$animal->main_foto")}}" alt="Animals Main Foto" width="50px" height="50px">
-            <input type="file" name="main_foto" id="main_foto" class="form-control" value="{{$animal->main_foto}}">
+            <img src="{{asset("storage/$animal->main_foto")}}" alt="Animals Main Foto">
+            <input type="file" name="main_foto" id="main_foto" class="form-control">
             <span class="help-block">
                 <strong>{{ $errors->first('main_foto') }}</strong>
             </span>
@@ -102,9 +103,9 @@
         <label for="other_foto">Другие фото:  </label>
         <div class="col-md-4">
             @foreach($others_foto as $foto)
-                <img src="{{asset("storage/$foto")}}" alt="Other foto" width="50px" height="50px">
+                <img src="{{asset("storage/$foto")}}" alt="Other foto" id="other_foto" >
             @endforeach
-            <input type="file" name="other_foto[]" id="other_foto" class="form-control" >
+            <input type="file" name="other_foto[]" id="other_foto" multiple class="form-control">
             <span class="help-block">
                 <strong>{{ $errors->first('other_foto') }}</strong>
             </span>

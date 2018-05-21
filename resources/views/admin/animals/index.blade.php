@@ -1,11 +1,25 @@
 @extends('adminlte::page')
 
 @section('content')
+    <style>
+        img {
+            width: 80px;
+            height: 60px;
+        }
+        img, #other_foto {
+            width: 60px;
+            height: 60px;
+        }
+        .modal-dialog {
+            width: 500px;
+            height: auto;
+        }
+    </style>
     <meta name="csrf-token" content="{{ csrf_token() }}"/>
     <button class="btn btn-default" data-toggle="modal" data-target="#modal-update" onclick="create()">
         Добавить животное
     </button>
-    <button data-toggle="modal" data-target="#modal-update" onclick="publish()">[{{count($expectations)}}] Ожидают публикации</button>
+    <button class="btn btn-default"><a href="{{route('publication.index')}}">[{{count($expectations)}}] Ожидают публикации</a></button>
     <table class="table">
         <thead>
         <tr>
@@ -51,11 +65,10 @@
                     {{$animal->notes}}
                 </td>
                 <td>{{$animal->contacts}}</td>
-                <td><img src="{{asset("storage/$animal->main_foto")}}" alt="Main foto animal" width="70px"
-                         height="70px"></td>
+                <td><img src="{{asset("storage/$animal->main_foto")}}" alt="Main foto animal">
                 <td>
                     @foreach(explode(',', $animal->other_foto) as $foto)
-                        <img src="{{asset("storage/$foto")}}" alt="other foto animal" width="70px" height="70px">
+                        <img src="{{asset("storage/$foto")}}" alt="other foto animal" id="other_foto">
                     @endforeach
                 </td>
                 <td>
@@ -63,7 +76,7 @@
                             onclick="update({{$animal->id}})">Редактировать
                     </button>
                     <button class="btn btn-info btn-lg" data-toggle="modal" data-target="#modal-update"
-                            onclick="warning({{$animal->id}})">Удолить
+                            onclick="show({{$animal->id}})">Удолить
                     </button>
                 </td>
             </tr>
@@ -74,7 +87,6 @@
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-body">
-
                 </div>
                 <div class="modal-footer">
                     <button class="btn btn-default" type="button" data-dismiss="modal">
@@ -84,23 +96,12 @@
             </div>
         </div>
     </div>
-@endsection
 
 <script type='text/javascript'>
     function create() {
         $.ajax({
             type: 'GET',
-            url: '/animals/create',
-            success: function (response) {
-                $('.modal-body').empty().append(response);
-            }
-        });
-    }
-
-    function publish() {
-        $.ajax({
-            type: 'GET',
-            url: '/publish',
+            url: '/admin/animals/create',
             success: function (response) {
                 $('.modal-body').empty().append(response);
             }
@@ -110,20 +111,21 @@
     function update(id) {
         $.ajax({
             type: 'GET',
-            url: '/animals/' + id + '/edit',
+            url: '/admin/animals/' + id + '/edit',
             success: function (response) {
                 $('.modal-body').empty().append(response);
             }
         });
     }
 
-    function warning(id) {
+    function show(id) {
         $.ajax({
             type: 'GET',
-            url: '/warning/' + id,
+            url: '/admin/animals/' + id,
             success: function (response) {
                 $('.modal-body').empty().append(response);
             }
         });
     }
 </script>
+@endsection

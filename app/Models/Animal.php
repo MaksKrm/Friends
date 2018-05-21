@@ -16,6 +16,9 @@ class Animal extends Model
      */
     public function saveLocalFoto($foto)
     {
+        if(is_string($foto)){
+            return $foto;
+        }
         $file_name = str_random(7) . '_' . time();
         $foto->move(storage_path('app/public'), $file_name);
 

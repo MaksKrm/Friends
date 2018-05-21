@@ -128,7 +128,7 @@ return [
         ],
         [
             'text'    => 'Животные',
-            'url'  => '#',
+            'url'  => 'admin/animals',
             'icon'        => 'file',
         ],
         [
