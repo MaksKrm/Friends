@@ -253,6 +253,7 @@ p, dl {
 /* -------------------- */
 .main-container {
     text-align: left;
+    overflow: hidden;
 }
 
 .main-container .container {
@@ -684,8 +685,16 @@ p, dl {
 .page ul li, .donate ul li {
     margin-bottom: 5px;
 }
-
+/*
 .page ul li:before, .page ul dt:before, .page dl li:before, .page dl dt:before, .donate ul li:before, .donate ul dt:before, .donate dl li:before, .donate dl dt:before {
+    content: "\f00c";
+    font-family: FontAwesome;
+    margin-right: 10px;
+    color: #afbb71;
+}
+*/
+
+.donate ul li:before, .donate ul dt:before, .donate dl li:before, .donate dl dt:before {
     content: "\f00c";
     font-family: FontAwesome;
     margin-right: 10px;
@@ -998,7 +1007,7 @@ p, dl {
 /* -------------------- */
 .donate {
     text-align: center;
-    margin-top: 50px;
+    margin-top: -20px;
     position: relative;
     padding-bottom: 150px;
 }
@@ -1313,27 +1322,6 @@ p, dl {
     text-decoration: underline;
 }
 
-.educate a {
-    color: #009a3e;
-    text-decoration: none;
-}
-
-.educate a.news__title, .educate a.news__title:hover {
-    color: #009a3e;
-    text-transform: uppercase;
-    font-weight: bold;
-    text-decoration: none;
-    font-size: 1.1rem;
-    margin-bottom: 0;
-    letter-spacing: .1em;
-}
-
-.educate a.news__title:hover,
-.educate a:hover {
-    color: #da251c;
-    text-decoration: none;
-}
-
 .success-story {
     position: relative;
     padding-bottom: 164px;
@@ -1400,6 +1388,26 @@ p, dl {
 
 /* 11. Educate Section */
 /* -------------------- */
+.educate a {
+    color: #009a3e;
+    text-decoration: none;
+}
+
+.educate a.news__title, .educate a.news__title:hover {
+    color: #009a3e;
+    text-transform: uppercase;
+    font-weight: bold;
+    text-decoration: none;
+    font-size: 1.1rem;
+    margin-bottom: 0;
+    letter-spacing: .1em;
+}
+
+.educate a.news__title:hover,
+.educate a:hover {
+    color: #da251c;
+    text-decoration: none;
+}
 .educate {
     margin-top: -18px;
     padding-top: 190px;

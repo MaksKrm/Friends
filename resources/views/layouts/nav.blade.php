@@ -5,12 +5,12 @@
     </button>
     <div class="collapse navbar-collapse links" id="navbarSupportedContent">
         <ul class="navbar-nav menu">
-            <li class="active"><a href="#">Главная <span class="sr-only">(current)</span></a></li>
-            <li><a href="{{route('informations.index')}}">Полезная информация</a></li>
-            <li><a href="#">Помощь</a></li>
-            <li><a href="{{route('animalsClient.index')}}">Ищут хозяев</a></li>
-            <li><a href="#">Отчётность</a></li>
-            <li><a href="#">Контакты</a></li>
+            <li class="active"><a href="{{route('index')}}">Главная <span class="sr-only">(current)</span></a></li>
+            <li><a href="{{route('information')}}">Полезная информация</a></li>
+            <li><a href="{{route('help')}}">Помощь</a></li>
+            <li><a href="{{route('animals')}}">Ищут хозяев</a></li>
+            <li><a href="{{route('reports')}}">Отчётность</a></li>
+            <li><a href="{{route('contacts')}}">Контакты</a></li>
         </ul>
     </div>
 </nav>
