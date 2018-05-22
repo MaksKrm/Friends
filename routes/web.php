@@ -15,6 +15,10 @@ Route::get('/', function () {
     return view('index');
 })->name('index');
 
+Route::get('/help', function () {
+    return view('pages.help');
+});
+
 Route::resource('/animalsClient', 'Animals\IndexController');
 
 Route::resource('/informations', 'Informations\IndexController');
@@ -32,10 +36,6 @@ Auth::routes();
 
 Route::get('/admin', 'HomeController@index')->name('home');
 
-Auth::routes();
-
-Route::get('/admin', 'HomeController@index')->name('home');
-
 Route::get('/news', 'PageController@getAllNews')->name('news');
 
 Route::get('/information', 'PageController@getAllInformation')->name('information');
@@ -48,8 +48,10 @@ Route::get('/contacts', 'PageController@getContacts')->name('contacts');
 
 Route::get('/reports', 'PageController@getAllReports')->name('reports');
 
-Route::get('/help-vlad', function () {
-    return view('pages.help.help');
-});
-
 Route::any('/sendmail', 'help\HelpController@send');
+
+Route::get('/admin/reports', 'admin\reports\AdminReportsController@index');
+
+Route::get('/reports', 'Reports\ReportsController@show')->name('reports');
+
+Route::post('/import', 'admin\reports\AdminReportsController@import')->name('import');

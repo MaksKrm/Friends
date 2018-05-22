@@ -47,6 +47,7 @@
 <script src="/js/imagelightbox.min.js"></script>
 <script src="/js/script.js"></script>
 <script src="/js/global.js"></script>
+<script src="/js/help.js"></script>
 <!-- Scripts Ends! -->
 </body>
 </html>

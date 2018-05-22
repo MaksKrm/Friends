@@ -59,7 +59,7 @@ $(document).ready(function() {
 
   //Блок помощи. Отправка сообщения
 
-    $('#contactform').on('submit', function (e) {
+    $('#contactform').submit( function (e) {
         e.preventDefault();
 
         $.ajax({
@@ -75,7 +75,7 @@ $(document).ready(function() {
         });
     });
 
-    $(".mymagicoverbox").click(function () {
+    $(".button-holder").click(function () {
         $('#myfond_gris').fadeIn(300);
         var iddiv = $(this).attr("iddiv");
         $('#' + iddiv).fadeIn(300);

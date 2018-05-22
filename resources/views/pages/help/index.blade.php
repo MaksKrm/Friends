@@ -1,6 +1,102 @@
 @extends('layouts.main')
 
 @section('content')
+    <style>
+        #sendmessage, #senderror {
+            border: 1px solid #e6e6e6;
+            background: #f6f6f6;
+            display: none;
+            text-align: center;
+            padding: 15px 12px 15px 65px;
+            margin: 10px 0;
+            font-weight: 600;
+            margin-bottom: 30px;
+        }
+
+        #senderror {
+            color: #f00;
+        }
+
+        #senderror span {
+            font-weight: bold;
+        }
+
+        .fond {
+            position: absolute;
+            padding-top: 45px;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: #f8b334;
+        }
+
+        .button-holder {
+            display: inline-block;
+            color: #ffffff;
+            padding: 10px;
+            margin: 10px;
+            cursor: pointer;
+            font-weight: 300;
+            font-family: 'Roboto';
+        }
+
+        .mymagicoverbox_fenetre {
+            z-index: 9999;
+            position: fixed;
+            margin-left: 50%;
+            top: 100px;
+            text-align: center;
+            display: none;
+            padding: 5px;
+            background-color: #ffffff;
+            color: #97BF0D;
+            font-style: normal;
+            font-size: 20px;
+            font-weight: 300;
+            font-family: 'Roboto';
+        }
+
+        .mymagicoverbox_fenetreinterieur {
+            text-align: center;
+            overflow: auto;
+            padding: 10px;
+            background-color: #ffffff;
+            color: #666666;
+            font-weight: 400;
+            font-family: 'Roboto';
+            font-size: 17px;
+            border-top: 1px solid #e7e7e7;
+            margin-top: 10px
+        }
+
+        .mymagicoverbox_fermer {
+            color: #CB2025;
+            cursor: pointer;
+            font-weight: 400;
+            font-size: 14px;
+            font-style: normal
+            font-family: 'Roboto';
+        }
+
+        #myfond_gris {
+            display: none;
+            background-color: #000000;
+            opacity: 0.7;
+            width: 100%;
+            height: 100%;
+            z-index: 9998;
+            position: fixed;
+            top: 0;
+            bottom: 0;
+            right: 0;
+            left: 0;
+        }
+        .help-block {
+            font-size: 14px;
+        }
+    </style>
+
     <div class="donate">
 
         <!-- Price List -->
@@ -50,10 +146,70 @@
                         <li>бытовые и моющие средства</li>
                         <li>транспортировка</li>
                     </ul>
-                    <div class="button-holder">
-                        <a href="#" class="button">помочь</a>
+                        <div id="myfond_gris" opendiv=""></div>
+
+                        <div iddiv="box_1" class="button-holder">
+                            <button class="button">оставьте свои данные</button>
+                        </div>
+
+                        <div id="box_1" class="mymagicoverbox_fenetre" style="left:-225px; width:450px;">
+
+                            <form id="contactform" method="POST" class="validateform">
+                                {{ csrf_field() }}
+                                <div id="sendmessage">
+                                    Ваше сообщение отправлено!
+                                </div>
+                                <div class="row">
+                                    <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}" id="div_name">
+                                        <div>
+                                            ФИО<input type="text" name="name" placeholder="* Введите ваше имя" required>
+                                            <div class="help-block">
+                                                <strong>{{ $errors->first('name') }}</strong>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}" id="div_email">
+                                        <div>
+                                            email<input type="email" name="email" placeholder="* Введите ваш email" required>
+                                            <div class="help-block">
+                                                <strong>{{ $errors->first('email') }}</strong>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group{{ $errors->has('phone') ? ' has-error' : '' }}" id="div_phone">
+                                        <div>
+                                            телефон<input type="text" name="phone" placeholder="0661320919" >
+                                            <div class="help-block">
+                                                <strong>{{ $errors->first('phone') }}</strong>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group{{ $errors->has('theme') ? ' has-error' : '' }}" id="div_theme">
+                                        <div>
+                                            тема<input type="text" name="theme" placeholder="еда" required>
+                                            <div class="help-block">
+                                                <strong>{{ $errors->first('theme') }}</strong>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group{{ $errors->has('message') ? ' has-error' : '' }}" id="div_message">
+                                        <div>
+                                            сообщение<textarea rows="12" name="message" class="input-block-level" placeholder="хочу помочь едой" required></textarea>
+                                            <div class="help-block">
+                                                <strong>{{ $errors->first('message') }}</strong>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <span style="width: 100%;"> Заполните, все обязательные поля!</span>
+                                    <div>
+                                        <button type="submit">Отправить</button>
+                                    </div>
+                                </div>
+
+                            </form>
+                        </div>
+
                     </div>
-                </div>
                 <!-- Price Block Ends! -->
 
             </div>

@@ -18,6 +18,9 @@ class HelpController extends Controller
      */
     public function send(HelpFormRequest $request)
     {
+        $all = $request->all();
+        unset($all["_token"]);
+        Help::create($all);
 
         Mail::send('emails.default', ['request' => $request], function ($message) use ($request) {
             $message->from($request->email, $request->name);
@@ -25,13 +28,6 @@ class HelpController extends Controller
             $message->subject($request->theme);
         });
 
-
-        $all = $request->all();
-        unset($all["_token"]);
-        Help::create($all);
-
-        $result = true;
-        return response()->json(['result' => $result]);
 
     }
 

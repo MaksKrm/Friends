@@ -28,7 +28,7 @@ class HelpFormRequest extends FormRequest
         return [
             'name' => 'bail|required|max:100',
             'email' => 'bail|email|required|max:150',
-            'phone' => 'required',
+            'phone' => 'required|min:8|digits_between: 8,15',
             'theme' => 'bail|required|max:100',
             'message' => 'bail|required|max:500'
         ];
