@@ -24,7 +24,7 @@
 </style>
 <div>
     <span style="margin-left: 20px;">добавить новость</span>
-    <a class="btn btn-success" href="{{route('admin.help.create')}}" role="button">добавить</a></div>
+    <a class="btn btn-success" href="{{route('help.create')}}" role="button">добавить</a></div>
 <table>
     @foreach($all as $constant)
         <tr>
@@ -32,9 +32,9 @@
             <td>{{$constant->help}}</td>
             <td>{{$constant->message}}</td>
             <td>
-                <a class="btn btn-success" href="{{ route('admin.help.edit', $constant->id) }}">Редактировать</a></td>
+                <a class="btn btn-success" href="{{ route('help.edit', $constant->id) }}">Редактировать</a></td>
 
-            <td><form action="{{ route('admin.help.destroy', $constant->id) }}" method="POST">
+            <td><form action="{{ route('help.destroy', $constant->id) }}" method="POST">
                     {{ csrf_field() }}
                     <input type="hidden" name="_method" value="DELETE">
                     <button class="btn btn-success" type="submit" >Удалить</button>

@@ -16,8 +16,9 @@ class InformationTableSeeder extends Seeder
         for ($i = 0; $i < 16; $i++) {
             $information[] = [
                 'tittle' => $faker->sentence,
-                'article' => $faker->text,
-                'file' => $faker->imageUrl($width = 250, $height = 250)
+                'article' => $faker->paragraphs(5, true),
+                'file' => $faker->imageUrl($width = 250, $height = 250),
+                'created_at' => $faker->dateTime
             ];
         }
         DB::table('helpful_informations')->insert($information);

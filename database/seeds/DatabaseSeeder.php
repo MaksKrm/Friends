@@ -15,5 +15,7 @@ class DatabaseSeeder extends Seeder
         $this->call(NewsTableSeeder::class);
         $this->call(AnimalsTableSeeder::class);
         $this->call(InformationTableSeeder::class);
+        $this->call(ContactsTableSeeder::class);
+        $this->call(ConstantsTableSeeder::class);
     }
 }

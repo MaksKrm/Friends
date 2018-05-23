@@ -165,7 +165,7 @@
                                             <img src="{{ $animal->main_foto }}" alt="Фото животного">
                                         </div>
                                         <p class="title"></p>
-                                        <a href="#" data-group="paws_1"><span>{{ $animal->name }}</span></a>
+                                        <a href="{{route('animal', $animal->id)}}" data-group="paws_1"><span>{{ $animal->name }}</span></a>
                                     </div>
                                 </div>
                             </div>

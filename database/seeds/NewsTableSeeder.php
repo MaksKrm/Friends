@@ -16,8 +16,9 @@ class NewsTableSeeder extends Seeder
         for ($i = 0; $i < 10; $i++) {
             $news[] = [
                 'title' => $faker->sentence,
-                'text' => $faker->text,
-                'file' => $faker->randomNumber . '.jpg'
+                'text' => $faker->paragraphs(5, true),
+                'file' => $faker->imageUrl(300,  300, 'cats'),
+                'created_at' => $faker->dateTime
             ];
         }
         DB::table('news')->insert($news);

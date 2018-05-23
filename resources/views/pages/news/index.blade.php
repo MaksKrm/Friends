@@ -29,17 +29,21 @@
                 @foreach ($news as $article)
                     <div class="col-md-10">
                         <div class="card flex-md-row mb-4 box-shadow h-md-250">
-                            <img class="card-img-right flex-auto d-none d-lg-block"
+                        {{--    <img class="card-img-right flex-auto d-none d-lg-block"
                                  alt="Фото новости"
                                  src="{{ asset("storage/$article->file")  }}"
+                                 data-holder-rendered="true">--}}
+                            <img class="card-img-right flex-auto d-none d-lg-block"
+                                 alt="Фото новости"
+                                 src="{{ $article->file }}"
                                  data-holder-rendered="true">
                             <div class="card-body d-flex flex-column align-items-start">
                                 <strong class="d-inline-block mb-2 text-primary">{{ $article->created_at }}</strong>
                                 <h3>
-                                    <a class="text-dark news__title" href="#">{{ $article->title }}</a>
+                                    <a class="text-dark news__title" href="{{route('news-article',$article->id)}}">{{ $article->title }}</a>
                                 </h3>
                                 <p class="news__text card-text mb-auto">{{ $article->text }}</p>
-                                <a href="#">Читать далее</a>
+                                <a href="{{route('news-article',$article->id)}}">Читать далее</a>
                             </div>
                         </div>
                     </div>

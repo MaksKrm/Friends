@@ -42,6 +42,6 @@ class HelpController extends Controller
             'date_to'   => '1443164386000'
         ));
         $all= Constant::all();
-        return view('pages.help',['all'=>$all,'array'=>$array]);
+        return view('pages.help.index',['all'=>$all,'array'=>$array]);
     }
 }

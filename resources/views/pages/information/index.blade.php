@@ -67,10 +67,10 @@
                                 <div class="card-body d-flex flex-column align-items-start">
                                     <h3>
                                         <a class="text-dark news__title"
-                                           href="/helpful_informations/{{ $article->id}}">{{ $article->tittle }}</a>
+                                           href="{{route('inform-article',$article->id)}}">{{ $article->tittle }}</a>
                                     </h3>
                                     <p class="news__text card-text mb-2">{{ $article->article }}</p>
-                                    <a href="/helpful_informations/{{$article->id}}">Читать далее</a>
+                                    <a href="{{route('inform-article', $article->id)}}">Читать далее</a>
                                 </div>
                             </div>
                         </div>

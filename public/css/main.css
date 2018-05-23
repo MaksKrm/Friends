@@ -1605,10 +1605,10 @@ p, dl {
     -o-background-size: cover;
     background-size: cover;
 }
-
+/*
 .contact .container {
     max-width: 488px;
-}
+}*/
 
 .contact h2, .contact h3, .contact h4 {
     margin-bottom: 35px;

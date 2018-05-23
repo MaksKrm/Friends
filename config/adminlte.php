@@ -138,7 +138,7 @@ return [
         ],
         [
             'text'    => 'Помощь',
-            'url'  => '#',
+            'url'  => 'admin/help',
             'icon'        => 'file',
         ],
         [

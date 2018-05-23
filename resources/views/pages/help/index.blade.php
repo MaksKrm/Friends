@@ -2,99 +2,42 @@
 
 @section('content')
     <style>
-        #sendmessage, #senderror {
-            border: 1px solid #e6e6e6;
-            background: #f6f6f6;
-            display: none;
-            text-align: center;
-            padding: 15px 12px 15px 65px;
-            margin: 10px 0;
-            font-weight: 600;
+
+        .donate .modal-content {
+            display: block;
+        }
+
+        .button-block {
             margin-bottom: 30px;
+            clear: both;
         }
 
-        #senderror {
-            color: #f00;
+        .block {
+            vertical-align: top;
         }
 
-        #senderror span {
-            font-weight: bold;
+        .donate .modal-header {
+            background: #ffeae5;
         }
 
-        .fond {
-            position: absolute;
-            padding-top: 45px;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background-color: #f8b334;
+        .donate p.modal-title {
+            text-transform: uppercase;
+            color: #262626;
+            letter-spacing: .2em;
+            font-weight: 700;
+            line-height: 1;
         }
 
-        .button-holder {
-            display: inline-block;
-            color: #ffffff;
-            padding: 10px;
-            margin: 10px;
-            cursor: pointer;
-            font-weight: 300;
-            font-family: 'Roboto';
+        .button-cancel {
+            background: #da251c;
+            border-bottom: 4px solid #268658;
+            color: #fff;
         }
 
-        .mymagicoverbox_fenetre {
-            z-index: 9999;
-            position: fixed;
-            margin-left: 50%;
-            top: 100px;
-            text-align: center;
-            display: none;
-            padding: 5px;
-            background-color: #ffffff;
-            color: #97BF0D;
-            font-style: normal;
-            font-size: 20px;
-            font-weight: 300;
-            font-family: 'Roboto';
+        .donate .modal-footer {
+            justify-content: space-around;
         }
 
-        .mymagicoverbox_fenetreinterieur {
-            text-align: center;
-            overflow: auto;
-            padding: 10px;
-            background-color: #ffffff;
-            color: #666666;
-            font-weight: 400;
-            font-family: 'Roboto';
-            font-size: 17px;
-            border-top: 1px solid #e7e7e7;
-            margin-top: 10px
-        }
-
-        .mymagicoverbox_fermer {
-            color: #CB2025;
-            cursor: pointer;
-            font-weight: 400;
-            font-size: 14px;
-            font-style: normal
-            font-family: 'Roboto';
-        }
-
-        #myfond_gris {
-            display: none;
-            background-color: #000000;
-            opacity: 0.7;
-            width: 100%;
-            height: 100%;
-            z-index: 9998;
-            position: fixed;
-            top: 0;
-            bottom: 0;
-            right: 0;
-            left: 0;
-        }
-        .help-block {
-            font-size: 14px;
-        }
     </style>
 
     <div class="donate">
@@ -107,7 +50,7 @@
                 <p class="title">спасём жизнь тех</p>
                 <h2>Кто нуждается в помощи</h2>
 
-                <!-- Price Block -->
+{{--                <!-- Price Block -->
                 <div class="block promo">
                     <p><span>мы нуждаемся</span> в вашей помощи</p>
                     <ul>
@@ -120,7 +63,7 @@
                         <a href="#" class="button">помочь</a>
                     </div>
                 </div>
-                <!-- Price Block Ends! -->
+                <!-- Price Block Ends! -->--}}
 
                 <!-- Price Block -->
                 <div class="block">
@@ -146,75 +89,125 @@
                         <li>бытовые и моющие средства</li>
                         <li>транспортировка</li>
                     </ul>
-                        <div id="myfond_gris" opendiv=""></div>
-
-                        <div iddiv="box_1" class="button-holder">
-                            <button class="button">оставьте свои данные</button>
-                        </div>
-
-                        <div id="box_1" class="mymagicoverbox_fenetre" style="left:-225px; width:450px;">
-
-                            <form id="contactform" method="POST" class="validateform">
-                                {{ csrf_field() }}
-                                <div id="sendmessage">
-                                    Ваше сообщение отправлено!
+                    <div class="button-block">
+                        <button type="button" class="button" data-toggle="modal" data-target="#exampleModalLong">
+                            Помочь
+                        </button>
+                        <!-- Modal -->
+                        <div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog"
+                             aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+                            <div class="modal-dialog" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <p class="modal-title" id="exampleModalLongTitle">Обратная связь</p>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                    <div id="box_1" class="modal-body">
+                                        <form id="contactform" method="POST" class="validateform">
+                                            {{ csrf_field() }}
+                                            <div class="alert alert-success" id="sendmessage">
+                                                Ваше сообщение отправлено!
+                                            </div>
+                                            <div class="row form-group {{ $errors->has('name') ? ' has-error' : '' }}"
+                                                 id="div_name">
+                                                <label for="example-text-input"
+                                                       class="col-sm-2 col-form-label">ФИО</label>
+                                                <div class="col-sm-10">
+                                                    <input class="form-control" type="text" name="name"
+                                                           placeholder="* Введите ваше имя" required
+                                                           id="example-text-input">
+                                                </div>
+                                                @if ($errors->first('name'))
+                                                    <div class="alert alert-danger">{{  $errors->first('name') }}</div>
+                                                @endif
+                                            </div>
+                                            <div id="div_email"
+                                                 class="form-group {{ $errors->has('email') ? ' has-error' : '' }} row">
+                                                <label for="inputEmail3" class="col-sm-2 col-form-label">Email</label>
+                                                <div class="col-sm-10">
+                                                    <input type="email" class="form-control" id="inputEmail3"
+                                                           name="email" placeholder="* Введите ваш email"
+                                                           required>
+                                                </div>
+                                                @if ($errors->first('email'))
+                                                    <div class="alert alert-danger">{{  $errors->first('email') }}</div>
+                                                @endif
+                                            </div>
+                                            <div id="div_phone"
+                                                 class="form-group {{ $errors->has('phone') ? ' has-error' : '' }} row">
+                                                <label for="example-tel-input"
+                                                       class="col-sm-2 col-form-label">Телефон</label>
+                                                <div class="col-sm-10">
+                                                    <input class="form-control" type="text" id="example-tel-input"
+                                                           name="phone" placeholder="0661320919">
+                                                </div>
+                                                @if ($errors->first('phone'))
+                                                    <div class="alert alert-danger">{{  $errors->first('phone') }}</div>
+                                                @endif
+                                            </div>
+                                            <div id="div_theme"
+                                                 class="form-group {{ $errors->has('theme') ? ' has-error' : '' }} row">
+                                                <label for="example-text-input"
+                                                       class="col-sm-2 col-form-label">Тема</label>
+                                                <div class="col-sm-10">
+                                                    <input class="form-control" type="text" id="example-text-input"
+                                                           name="theme" placeholder="еда" required>
+                                                </div>
+                                                @if ($errors->first('theme'))
+                                                    <div class="alert alert-danger">{{  $errors->first('theme') }}</div>
+                                                @endif
+                                            </div>
+                                            <div id="div_message"
+                                                 class="form-group {{ $errors->has('message') ? ' has-error' : '' }} row">
+                                                <label class="col-sm-2" for="exampleTextarea">Сообщение</label>
+                                                <div class="col-sm-10">
+                                                <textarea class="form-control" id="exampleTextarea" name="message"
+                                                          rows="3"
+                                                          placeholder="хочу помочь едой" required></textarea>
+                                                </div>
+                                                @if ($errors->first('message'))
+                                                    <div class="alert alert-danger">{{  $errors->first('message') }}</div>
+                                                @endif
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="button-cancel" data-dismiss="modal">
+                                                    Закрыть
+                                                </button>
+                                                <button type="submit" class="button">Отправить</button>
+                                            </div>
+                                        </form>
+                                    </div>
                                 </div>
-                                <div class="row">
-                                    <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}" id="div_name">
-                                        <div>
-                                            ФИО<input type="text" name="name" placeholder="* Введите ваше имя" required>
-                                            <div class="help-block">
-                                                <strong>{{ $errors->first('name') }}</strong>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}" id="div_email">
-                                        <div>
-                                            email<input type="email" name="email" placeholder="* Введите ваш email" required>
-                                            <div class="help-block">
-                                                <strong>{{ $errors->first('email') }}</strong>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="form-group{{ $errors->has('phone') ? ' has-error' : '' }}" id="div_phone">
-                                        <div>
-                                            телефон<input type="text" name="phone" placeholder="0661320919" >
-                                            <div class="help-block">
-                                                <strong>{{ $errors->first('phone') }}</strong>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="form-group{{ $errors->has('theme') ? ' has-error' : '' }}" id="div_theme">
-                                        <div>
-                                            тема<input type="text" name="theme" placeholder="еда" required>
-                                            <div class="help-block">
-                                                <strong>{{ $errors->first('theme') }}</strong>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="form-group{{ $errors->has('message') ? ' has-error' : '' }}" id="div_message">
-                                        <div>
-                                            сообщение<textarea rows="12" name="message" class="input-block-level" placeholder="хочу помочь едой" required></textarea>
-                                            <div class="help-block">
-                                                <strong>{{ $errors->first('message') }}</strong>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <span style="width: 100%;"> Заполните, все обязательные поля!</span>
-                                    <div>
-                                        <button type="submit">Отправить</button>
-                                    </div>
-                                </div>
-
-                            </form>
+                            </div>
                         </div>
-
                     </div>
-                <!-- Price Block Ends! -->
 
+                </div>
+                <!-- Price Block Ends! -->
             </div>
         </div>
         <!-- Price List ends! -->
+
+        <!-- Types II -->
+        <div class="types">
+            <div class="container">
+
+                <h4>Что нам необходимо?</h4>
+
+                <p>Общество защиты животных г.Краматорск. Благотворительный фонд помощи бездомным животным."Друг"</p>
+
+                <dl>
+                    @foreach($all as $item)
+                        <dt>{{ $item->help }}</dt>
+                        <dd>{{ $item->message }}</dd>
+                        <dd>{{ $item->contact }}</dd>
+                    @endforeach
+                </dl>
+            </div>
+        </div>
+        <!-- Types II Ends! -->
 
         <!-- Types -->
         <div class="types">
@@ -286,5 +279,7 @@
             </div>
         </div>
         <!-- Types II Ends! -->
+
+
     </div>
 @endsection

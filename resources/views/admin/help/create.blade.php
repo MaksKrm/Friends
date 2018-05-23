@@ -1,5 +1,5 @@
 Добавление необходимой помощи
-<form method="post" action="{{route('admin.help.store')}}">
+<form method="post" action="{{route('help.store')}}">
     {{ csrf_field() }}
 
     @if ($errors->any())
