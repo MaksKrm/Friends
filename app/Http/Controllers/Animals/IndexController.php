@@ -15,9 +15,8 @@ class IndexController extends Controller
      */
     public function index()
     {
-        $animals = Animal::where('published', 1)->get();
-
-        return view('pages/animals', ['animals' => $animals]);
+        $animals = Animal::where('published', 1)->orderBy('id', 'desc')->paginate(10);
+        return view('pages.animal.index', ['animals' => $animals]);
     }
 
     /**
@@ -49,7 +48,8 @@ class IndexController extends Controller
      */
     public function show($id)
     {
-        //
+        $animal = Animal::find($id);
+        return view('pages.animal.show', ['animal' => $animal]);
     }
 
     /**

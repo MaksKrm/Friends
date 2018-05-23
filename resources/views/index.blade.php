@@ -62,17 +62,17 @@
                                 <div class="card-body d-flex flex-column align-items-start">
                                     <strong class="d-inline-block mb-2 text-primary">{{ $article->created_at }}</strong>
                                     <h3>
-                                        <a class="text-dark news__title" href="{{route('news-article',$article->id)}}">{{ $article->title }}</a>
+                                        <a class="text-dark news__title" href="{{route('news.show',$article->id)}}">{{ $article->title }}</a>
                                     </h3>
                                     <p class="news__text card-text mb-2">{{ $article->text }}</p>
-                                    <a href="{{route('news-article',$article->id)}}">Читать далее</a>
+                                    <a href="{{route('news.show',$article->id)}}">Читать далее</a>
                                 </div>
                             </div>
                         </div>
                     @endforeach
                 </div>
                 <div class="row justify-content-end">
-                    <a class="text-light" href="{{ route('news')}}">Все новости</a>
+                    <a class="text-light" href="{{ route('news.index')}}">Все новости</a>
                 </div>
             </div>
         </div>

@@ -2,8 +2,6 @@
 
 namespace App\Http\Requests;
 
-use App\News;
-
 use Illuminate\Foundation\Http\FormRequest;
 
 class NewsRequest extends FormRequest

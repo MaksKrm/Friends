@@ -1,24 +1,22 @@
 <?php
 
-namespace App\Http\Controllers\admin\help;
+namespace App\Http\Controllers\Information;
 
-use App\Http\Requests\AdminHelpFormRequest;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\models\Constant;
+use App\Models\Information;
 
-class AdminHelpController extends Controller
+class IndexController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-
     public function index()
     {
-        $all = Constant::all();
-        return view('admin.help.index', ['all' => $all]);
+        $information = Information::orderBy('id', 'desc')->paginate(8);
+        return view('pages.information.index', ['information' => $information]);
     }
 
     /**
@@ -28,69 +26,63 @@ class AdminHelpController extends Controller
      */
     public function create()
     {
-        return view('admin.help.create');
+        //
     }
 
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request $request
+     * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(AdminHelpFormRequest $request)
-    {
-        $all = $request->all();
-        Constant::create($all);
-        return redirect('/admin/help');
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
+    public function store(Request $request)
     {
         //
     }
 
     /**
+     * Display the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function show($id)
+    {
+        $article = Information::find($id);
+        return view('pages.information.show', ['article' => $article]);
+    }
+
+    /**
      * Show the form for editing the specified resource.
      *
-     * @param  int $id
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
     {
-        $help = Constant::find($id);
-        return view('admin.help.edit', ['help' => $help]);
+        //
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request $request
-     * @param  int $id
+     * @param  \Illuminate\Http\Request  $request
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
     {
-        $data = $request->all();
-        $help = Constant::findOrFail($id);
-        $help = Constant::find($id)->update($data);
-        return redirect()->route('help.index');
+        //
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int $id
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
     {
-        Constant::destroy($id);
-        return redirect()->route('help.index');
+        //
     }
 }

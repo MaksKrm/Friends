@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Controllers\Informations;
+namespace App\Http\Controllers\News;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Models\Information;
+use App\Models\News;
 
 class IndexController extends Controller
 {
@@ -15,8 +15,8 @@ class IndexController extends Controller
      */
     public function index()
     {
-        //$information = Information::orderBy('id', 'desc')->paginate(8);
-        //return view('pages.information.index', ['information' => $information]);
+        $news = News::orderBy('id', 'desc')->paginate(8);
+        return view('pages.news.index', ['news' => $news]);
     }
 
     /**
@@ -48,7 +48,8 @@ class IndexController extends Controller
      */
     public function show($id)
     {
-        //
+        $article = News::find($id);
+        return view('pages.news.show', ['article' => $article]);
     }
 
     /**

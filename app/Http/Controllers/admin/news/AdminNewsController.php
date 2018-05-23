@@ -1,13 +1,14 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin\News;
 
 use Illuminate\Http\Request;
 use App\Http\Requests\NewsRequest;
 use Illuminate\Support\Facades\Storage;
 use App\Models\News;
+use App\Http\Controllers\Controller;
 
-class NewsController extends Controller
+class AdminNewsController extends Controller
 {
     /**
      * Display a listing of the resource.

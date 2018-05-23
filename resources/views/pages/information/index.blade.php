@@ -16,6 +16,7 @@
             height: auto;
             max-width: 250px;
         }
+
     </style>
     <div class="success-story testimonials">
         <div class="container">
@@ -67,10 +68,10 @@
                                 <div class="card-body d-flex flex-column align-items-start">
                                     <h3>
                                         <a class="text-dark news__title"
-                                           href="{{route('inform-article',$article->id)}}">{{ $article->tittle }}</a>
+                                           href="{{route('information.show',$article->id)}}">{{ $article->tittle }}</a>
                                     </h3>
                                     <p class="news__text card-text mb-2">{{ $article->article }}</p>
-                                    <a href="{{route('inform-article', $article->id)}}">Читать далее</a>
+                                    <a href="{{route('information.show', $article->id)}}">Читать далее</a>
                                 </div>
                             </div>
                         </div>
