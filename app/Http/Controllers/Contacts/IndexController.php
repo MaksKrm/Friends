@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Controllers\Informations;
+namespace App\Http\Controllers\Contacts;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Models\Information;
+use App\Models\Contact;
 
 class IndexController extends Controller
 {
@@ -15,8 +15,8 @@ class IndexController extends Controller
      */
     public function index()
     {
-        //$information = Information::orderBy('id', 'desc')->paginate(8);
-        //return view('pages.information.index', ['information' => $information]);
+        //$contacts = Contact::all();
+        //return view('admin.contacts.index', compact('contacts', $contacts));
     }
 
     /**

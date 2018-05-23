@@ -141,6 +141,11 @@ return [
             'url'  => '#',
             'icon'        => 'file',
         ],
+        [
+            'text'    => 'Контакты',
+            'url'  => 'admin/contacts',
+            'icon'        => 'file',
+        ],
         'ACCOUNT SETTINGS',
         [
             'text' => 'Profile',

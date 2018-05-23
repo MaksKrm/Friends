@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\News;
 use App\Models\Information;
 use App\Models\Animal;
+use App\Models\Contact;
 
 class PageController extends Controller
 {
@@ -29,7 +30,8 @@ class PageController extends Controller
     }
 
     public function getContacts() {
-        return view('pages.contacts.index');
+        $contacts = Contact::all();
+        return view('pages.contacts.index', compact('contacts', $contacts));
     }
 
     public function getAllReports() {

@@ -1,12 +1,13 @@
 <?php
 
-namespace App\Http\Controllers\Informations;
+namespace App\Http\Controllers\Admin\Contacts;
 
 use Illuminate\Http\Request;
+use App\Http\Requests\ContactsRequest;
+use App\Models\Contact;
 use App\Http\Controllers\Controller;
-use App\Models\Information;
 
-class IndexController extends Controller
+class AdminContactController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,8 +16,8 @@ class IndexController extends Controller
      */
     public function index()
     {
-        //$information = Information::orderBy('id', 'desc')->paginate(8);
-        //return view('pages.information.index', ['information' => $information]);
+        $contacts = Contact::all();
+		    return view('admin.contacts.index', compact('contacts', $contacts));
     }
 
     /**
@@ -24,9 +25,9 @@ class IndexController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request)
     {
-        //
+        return view('admin.contacts.create');
     }
 
     /**
@@ -35,9 +36,10 @@ class IndexController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(ContactsRequest $request)
     {
-        //
+        Contact::create($request->all());
+        return redirect()->route('admin.contacts.index');
     }
 
     /**
@@ -46,9 +48,9 @@ class IndexController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(contact $information)
     {
-        //
+
     }
 
     /**
@@ -57,9 +59,9 @@ class IndexController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Request $request, contact $contact)
     {
-        //
+        return view('admin.contacts.edit',compact('contact',$contact));
     }
 
     /**
@@ -69,9 +71,12 @@ class IndexController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(ContactsRequest $request, $id)
     {
-        //
+        $data = $request->all();
+        $contact = contact::findOrFail($id);
+        $contact= contact::find($id)->update($data);
+        return redirect()->route('admin.contacts.index');
     }
 
     /**
@@ -82,6 +87,8 @@ class IndexController extends Controller
      */
     public function destroy($id)
     {
-        //
+        contact::destroy($id);
+        return redirect()->route('admin.contacts.index');
     }
+
 }

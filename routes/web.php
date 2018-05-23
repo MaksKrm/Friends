@@ -28,8 +28,8 @@ Route::group( ['prefix' => 'admin'], function () {
     Route::resource('/animals', 'admin\animals\AdminAnimalsController');
     Route::resource('/publication', 'admin\animals\PublicationsController');
     Route::resource('news', 'NewsController', ['as'=>'admin']);
-	Route::resource('informations', 'admin\informations\AdminInformationController', ['as'=>'admin']);
-
+    Route::resource('informations', 'admin\informations\AdminInformationController', ['as'=>'admin']);
+    Route::resource('contacts', 'admin\contacts\AdminContactController', ['as'=>'admin']);
 });
 
 Auth::routes();
