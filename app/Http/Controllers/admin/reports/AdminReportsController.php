@@ -3,8 +3,10 @@
 namespace App\Http\Controllers\admin\reports;
 
 use App\Http\Controllers\Controller;
+use App\Models\Report;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
+use Illuminate\Database\Eloquent\Model;
 use Session;
 use Excel;
 use File;
@@ -16,22 +18,22 @@ class AdminReportsController extends Controller
         return view('admin/reports/reports');
     }
 
-    public function import(Request $request){
+    public function import(Request $request)
+    {
         $this->validate($request, array(
-            'file'      => 'required'
+            'file' => 'required'
         ));
 
-        if($request->hasFile('file')){
+        if ($request->hasFile('file')) {
             $extension = File::extension($request->file->getClientOriginalName());
             if ($extension == "xlsx" || $extension == "xls") {
 
                 $path = $request->file->getRealPath();
-                $data = Excel::load($path, function($reader) {
+                $data = Excel::load($path, function ($reader) {
                 })->get();
-                if(!empty($data) && $data->count()){
-
+                if (!empty($data) && $data->count()) {
                     foreach ($data as $key => $value) {
-                        if (!$value->expense == ''){
+                        if (!$value->expense == '') {
                             $insert[] = [
                                 'accounting_period' => $value->accounting_period,
                                 'income' => $value->income,
@@ -39,16 +41,15 @@ class AdminReportsController extends Controller
                                 'expense' => $value->expense,
                                 'expense_val' => $value->expense_val,
                             ];
-                        }
-                        else break;
+                        } else break;
                     }
 
-                    if(!empty($insert)){
+                    if (!empty($insert)) {
 
                         $insertData = DB::table('reports')->insert($insert);
                         if ($insertData) {
                             Session::flash('success', 'Данные успешно добавленны');
-                        }else {
+                        } else {
                             Session::flash('error', 'Ошибка добавления файла');
                             return back();
                         }
@@ -57,10 +58,13 @@ class AdminReportsController extends Controller
 
                 return back();
 
-            }else {
-                Session::flash('error', 'Файл '.$extension.' не являеться фалом excel');
+            } else {
+                Session::flash('error', 'Файл ' . $extension . ' не являеться фалом excel');
                 return back();
             }
         }
     }
+
+
+
 }

@@ -133,6 +133,7 @@ return [
             'text'    => 'Помощь',
             'url'  => 'admin/help',
             'icon'        => 'far fa-credit-card',
+            //'icon'        => 'file',
         ],
         [
             'text'    => 'Отчёты',

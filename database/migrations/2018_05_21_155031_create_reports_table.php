@@ -20,8 +20,6 @@ class CreateReportsTable extends Migration
             $table->string('income_val')->nullable();
             $table->string('expense')->nullable();
             $table->string('expense_val');
-            $table->string('photo')->nullable();
-            $table->string('excel')->nullable();
         });
     }
 

@@ -1,5 +1,4 @@
 @extends('layouts.main')
-
 @section('content')
     <style>
         .price-box {
@@ -37,7 +36,6 @@
             background-color: transparent;
             border-color: transparent;
         }
-
         .price-box .page-item:last-child .page-link,
         .price-box .page-item:first-child .page-link {
             color: #fff;
@@ -47,8 +45,8 @@
     </style>
     <div class="price-box">
         <div class="container">
-            <p class="title">Отчёт</p>
             <h2>Сколько нами потрачено</h2>
+            <p class="title">Отчёт</p>
             <div class="table-responsive mt-2">
                 <table class="table">
                     <thead>
@@ -75,5 +73,9 @@
             </div>
             <div class="row justify-content-center mt-3">{{$all->links()}}</div>
         </div>
+    </div>
+    <div style="text-align: center;padding: 20px">
+        все наши отчеты вы можете просмотреть и скачать
+        <a href="https://drive.google.com/drive/folders/1gSe9RiAnykSadviPL-qJOiEWR-zIVnMP" target="_blank">здесь</a>
     </div>
 @endsection
