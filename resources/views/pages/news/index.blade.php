@@ -38,11 +38,11 @@
                                  src="{{ $article->file }}"
                                  data-holder-rendered="true">
                             <div class="card-body d-flex flex-column align-items-start">
-                                <strong class="d-inline-block mb-2 text-primary">{{ $article->created_at }}</strong>
+                                <strong class="d-inline-block mb-2 text-primary">{{ date( "d.m.Y", strtotime($article->created_at) ) }}</strong>
                                 <h3>
                                     <a class="text-dark news__title" href="{{route('news.show',$article->id)}}">{{ $article->title }}</a>
                                 </h3>
-                                <p class="news__text card-text mb-auto">{{ $article->text }}</p>
+                                <p class="news__text card-text mb-auto">{{ str_limit($article->text, $limit = 200, $end = '...') }}</p>
                                 <a href="{{route('news.show',$article->id)}}">Читать далее</a>
                             </div>
                         </div>

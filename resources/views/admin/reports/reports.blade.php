@@ -19,8 +19,8 @@
             </form>
         </div>
 
-            <div>
-                <a href="https://drive.google.com/drive/folders/1gSe9RiAnykSadviPL-qJOiEWR-zIVnMP" target="_blank"> загрузить фото отчет</a>
-            </div>
+        <div>
+            <a href="https://drive.google.com/drive/folders/1gSe9RiAnykSadviPL-qJOiEWR-zIVnMP" target="_blank"> загрузить фото отчет</a>
+        </div>
 
 @endsection

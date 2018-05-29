@@ -1,7 +1,5 @@
 <?php
-
 namespace App\Http\Controllers\admin\reports;
-
 use App\Http\Controllers\Controller;
 use App\Models\Report;
 use Illuminate\Support\Facades\DB;
@@ -10,24 +8,20 @@ use Illuminate\Database\Eloquent\Model;
 use Session;
 use Excel;
 use File;
-
 class AdminReportsController extends Controller
 {
     public function index()
     {
         return view('admin/reports/reports');
     }
-
     public function import(Request $request)
     {
         $this->validate($request, array(
             'file' => 'required'
         ));
-
         if ($request->hasFile('file')) {
             $extension = File::extension($request->file->getClientOriginalName());
             if ($extension == "xlsx" || $extension == "xls") {
-
                 $path = $request->file->getRealPath();
                 $data = Excel::load($path, function ($reader) {
                 })->get();
@@ -43,9 +37,7 @@ class AdminReportsController extends Controller
                             ];
                         } else break;
                     }
-
                     if (!empty($insert)) {
-
                         $insertData = DB::table('reports')->insert($insert);
                         if ($insertData) {
                             Session::flash('success', 'Данные успешно добавленны');
@@ -55,16 +47,11 @@ class AdminReportsController extends Controller
                         }
                     }
                 }
-
                 return back();
-
             } else {
-                Session::flash('error', 'Файл ' . $extension . ' не являеться фалом excel');
+                Session::flash('error', 'Файл ' . $extension . ' не является фалом excel');
                 return back();
             }
         }
     }
-
-
-
 }

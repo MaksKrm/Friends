@@ -8,7 +8,7 @@
             <li class="active"><a href="{{route('index')}}">Главная <span class="sr-only">(current)</span></a></li>
             <li><a href="{{route('information.index')}}">Полезная информация</a></li>
             <li><a href="{{route('help')}}">Помощь</a></li>
-            <li><a href="{{route('animals.index')}}">Ищут хозяев</a></li>
+            <li><a href="{{route('pets.index')}}">Ищут хозяев</a></li>
             <li><a href="{{route('reports')}}">Отчётность</a></li>
             <li><a href="{{route('contacts')}}">Контакты</a></li>
         </ul>

@@ -16,7 +16,7 @@ Route::get('/admin', 'HomeController@index')->name('home');
 
 Route::group( ['prefix' => 'admin'], function () {
 
-    Route::resource('animals', 'admin\animals\AdminAnimalsController', ['as'=>'admin']);
+    Route::resource('animals', 'admin\animals\AdminAnimalsController');
     Route::resource('help', 'admin\help\AdminHelpController');
     Route::resource('publication', 'admin\animals\PublicationsController');
     Route::resource('news', 'admin\news\AdminNewsController', ['as'=>'admin']);
@@ -30,12 +30,15 @@ Auth::routes();
 
 //Контроллеры страниц сайта
 Route::get('/', 'PageController@getIndexPage')->name('index');
+
+Route::resource('pets', 'Animals\IndexController')->only([ 'index', 'show' ]);
 Route::resource('information', 'Information\IndexController')->only([ 'index', 'show' ]);
 Route::resource('news', 'News\IndexController')->only([ 'index', 'show' ]);
-Route::resource('animals', 'Animals\IndexController')->only([ 'index', 'show' ]);
+
+
 Route::get('/help', 'PageController@getHelp')->name('help');
 Route::get('/contacts', 'PageController@getContacts')->name('contacts');
-Route::get('/reports', 'PageController@getAllReports')->name('reports');
+//Route::get('/reports', 'PageController@getAllReports')->name('reports');
 
 
 Route::any('/sendmail', 'help\HelpController@send');

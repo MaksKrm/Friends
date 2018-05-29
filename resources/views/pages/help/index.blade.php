@@ -50,22 +50,22 @@
                 <p class="title">спасём жизнь тех</p>
                 <h2>Кто нуждается в помощи</h2>
 
-{{--                <!-- Price Block -->
-                <div class="block promo">
-                    <p><span>мы нуждаемся</span> в вашей помощи</p>
-                    <ul>
-                        <li>корм</li>
-                        <li>медикаменты</li>
-                        <li>ветеринарная помощь</li>
-                        <li>ваша любовь и забота</li>
-                    </ul>
-                    <div class="button-holder">
-                        <a href="#" class="button">помочь</a>
-                    </div>
-                </div>
-                <!-- Price Block Ends! -->--}}
+            {{--                <!-- Price Block -->
+                            <div class="block promo">
+                                <p><span>мы нуждаемся</span> в вашей помощи</p>
+                                <ul>
+                                    <li>корм</li>
+                                    <li>медикаменты</li>
+                                    <li>ветеринарная помощь</li>
+                                    <li>ваша любовь и забота</li>
+                                </ul>
+                                <div class="button-holder">
+                                    <a href="#" class="button">помочь</a>
+                                </div>
+                            </div>
+                            <!-- Price Block Ends! -->--}}
 
-                <!-- Price Block -->
+            <!-- Price Block -->
                 <div class="block">
                     <p><span>материальная помощь</span> нашим питомцам</p>
                     <ul>

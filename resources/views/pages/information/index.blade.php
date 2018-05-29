@@ -61,16 +61,20 @@
                     @foreach ($information as $article)
                         <div class="col-md-10">
                             <div class="card flex-md-row mb-4 box-shadow h-md-250">
-                                <img class="card-img-right flex-auto d-none d-lg-block"
+                              {{--  <img class="card-img-right flex-auto d-none d-lg-block"
                                      alt="Фото информации"
                                      src="{{ asset("storage/$article->file")  }}"
+                                     data-holder-rendered="true">--}}
+                               <img class="card-img-right flex-auto d-none d-lg-block"
+                                     alt="Фото информации"
+                                     src="{{ $article->file  }}"
                                      data-holder-rendered="true">
                                 <div class="card-body d-flex flex-column align-items-start">
                                     <h3>
                                         <a class="text-dark news__title"
                                            href="{{route('information.show',$article->id)}}">{{ $article->tittle }}</a>
                                     </h3>
-                                    <p class="news__text card-text mb-2">{{ $article->article }}</p>
+                                    <p class="news__text card-text mb-3">{{ str_limit($article->article, $limit = 300, $end = '...') }}</p>
                                     <a href="{{route('information.show', $article->id)}}">Читать далее</a>
                                 </div>
                             </div>
