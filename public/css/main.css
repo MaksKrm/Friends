@@ -1934,3 +1934,276 @@ button, .button {
     color: #000;
     border-radius: 1.25rem;
 }
+
+
+/* Animals */
+/*
+.animals .page.top-pattern {
+    margin: -30px 0 0 30px;
+    min-height: 1500px;
+}
+
+.animals .adopt {
+    min-height: 1485px;
+}
+
+.animals {
+    padding: 190px 75px 0;
+    background: #009a3e url(../img/paw_pattern.png);
+    color: #1d2124;
+    margin-top: -18px;
+    text-align: center;
+    z-index: 1;
+}
+
+.animals h3 {
+    color: #009a3e;
+}
+
+.animals .adopt img {
+    width: auto;
+    max-height: 280px;
+}
+
+.animal {
+    position: relative;
+}
+
+.animal-block {
+    overflow: hidden;
+}
+
+.animal-block a {
+    display: block;
+    width: 85%;
+    height: 280px;
+    position: absolute;
+    top: -1%;
+    left: 10%;
+    background: url(../img/sprite-group-full.png) no-repeat 0 0;
+    color: #009a3e;
+    font-weight: bold;
+    font: 1.5rem "Grand Hotel", cursive;
+
+}
+
+@media all and (max-width: 1200px) {
+    .animal-block a {
+        width: 66%;
+        left: 17%;
+    }
+}
+
+@media all and (max-width: 992px) {
+    .animal-block a {
+        width: 90%;
+        left: 7%;
+    }
+}
+
+@media all and (max-width: 768px) {
+    .animal-block a {
+        width: 60%;
+        left: 20%;
+    }
+
+    .adopt img {
+        max-height: 230px;
+    }
+}
+
+@media all and (max-width: 480px) {
+    .animal-block a {
+        width: 70%;
+        left: 12%;
+    }
+}
+
+@media all and (max-width: 380px) {
+    .animal-block a {
+        width: 92%;
+        left: 3%;
+    }
+}
+
+.animals .crop {
+    overflow: hidden;
+    width: 270px;
+    height: 275px;
+}
+
+.animals .adopt {
+    background: #fff;
+    position: relative;
+    z-index: 1;
+    padding-top: 45px;
+    margin-top: -55px;
+}
+
+.animals .page:before {
+    content: "";
+    position: absolute;
+    width: 137%;
+    height: 102%;
+    top: 0;
+    left: 7px;
+    z-index: -1;
+    background: url(../img/halfcircle_pattern2.png) 0 0 repeat-x;
+    -webkit-transform: rotate(-90deg);
+    -moz-transform: rotate(-90deg);
+    -ms-transform: rotate(-90deg);
+    -o-transform: rotate(-90deg);
+    transform: rotate(-90deg);
+}
+
+.animals .page:after {
+    content: "";
+    position: absolute;
+    width: 138%;
+    height: 102%;
+    top: 0;
+    right: 3px;
+    z-index: -1;
+    background: url(../img/halfcircle_pattern2.png) 0 0 repeat-x;
+    -webkit-transform: rotate(-30deg);
+    -moz-transform: rotate(-30deg);
+    -ms-transform: rotate(-30deg);
+    -o-transform: rotate(-30deg);
+    transform: rotate(90deg);
+}
+*/
+
+.animals .page.top-pattern {
+    margin: -30px 0 0 30px;
+    min-height: 1500px;
+}
+
+.animals .adopt {
+    min-height: 1480px;
+}
+
+div.animals {
+    padding: 190px 45px 0;
+    background: #009a3e url(../img/paw_pattern.png);
+    color: #1d2124;
+    margin-top: -18px;
+    text-align: center;
+    z-index: 1;
+}
+
+.animals h3 {
+    color: #009a3e;
+}
+
+.animals .adopt img {
+    width: auto;
+    max-height: 280px;
+}
+
+.animal {
+    position: relative;
+}
+
+.animal-block {
+    overflow: hidden;
+}
+
+.animal-block a {
+    display: block;
+    width: 85%;
+    height: 280px;
+    position: absolute;
+    top: -1%;
+    left: 10%;
+    background: url(../img/sprite-group-full.png) no-repeat 0 0;
+    color: #009a3e;
+    font-weight: bold;
+    font: 1.5rem "Grand Hotel", cursive;
+
+}
+
+@media all and (max-width: 1200px) {
+    .animal-block a {
+        width: 66%;
+        left: 17%;
+    }
+}
+
+@media all and (max-width: 992px) {
+    .animal-block a {
+        width: 90%;
+        left: 7%;
+    }
+}
+
+@media all and (max-width: 768px) {
+    .animal-block a {
+        width: 60%;
+        left: 20%;
+    }
+
+    .adopt img {
+        max-height: 230px;
+    }
+}
+
+@media all and (max-width: 480px) {
+    .animal-block a {
+        width: 70%;
+        left: 12%;
+    }
+}
+
+@media all and (max-width: 380px) {
+    .animal-block a {
+        width: 92%;
+        left: 3%;
+    }
+}
+
+.crop {
+    overflow: hidden;
+    width: 270px;
+    height: 275px;
+}
+
+.adopt {
+    background: #fff;
+    position: relative;
+    z-index: 1;
+    padding-top: 45px;
+    margin-top: -55px;
+}
+
+.animals .page:before {
+    content: "";
+    position: absolute;
+    width: 137%;
+    height: 102%;
+    top: 0;
+    left: 7px;
+    z-index: -1;
+    background: url(../img/halfcircle_pattern2.png) 0 0 repeat-x;
+    -webkit-transform: rotate(-90deg);
+    -moz-transform: rotate(-90deg);
+    -ms-transform: rotate(-90deg);
+    -o-transform: rotate(-90deg);
+    transform: rotate(-90deg);
+}
+
+.animals .page:after {
+    content: "";
+    position: absolute;
+    width: 138%;
+    height: 102%;
+    top: 0;
+    right: 3px;
+    z-index: -1;
+    background: url(../img/halfcircle_pattern2.png) 0 0 repeat-x;
+    -webkit-transform: rotate(-30deg);
+    -moz-transform: rotate(-30deg);
+    -ms-transform: rotate(-30deg);
+    -o-transform: rotate(-30deg);
+    transform: rotate(90deg);
+}
+/* End Animals section */
