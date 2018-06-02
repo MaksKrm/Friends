@@ -3,8 +3,9 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Http\Request;
 
-class NewsRequest extends FormRequest
+class GoodsRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -21,14 +22,13 @@ class NewsRequest extends FormRequest
      *
      * @return array
      */
-    public function rules()
+    public function rules(Request $request)
     {
-
+       // dd($request->all());
         return [
-            'title' => 'bail|required|string|min:5|max:100',
-            'text' => 'bail|required|string|min:10',
-            'file' => 'bail|required|image|mimes:jpeg,png,jpg,gif,svg|max:8048'
+            'title' => 'required|string|min:3|max:100',
+            'description' => 'required|string|min:10|max:255',
+            'photo' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:8048'
         ];
     }
-
 }

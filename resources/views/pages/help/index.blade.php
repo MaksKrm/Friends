@@ -119,9 +119,9 @@
                                                            placeholder="* Введите ваше имя" required
                                                            id="example-text-input">
                                                 </div>
-                                                @if ($errors->first('name'))
-                                                    <div class="alert alert-danger">{{  $errors->first('name') }}</div>
-                                                @endif
+                                                <div class="help-block">
+                                                    <strong>{{ $errors->first('name') }}</strong>
+                                                </div>
                                             </div>
                                             <div id="div_email"
                                                  class="form-group {{ $errors->has('email') ? ' has-error' : '' }} row">
@@ -131,9 +131,9 @@
                                                            name="email" placeholder="* Введите ваш email"
                                                            required>
                                                 </div>
-                                                @if ($errors->first('email'))
-                                                    <div class="alert alert-danger">{{  $errors->first('email') }}</div>
-                                                @endif
+                                                <div class="help-block">
+                                                    <strong>{{ $errors->first('email') }}</strong>
+                                                </div>
                                             </div>
                                             <div id="div_phone"
                                                  class="form-group {{ $errors->has('phone') ? ' has-error' : '' }} row">
@@ -143,9 +143,9 @@
                                                     <input class="form-control" type="text" id="example-tel-input"
                                                            name="phone" placeholder="0661320919">
                                                 </div>
-                                                @if ($errors->first('phone'))
-                                                    <div class="alert alert-danger">{{  $errors->first('phone') }}</div>
-                                                @endif
+                                                <div class="help-block">
+                                                    <strong>{{ $errors->first('phone') }}</strong>
+                                                </div>
                                             </div>
                                             <div id="div_theme"
                                                  class="form-group {{ $errors->has('theme') ? ' has-error' : '' }} row">

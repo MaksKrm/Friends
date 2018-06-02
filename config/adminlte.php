@@ -145,6 +145,11 @@ return [
             'url'  => 'admin/contacts',
             'icon'        => 'fas fa-phone',
         ],
+        [
+            'text'    => 'Магазин',
+            'url'  => 'admin/goods',
+            'icon'        => 'fas fa-shopping-cart',
+        ],
         'НАСТРОЙКИ АККАУНТА',
         [
             'text' => 'Профиль',

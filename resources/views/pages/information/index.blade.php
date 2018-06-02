@@ -53,19 +53,38 @@
     </div>
     <div class="page">
         <div class="container">
-            <div class="mission">
+            <div class="volunteer ">
+                <p class="title">товары нашего фонда</p>
+                <h3>Ярмарка помощи</h3>
+                <p>Приобретая товар вы вносите свой весомый вклад в развитие фонда</p>
+                <div class="volunteers mb-3">
+                    <div class="flex-viewport" style="overflow: hidden; position: relative;"><ul style="width: 1200%; transition-duration: 1.2s; transform: translate3d(-620px, 0px, 0px);">
+                            @foreach ($information as $article)
+                                <li style="float: left; display: block; width: 260px;">
+                                    <div>
+                                        <img src="{{ $article->file  }}" alt="" draggable="false">
+                                    </div>
+                                    <strong>Товар</strong>
+                                    Купить
+                                </li>
+                            @endforeach
+                        </ul></div><ul class="flex-direction-nav"><li><a class="flex-prev" href="#"></a></li><li><a class="flex-next" href="#"></a></li></ul>
+                </div>
+            </div>
+            <div class="mission mt-3">
                 <p class="title">интересно знать</p>
                 <h2>полезная информация о наших любимцах</h2>
-                <p>В данном блоке Вы найдёте полезные советы, информацию об уходе, жизни и нравах братьев наших меньших.</p>
+                <p>В данном блоке Вы найдёте полезные советы, информацию об уходе, жизни и нравах братьев наших
+                    меньших.</p>
                 <div class="row mt-5 mb-2">
                     @foreach ($information as $article)
                         <div class="col-md-10">
                             <div class="card flex-md-row mb-4 box-shadow h-md-250">
-                              {{--  <img class="card-img-right flex-auto d-none d-lg-block"
-                                     alt="Фото информации"
-                                     src="{{ asset("storage/$article->file")  }}"
-                                     data-holder-rendered="true">--}}
-                               <img class="card-img-right flex-auto d-none d-lg-block"
+                                {{--  <img class="card-img-right flex-auto d-none d-lg-block"
+                                       alt="Фото информации"
+                                       src="{{ asset("storage/$article->file")  }}"
+                                       data-holder-rendered="true">--}}
+                                <img class="card-img-right flex-auto d-none d-lg-block"
                                      alt="Фото информации"
                                      src="{{ $article->file  }}"
                                      data-holder-rendered="true">
@@ -87,4 +106,7 @@
             </div>
         </div>
     </div>
+    <script>
+
+    </script>
 @endsection
