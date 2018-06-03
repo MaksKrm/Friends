@@ -24,9 +24,9 @@ class InformationsRequest extends FormRequest
     public function rules()
     {
         return [
-            'tittle' => 'required|min:10',
-			'article' => 'required',
-			'file' => 'mimes:jpeg,png,jpg,gif,svg|max:8048'
+            'tittle' => 'bail|required|string|min:10|max:255',
+			'article' => 'bail|required|string|min:10|max:255',
+			'file' => 'bail|mimes:jpeg,png,jpg,gif,svg|max:8048'
         ];
     }
 }

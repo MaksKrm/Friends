@@ -24,7 +24,10 @@ class ContactsRequest extends FormRequest
     public function rules()
     {
         return [
-            
+            'name' => 'bail|required|string|min:10|max:255',
+            'address' => 'bail|required|string|min:10|max:255',
+            'email' => 'bail|email|required|max:150',
+            'phone' => 'bail|required|max:20'
         ];
     }
 }

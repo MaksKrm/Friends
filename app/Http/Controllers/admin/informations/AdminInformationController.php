@@ -18,7 +18,7 @@ class AdminInformationController extends Controller
     public function index()
     {
         $informations = Information::all();
-		return view('admin.informations.index', compact('informations', $informations));
+		return view('admin.informations.index', ['informations' => $informations]);
     }
 
     /**
@@ -26,8 +26,8 @@ class AdminInformationController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create(Request $request)
-    {	
+    public function create()
+    {
         return view('admin.informations.create');
     }
 
@@ -51,9 +51,10 @@ class AdminInformationController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(information $information)
+    public function show($id)
     {
-        return view('admin.informations.show',compact('information',$information));
+        $information = information::find($id);
+        return view('admin.informations.show', ['information' => $information]);
     }
 
     /**
@@ -62,9 +63,10 @@ class AdminInformationController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Request $request, information $information)
+    public function edit($id)
     {
-        return view('admin.informations.edit',compact('information',$information));
+        $information = information::find($id);
+        return view('admin.informations.edit', ['information' => $information]);
     }
 
     /**
@@ -75,7 +77,7 @@ class AdminInformationController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function update(InformationsRequest $request, $id)
-    { 
+    {
         $data = $request->all();
         $data['file'] = basename($request->file('file')->store('public'));
         $information = information::findOrFail($id);
@@ -96,6 +98,5 @@ class AdminInformationController extends Controller
         information::destroy($id);
         return redirect()->route('admin.informations.index');
     }
-	
-}
 
+}

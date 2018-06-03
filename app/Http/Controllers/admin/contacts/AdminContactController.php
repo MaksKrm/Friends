@@ -17,7 +17,7 @@ class AdminContactController extends Controller
     public function index()
     {
         $contacts = Contact::all();
-		    return view('admin.contacts.index', compact('contacts', $contacts));
+        return view('admin.contacts.index', ['contacts' => $contacts]);
     }
 
     /**
@@ -25,7 +25,7 @@ class AdminContactController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create(Request $request)
+    public function create()
     {
         return view('admin.contacts.create');
     }
@@ -59,9 +59,10 @@ class AdminContactController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Request $request, contact $contact)
+    public function edit($id)
     {
-        return view('admin.contacts.edit',compact('contact',$contact));
+        $contact = contact::find($id);
+        return view('admin.contacts.edit', ['contact' => $contact]);
     }
 
     /**
