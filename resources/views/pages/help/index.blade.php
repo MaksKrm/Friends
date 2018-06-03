@@ -2,6 +2,24 @@
 
 @section('content')
     <style>
+        #sendmessage, #senderror {
+            border: 1px solid #e6e6e6;
+            background: #f6f6f6;
+            display: none;
+            text-align: center;
+            padding: 15px 12px 15px 65px;
+            margin: 10px 0;
+            font-weight: 600;
+            margin-bottom: 30px;
+        }
+
+        #senderror {
+            color: #f00;
+        }
+
+        #senderror span {
+            font-weight: bold;
+        }
 
         .donate .modal-content {
             display: block;
@@ -147,6 +165,7 @@
                                                     <strong>{{ $errors->first('phone') }}</strong>
                                                 </div>
                                             </div>
+
                                             <div id="div_theme"
                                                  class="form-group {{ $errors->has('theme') ? ' has-error' : '' }} row">
                                                 <label for="example-text-input"
@@ -155,9 +174,9 @@
                                                     <input class="form-control" type="text" id="example-text-input"
                                                            name="theme" placeholder="еда" required>
                                                 </div>
-                                                @if ($errors->first('theme'))
-                                                    <div class="alert alert-danger">{{  $errors->first('theme') }}</div>
-                                                @endif
+                                                <div class="help-block">
+                                                    <strong>{{ $errors->first('theme') }}</strong>
+                                                </div>
                                             </div>
                                             <div id="div_message"
                                                  class="form-group {{ $errors->has('message') ? ' has-error' : '' }} row">
@@ -167,15 +186,15 @@
                                                           rows="3"
                                                           placeholder="хочу помочь едой" required></textarea>
                                                 </div>
-                                                @if ($errors->first('message'))
-                                                    <div class="alert alert-danger">{{  $errors->first('message') }}</div>
-                                                @endif
+                                                <div class="help-block">
+                                                    <strong>{{ $errors->first('message') }}</strong>
+                                                </div>
                                             </div>
                                             <div class="modal-footer">
                                                 <button type="button" class="button-cancel" data-dismiss="modal">
                                                     Закрыть
                                                 </button>
-                                                <button type="submit" class="button">Отправить</button>
+                                                <button type="submit" id="subbut" class="button">Отправить</button>
                                             </div>
                                         </form>
                                     </div>

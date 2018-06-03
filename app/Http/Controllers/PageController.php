@@ -8,6 +8,8 @@ use App\Models\Information;
 use App\Models\Animal;
 use App\Models\Contact;
 use App\Models\Constant;
+use App\Models\CloudStorage;
+use App\Models\Report;
 
 class PageController extends Controller
 {
@@ -33,6 +35,8 @@ class PageController extends Controller
 
     public function getAllReports()
     {
-        return view('pages.reports.index');
+        $all= Report::paginate(9);
+        $reports=CloudStorage::paginate(5);
+        return view('pages.reports.index',['all'=>$all,'reports'=>$reports]);
     }
 }

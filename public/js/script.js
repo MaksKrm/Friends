@@ -60,19 +60,26 @@ $(document).ready(function () {
 
     $('#contactform').submit(function (e) {
         e.preventDefault();
+        $("#subbut").attr('disabled',true);
+        $('#subbut').text('ожидайте результата');
+        $('#subbut').css({'background' : '#787674', 'border-bottom':'#268658'});
         $.ajax({
             type: 'POST',
             url: '/sendmail',
             data: $('#contactform').serialize(),
             success: function (data) {
                 $('#sendmessage').show();
+                $('#subbut').text('отправлено');
+                resetError();
             },
             error: function (response) {
+                $("#subbut").removeAttr('disabled');
+                $('#subbut').text('отправить повторно')
+                $('#subbut').css({'background' : '#268658'});
                 errorFields(response);
             }
         });
     });
-
     function errorFields(errors) {
         if (!errors.responseText) {
             return false
@@ -84,7 +91,6 @@ $(document).ready(function () {
             $('#div_' + id + ' strong').text(errors[id][0]);
         });
     }
-
     /**
      * Сброс ошибок.
      */
@@ -92,6 +98,5 @@ $(document).ready(function () {
         $('.form-group').removeClass("has-error");
         $('.form-group strong').text('');
     }
-
 
 });

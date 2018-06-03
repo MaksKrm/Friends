@@ -74,8 +74,18 @@
             <div class="row justify-content-center mt-3">{{$all->links()}}</div>
         </div>
     </div>
-    <div style="text-align: center;padding: 20px">
-        все наши отчеты вы можете просмотреть и скачать
-        <a href="https://drive.google.com/drive/folders/1gSe9RiAnykSadviPL-qJOiEWR-zIVnMP" target="_blank">здесь</a>
+
+    <div class="types">
+        <div class="container">
+
+            <h4 style="text-align: center">здесь вы можете скачать наши все отчеты</h4>
+            <dl>
+                @foreach($reports as $report)
+                    <dt>{{ $report->message }}</dt>
+                    <dd>{{$report->created_at}}</dd>
+                    <dd> <a href="{{route('up_from_disk', $report->id)}}">скачать</a></dd>
+                @endforeach
+            </dl>
+        </div>
     </div>
 @endsection
