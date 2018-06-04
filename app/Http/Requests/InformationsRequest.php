@@ -25,7 +25,7 @@ class InformationsRequest extends FormRequest
     {
         return [
             'tittle' => 'bail|required|string|min:10|max:255',
-			'article' => 'bail|required|string|min:10|max:255',
+			'article' => 'bail|required|string|min:10',
 			'file' => 'bail|mimes:jpeg,png,jpg,gif,svg|max:8048'
         ];
     }

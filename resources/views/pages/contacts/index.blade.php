@@ -54,4 +54,12 @@
     </div>
     <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d42107.88582455715!2d37.51942211496557!3d48.72950481015726!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40df97a4c0ea9b9b%3A0x6cfddec1592678ec!2z0JrRgNCw0LzQsNGC0L7RgNGB0LosINCU0L7QvdC10YbQutCw0Y8g0L7QsdC70LDRgdGC0Yw!5e0!3m2!1sru!2sua!4v1527063704649"
             width="100%" height="500" frameborder="0" style="border:0" allowfullscreen></iframe>
+
+
+    <script type="text/javascript" src="//vk.com/js/api/openapi.js?154"></script>
+        <!-- VK Widget -->
+    <div id="vk_groups"></div>
+    <script type="text/javascript">
+        VK.Widgets.Group("vk_groups", {mode: 3, color3: '386DA9', width: '300', height: '500', no_cover: 1}, 32288609);
+    </script>
 @endsection
