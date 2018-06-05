@@ -23,7 +23,6 @@
     </div>
 
     <script type="text/javascript">
-
         $(window).on('hashchange', function () {
             if (window.location.hash) {
                 var page = window.location.hash.replace('#', '');
@@ -34,9 +33,7 @@
                 }
             }
         });
-
         $(document).ready(function () {
-
             $(".pagination a").click(function (e) {
                 e.preventDefault();
                 $('li').removeClass('active');
@@ -44,7 +41,6 @@
                 var myurl = $(this).attr('href');
                 var page = $(this).attr('href').split('page=')[1];
             });
-
             $(".animal-group li a").click(function (e) {
                 e.preventDefault();
                 var category = $(this).attr('data-filter');
@@ -61,9 +57,7 @@
                     }
                 });
             });
-
         });
-
         function getData(page) {
             $.ajax({
                 url: '?page=' + page,
@@ -78,6 +72,5 @@
                     alert('No response from server');
                 });
         }
-
     </script>
 @endsection

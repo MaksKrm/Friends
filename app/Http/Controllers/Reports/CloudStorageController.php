@@ -9,12 +9,6 @@ use Illuminate\Support\Facades\Storage;
 
 class CloudStorageController extends Controller
 {
-    public function show()
-    {
-        $reports=CloudStorage::paginate(5);
-        return view('pages.reports.index',['reports'=>$reports]);
-    }
-
     public function loadFromDisk($id)
     {
         $report=CloudStorage::find($id);

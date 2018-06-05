@@ -25,24 +25,24 @@
                                     </tr>
                                     </thead>
                                     <tbody>
-                                    @foreach($all as $constant)
+                                    @foreach($helps as $help)
                                         <tr>
-                                            <th scope="row">{{ $constant->id }}</th>
-                                            <td>{{ $constant->help }}</td>
-                                            <td>{{ $constant->message }}</td>
-                                            <td>{{ $constant->contact }}</td>
+                                            <th scope="row">{{ $help->id }}</th>
+                                            <td>{{ $help->help }}</td>
+                                            <td>{{ $help->message }}</td>
+                                            <td>{{ $help->contact }}</td>
                                             <td>
-                                                <a href="{{ route('help.edit', $constant->id) }}"
+                                                <a href="{{ route('help.edit', $help->id) }}"
                                                    class="btn btn-default"><i
                                                             class="fa fa fa-pencil"></i></a>
                                             </td>
                                             <td>
                                                 <button type="button" class="btn btn-default" data-toggle="modal"
-                                                        data-target="#exampleModal{{ $constant->id }}">
+                                                        data-target="#exampleModal{{ $help->id }}">
                                                     <i class="fa fa-trash-o"></i>
                                                 </button>
                                                 <!-- Modal -->
-                                                <div class="modal fade" id="exampleModal{{ $constant->id }}"
+                                                <div class="modal fade" id="exampleModal{{ $help->id }}"
                                                      tabindex="-1" role="dialog"
                                                      aria-labelledby="exampleModalLabel" aria-hidden="true">
                                                     <div class="modal-dialog" role="document">
@@ -55,10 +55,10 @@
                                                             </div>
                                                             <div class="modal-body">
                                                                 Вы уверены, что хотите удалить данную просьбу?
-                                                                <div>"{{ $constant->help }}"</div>
+                                                                <div>"{{ $help->help }}"</div>
                                                             </div>
                                                             <div class="modal-footer">
-                                                                <form action="{{ route('help.destroy', $constant->id) }}"
+                                                                <form action="{{ route('help.destroy', $help->id) }}"
                                                                       method="POST">
                                                                     {!! csrf_field() !!}
                                                                     <input type="hidden" name="_method" value="DELETE">
@@ -78,6 +78,7 @@
                                     @endforeach
                                     </tbody>
                                 </table>
+                                {{$helps->links()}}
                             </div>
                         </div>
                     </div>

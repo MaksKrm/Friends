@@ -33,10 +33,14 @@ class PageController extends Controller
         return view('pages.contacts.index', compact('contacts', $contacts));
     }
 
-    public function getAllReports()
+    public function getAllReports(Request $request)
     {
-        $all= Report::paginate(9);
-        $reports=CloudStorage::paginate(5);
+        $reports= CloudStorage::paginate(5);
+        if ($request->ajax()) {
+            return view('pages.reports.load', ['reports' => $reports])->render();
+        }
+        $now=date('Y-m');
+        $all=Report::where('accounting_period','like','%'.$now.'%')->get();
         return view('pages.reports.index',['all'=>$all,'reports'=>$reports]);
     }
 }

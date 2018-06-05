@@ -17,8 +17,8 @@ class AdminHelpController extends Controller
 
     public function index()
     {
-        $all = Constant::all();
-        return view('admin.help.index', ['all' => $all]);
+        $helps = Constant::paginate(5);
+        return view('admin.help.index', ['helps' => $helps]);
     }
 
     /**

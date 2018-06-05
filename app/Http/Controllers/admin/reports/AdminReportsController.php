@@ -1,5 +1,7 @@
 <?php
+
 namespace App\Http\Controllers\admin\reports;
+
 use App\Http\Controllers\Controller;
 use App\Models\CloudStorage;
 use Illuminate\Support\Facades\DB;
@@ -8,6 +10,7 @@ use Illuminate\Support\Facades\Storage;
 use Session;
 use Excel;
 use File;
+
 class AdminReportsController extends Controller
 {
     /**
@@ -17,8 +20,8 @@ class AdminReportsController extends Controller
      */
     public function index()
     {
-        $files=CloudStorage::all();
-        return view('admin/reports/index',['files'=>$files]);
+        $files = CloudStorage::paginate(5);
+        return view('admin/reports/index', ['files' => $files]);
     }
 
     /**
@@ -34,7 +37,7 @@ class AdminReportsController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
@@ -42,14 +45,14 @@ class AdminReportsController extends Controller
         {
             $this->validate($request, [
                 'file_name' => 'required',
-                'message'=>'required',
+                'message' => 'required',
             ]);
-            if(!empty($request->file_name)){
-                $all=$request->all();
+            if (!empty($request->file_name)) {
+                $all = $request->all();
                 $data = basename($request->file('file_name')->store('public'));
-                $path  = Storage::disk('public')->getDriver()->getAdapter()->getPathPrefix();
-                $fileData = File::get($path.$data);
-                $request->file_name=$data;
+                $path = Storage::disk('public')->getDriver()->getAdapter()->getPathPrefix();
+                $fileData = File::get($path . $data);
+                $request->file_name = $data;
                 Storage::cloud()->put($data, $fileData);
                 $post = new CloudStorage();
                 $post->file_name = $data;
@@ -64,7 +67,7 @@ class AdminReportsController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
     public function show($id)
@@ -75,7 +78,7 @@ class AdminReportsController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
@@ -86,8 +89,8 @@ class AdminReportsController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  \Illuminate\Http\Request $request
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
@@ -98,12 +101,12 @@ class AdminReportsController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
     {
-        $file=CloudStorage::find($id);
+        $file = CloudStorage::find($id);
 
         $filename = $file->file_name;
         $dir = '/';
@@ -125,27 +128,33 @@ class AdminReportsController extends Controller
             'excel' => 'required|mimes:xls,xlsx',
         ]);
         $extension = File::extension($request->excel->getClientOriginalName());
-            $path = $request->excel->getRealPath();
-            $data = Excel::load($path, function ($reader) {
-            })->get();
-            if (!empty($data) && $data->count()) {
-                foreach ($data as $key => $value) {
-                    if (!$value->expense == '') {
-                        $insert[] = [
-                            'accounting_period' => $value->accounting_period,
-                            'income' => $value->income,
-                            'income_val' => $value->income_val,
-                            'expense' => $value->expense,
-                            'expense_val' => $value->expense_val,
-                        ];
-                    } else break;
+        $path = $request->excel->getRealPath();
+        $data = Excel::load($path, function ($reader) {
+        })->get();
+        if (!empty($data) && $data->count()) {
+            $period = null;
+            foreach ($data as $key => $value) {
+                if ($value->expense == '') {
+                    break;
                 }
-                if (!empty($insert)) {
-                    DB::table('reports')->insert($insert);
-                    Session::flash('success', 'Данные успешно добавленны');
-                    return back();
+                if (!empty($value->accounting_period)) {
+                    $period = $value->accounting_period;
+                    $period=date('Y-m-d', strtotime($period));
                 }
+                $insert[] = [
+                    'accounting_period' => $period,
+                    'income' => $value->income,
+                    'income_val' => $value->income_val,
+                    'expense' => $value->expense,
+                    'expense_val' => $value->expense_val,
+                ];
             }
+            if (!empty($insert)) {
+                DB::table('reports')->insert($insert);
+                Session::flash('success', 'Данные успешно добавленны');
+                return back();
+            }
+        }
         return back();
     }
 }

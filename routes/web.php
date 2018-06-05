@@ -31,14 +31,13 @@ Auth::routes();
 
 //Контроллеры страниц сайта
 Route::get('/', 'PageController@getIndexPage')->name('index');
-
 Route::resource('pets', 'Animals\IndexController')->only([ 'index', 'show', 'edit' ]);
 Route::resource('information', 'Information\IndexController')->only([ 'index', 'show' ]);
 Route::resource('news', 'News\IndexController')->only([ 'index', 'show' ]);
-
 Route::get('/help', 'PageController@getHelp')->name('help');
 Route::get('/contacts', 'PageController@getContacts')->name('contacts');
 Route::get('/reports', 'PageController@getAllReports')->name('reports');
 
 Route::any('/sendmail', 'help\HelpController@send');
+Route::any('/choose', 'Reports\ReportsController@choose')->name('choose_period');
 Route::any('/load-from-gd/{id}', 'Reports\CloudStorageController@loadFromDisk')->name('up_from_disk');

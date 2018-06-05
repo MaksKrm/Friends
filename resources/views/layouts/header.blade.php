@@ -15,7 +15,7 @@
                 </ul>
             </div>
             <div class="col-12 order-1 my-4 col-sm-4 push-sm-4 col-md-12 col-lg-1">
-                <a href="#" class="button">Donate</a>
+                <a href="https://www.liqpay.ua/ru/checkout/380675858104" class="button">Donate</a>
             </div>
             <div class="col-5 col-sm-4 pull-sm-4 col-md-1 col-lg-2 order-lg-12">
                 <div class="social">
