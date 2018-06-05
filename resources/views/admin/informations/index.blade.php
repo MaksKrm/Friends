@@ -8,7 +8,8 @@
                     <div class="box-header">
                         <h3 class="box-title">Cписок полезной информации</h3>
                         <a class="btn btn-default pull-right"
-                           href="{{ route('admin.informations.create') }}">Добавить Информацию <i class="fa fa-plus"></i></a>
+                           href="{{ route('admin.informations.create') }}">Добавить Информацию <i
+                                    class="fa fa-plus"></i></a>
                     </div>
                     <!-- Button trigger modal -->
 
@@ -51,7 +52,8 @@
                                                     <i class="fa fa-trash-o"></i>
                                                 </button>
                                                 <!-- Modal -->
-                                                <div class="modal fade" id="exampleModal{{ $information->id }}" tabindex="-1" role="dialog"
+                                                <div class="modal fade" id="exampleModal{{ $information->id }}"
+                                                     tabindex="-1" role="dialog"
                                                      aria-labelledby="exampleModalLabel" aria-hidden="true">
                                                     <div class="modal-dialog" role="document">
                                                         <div class="modal-content">

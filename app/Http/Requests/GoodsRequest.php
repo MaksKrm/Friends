@@ -27,7 +27,7 @@ class GoodsRequest extends FormRequest
        // dd($request->all());
         return [
             'title' => 'required|string|min:3|max:100',
-            'description' => 'required|string|min:10|max:255',
+            'description' => 'required|string|min:10',
             'photo' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:8048'
         ];
     }

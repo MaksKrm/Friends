@@ -1,10 +1,9 @@
 <?php
 
-namespace App\Http\Controllers\Information;
+namespace App\Http\Controllers\Goods;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Models\Information;
 use App\Models\Good;
 
 class IndexController extends Controller
@@ -16,11 +15,8 @@ class IndexController extends Controller
      */
     public function index()
     {
-        $information = Information::orderBy('id', 'desc')->paginate(8);
-        $goods = Good::orderBy('id', 'desc')
-            ->take(8)
-            ->get();
-        return view('pages.information.index', ['information' => $information, 'goods' => $goods]);
+        $goods = Good::orderBy('id', 'desc')->paginate(12);
+        return view('pages.shop.index', ['goods' => $goods]);
     }
 
     /**
@@ -52,8 +48,8 @@ class IndexController extends Controller
      */
     public function show($id)
     {
-        $article = Information::find($id);
-        return view('pages.information.show', ['article' => $article]);
+        $good = Good::find($id);
+        return view('pages.shop.show', ['good' => $good]);
     }
 
     /**

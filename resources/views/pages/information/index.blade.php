@@ -1,28 +1,11 @@
 @extends('layouts.main')
 
 @section('content')
-    <style>
-        .success-story {
-            margin-top: -15px;
-        }
-
-        .mission .card {
-            border-radius: 0;
-        }
-
-        .mission .card img {
-            padding: 2%;
-            max-height: 250px;
-            height: auto;
-            max-width: 250px;
-        }
-
-    </style>
     <div class="success-story testimonials">
         <div class="container">
             <p class="title">афоризмы о животных</p>
             <div class="flex-viewport" style="overflow: hidden; position: relative;">
-                <ul style="width: 800%; transition-duration: 1.2s; transform: translate3d(-1920px, 0px, 0px);">
+                <ul class="" style="width: 800%; transition-duration: 1.2s; transform: translate3d(-1920px, 0px, 0px);">
                     <li class="clone" style="width: 960px; float: left; display: block;">
                         <h3>"Кто кормит голодное животное, тот питает свою собственную душу. "</h3>
                         <span>- Чарли Чаплин</span>
@@ -53,22 +36,27 @@
     </div>
     <div class="page">
         <div class="container">
-            <div class="volunteer ">
+            <div class="volunteer goods__block_inform">
                 <p class="title">товары нашего фонда</p>
                 <h3>Ярмарка помощи</h3>
                 <p>Приобретая товар вы вносите свой весомый вклад в развитие фонда</p>
                 <div class="volunteers mb-3">
-                    <div class="flex-viewport" style="overflow: hidden; position: relative;"><ul style="width: 1200%; transition-duration: 1.2s; transform: translate3d(-620px, 0px, 0px);">
-                            @foreach ($information as $article)
+                    <div class="flex-viewport goods__box_inform">
+                        <ul class="goods__list_inform">
+                            @foreach ($goods as $good)
                                 <li style="float: left; display: block; width: 260px;">
                                     <div>
-                                        <img src="{{ $article->file  }}" alt="" draggable="false">
+                                        {{--  <img src="{{ asset("storage/$good->photo")  }}" alt="Фото товара" draggable="false">--}}
+                                        <img src="{{ $good->photo }}" alt="" draggable="false">
                                     </div>
-                                    <strong>Товар</strong>
-                                    Купить
+                                    <strong class="goods__title_inform">{{ $good->title }}</strong>
                                 </li>
                             @endforeach
-                        </ul></div><ul class="flex-direction-nav"><li><a class="flex-prev" href="#"></a></li><li><a class="flex-next" href="#"></a></li></ul>
+                        </ul>
+                    </div>
+                </div>
+                <div class="button-holder d-flex justify-content-center">
+                    <a href="{{ route('shop.index')}}" class="goods__btn_inform">Попасть на ярмарку</a>
                 </div>
             </div>
             <div class="mission mt-3">

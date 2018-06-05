@@ -16,11 +16,10 @@
 /* 14. Contact Section */
 /* 15. Footer Section */
 /* 16. Map Section */
+/* 17. Animal Section */
+/* 18 Shop Section */
 /* -------------------- */
 /* 1. Imports & Clears */
-@import url(../../../../fonts.googleapis.com/css@family=Open+Sans_3A400italic,400,700&subset=latin,latin-ext);
-@import url(../../../../fonts.googleapis.com/css@family=Grand+Hotel&subset=latin,latin-ext);
-@import url(../../../../fonts.googleapis.com/css@family=Montserrat_3A400,700);
 
 .header:after, .links:after, .menu:after, .slider:after, .mission:after, .mission .help ul:after, .adopt .group:after, .adopt .group div a:after, .adopt .single:after, .adopt .button-group:after, .foster:after, .donate:after, .types .container:after, .donate-box:after, .progress-bar:after, .price-box:after, .volunteers .flex-viewport ul:after, .button-holder:after, .educate:after, .sponsors:after, .sponsors ul:after {
     clear: both;
@@ -247,6 +246,10 @@ a, a:hover {
 
 p, dl {
     margin-bottom: 25px;
+}
+
+button, button:focus, button:visited {
+    outline: none;
 }
 
 /* 4. Main Container */
@@ -816,6 +819,17 @@ p, dl {
     width: auto;
 }
 
+.mission .card {
+    border-radius: 0;
+}
+
+.mission .card img {
+    padding: 2%;
+    max-height: 250px;
+    height: auto;
+    max-width: 250px;
+}
+
 /* 9. Adopt Section */
 /* -------------------- */
 .adopt .group {
@@ -1260,8 +1274,10 @@ p, dl {
 }
 
 .volunteers .flex-viewport img {
-    width: 100%;
-    height: auto;
+   /* width: 100%;*/
+ /*   height: auto;*/
+    width: 250px;
+    height: 250px;
     background: #ffd5cc;
     padding: 10px;
     margin-bottom: 30px;
@@ -1296,16 +1312,16 @@ p, dl {
     z-index: 1;
 }
 
-.success-story, .contact, .educate {
+.success-story, .contact, .educate, .shop {
     text-align: center;
 }
 
-.success-story, .educate {
+.success-story, .educate, .shop {
     background: #009a3e url("../img/paw_pattern.png");
     color: #1d2124;
 }
 
-.success-story h2, .success-story h3, .educate h2, .educate h3 {
+.success-story h2, .success-story h3, .educate h2, .educate h3, .shop h3 {
     color: #ffd5cc;
 }
 
@@ -1326,6 +1342,7 @@ p, dl {
     position: relative;
     padding-bottom: 164px;
     padding-top: 64px;
+    margin-top: -15px;
 }
 
 .success-story h2, .success-story h3 {
@@ -1671,7 +1688,7 @@ p, dl {
     padding: 15px 80px;
 }
 
-button, .button {
+button, .button, .goods__btn_inform {
     background: #268658;
     border: none;
     border-bottom: 4px solid #da251c;
@@ -1690,7 +1707,7 @@ button, .button {
     transition: all 0.2s ease-in-out;
 }
 
-.button:hover {
+.button:hover, .goods__btn_inform:hover {
     background: #da251c;
     border-bottom: 4px solid #268658;
     color: #fefdfb;
@@ -2207,3 +2224,106 @@ div.animals {
     transform: rotate(90deg);
 }
 /* End Animals section */
+
+/* Start Shop section */
+
+.shop {
+    margin-top: -18px;
+    padding: 75px 0;
+}
+
+.shop h3 {
+    padding-bottom: 30px;
+}
+
+.shop .card img {
+    align-self: center;
+    padding: 0;
+    max-height: 250px;
+    max-width: 100%;
+}
+
+.shop .card {
+    border-radius: initial;
+    min-height: 400px;
+    text-align: center;
+    -webkit-box-shadow: 0px 0px 5px 3px rgba(255, 213, 204, 1);
+    -moz-box-shadow: 0px 0px 5px 3px rgba(255, 213, 204, 1);
+    box-shadow: 0px 0px 5px 3px rgba(255, 213, 204, 1);
+}
+
+.shop .card-footer {
+    background-color: transparent;
+    border-top: 0;
+}
+
+.goods__btn,
+.goods__btn_inform {
+    background: #afbb71;
+    border-bottom: 4px solid #9aa851;
+    color: #fefdfb;
+}
+
+.goods__btn:hover,
+.goods__btn_inform:hover {
+    background: #ffd5cc;
+    border-bottom: 4px solid #ffd5cc;
+    color: #afbb71;
+}
+
+.goods__title_inform {
+    min-height: 60px;
+}
+
+.goods__box_inform {
+    overflow: hidden;
+    position: relative;
+}
+
+.goods__list_inform {
+    width: 1200%;
+    transition-duration: 1.2s;
+    transform: translate3d(-620px, 0px, 0px);
+}
+
+.goods__block_inform {
+    padding-bottom: 30px;
+    margin-bottom: 50px;
+    border-bottom: 1px solid #e3e3e3;
+}
+
+.shop .card-title {
+    min-height: 45px;
+}
+.shop .card-text {
+    min-height: 60px;
+}
+.shop__contact {
+    font: 1.5rem "Grand Hotel", cursive;
+    padding-right: 15px;
+}
+
+.shop .modal-header {
+    background: #fff;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.shop h5.modal-title,
+.shop__order {
+    color: #009a3e;
+}
+
+.shop__id {
+    justify-content: flex-end;
+    font: 0.8rem "Grand Hotel", cursive;
+    font-weight: bold;
+    display: flex;
+}
+
+.shop__btn_close {
+    background-color: #fe2014;
+    text-transform: initial;
+}
+
+/* End shop section */
