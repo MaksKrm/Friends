@@ -12,6 +12,7 @@ class ReportsController extends Controller
     {
         $choose_date=$request->year.'-'.'0'.$request->month;
         $date=Report::where('accounting_period','like','%'.$choose_date.'%')->get();
-        return view('pages.reports.choose',['date'=>$date]);
+        $mounths=Report::select('accounting_period')->get();
+        return view('pages.reports.choose',['mounths'=>$mounths,'date'=>$date]);
     }
 }

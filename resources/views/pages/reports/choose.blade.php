@@ -80,9 +80,15 @@
         <h2>выбрать отчетный период</h2>
         <form id="date_report" method="POST" class="validateform" action="{{route('choose_period')}}">
             {{ csrf_field() }}
+            <?php $existing=[];
+            foreach($mounths as $mounth){
+                $existing[]=date('n',strtotime($mounth->accounting_period));
+            }
+            $existing=array_unique($existing);
+            ?>
             <select name="month">
                 <!-- Выбор месяца -->
-                @foreach (range(1, 12) as $val)
+                @foreach ($existing as $val)
                     <?php
                     $date = date('m');
                     $months = [
@@ -95,9 +101,9 @@
             </select>
             <!-- Выбор года -->
             <select name="year">
+                <?php $date = date('Y');?>
                 @foreach (range(2018, $date) as $val)
-                    <?php $date = date('Y');
-                    $selected = ($val == $date ? ' selected' : ''); ?>
+                    <?php $selected = ($val == $date ? ' selected' : ''); ?>
                     <option value="{{$val}}"{{$selected}}>{{$val}}</option>
                 @endforeach
             </select>

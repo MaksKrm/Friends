@@ -41,6 +41,7 @@ class PageController extends Controller
         }
         $now=date('Y-m');
         $all=Report::where('accounting_period','like','%'.$now.'%')->get();
-        return view('pages.reports.index',['all'=>$all,'reports'=>$reports]);
+        $mounths=Report::select('accounting_period')->get();
+        return view('pages.reports.index',['all'=>$all,'reports'=>$reports,'mounths'=>$mounths]);
     }
 }
