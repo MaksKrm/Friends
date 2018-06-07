@@ -16,7 +16,7 @@ class PublicationsController extends Controller
      */
     public function index()
     {
-        $animals = Animal::where('published', null)->get();
+        $animals = Animal::where('published', null)->paginate(10);
         $activ = Animal::where('published', 1)->count();
         return view('admin/animals/publication/index', ['animals' => $animals, 'activ' => $activ]);
     }

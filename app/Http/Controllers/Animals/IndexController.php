@@ -2,9 +2,12 @@
 
 namespace App\Http\Controllers\Animals;
 
+use App\Http\Requests\AnimalsRequest;
+use App\Http\Requests\MailRequest;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\Animal;
+use Illuminate\Support\Facades\Mail;
 
 class IndexController extends Controller
 {
@@ -26,18 +29,32 @@ class IndexController extends Controller
      */
     public function create()
     {
-        //
+        return view('pages/animals/create');
     }
 
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request $request
+     * @param AnimalsRequest $request
+     * @param Animal $model
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(AnimalsRequest $request, Animal $model)
     {
-        //
+        if (!empty($request['files_'])) {
+            $other_path = [];
+            foreach ($request->files_ as $foto) {
+                $other_path[] = $model->saveLocalFoto($foto);
+            }
+            $model->other_foto = implode(",", $other_path);
+        }
+        $model->main_foto = $model->saveLocalFoto($request->file('main_foto'));
+        $model->fill($request->only('name', 'species', 'breed', 'sex', 'age', 'notes', 'contacts'));
+        $model->save();
+        $responseJson = [ 'status'=>'ok'] ;
+        $response = json_encode($responseJson);
+
+        return $response;
     }
 
     /**
@@ -87,25 +104,39 @@ class IndexController extends Controller
     }
 
     /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request $request
-     * @param  int $id
-     * @return \Illuminate\Http\Response
+     * @param MailRequest $request
+     * @return array
      */
-    public function update(Request $request, $id)
+    public function send(MailRequest $request)
     {
+        Mail::send('pages.animals.mail', ['request' => $request], function ($message) use ($request) {
+            $message->from($request->email, $request->name);
+            $message->to('maks.ukraine13@gmail.com');
+            $message->subject($request->message);
+        });
+        $response = [ 'status'=>'ok'] ;
 
+
+        return $response;
     }
 
     /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int $id
-     * @return \Illuminate\Http\Response
+     * @return void
      */
-    public function destroy($id)
+    public function showFormEmail()
     {
-        //
+        return view('pages.animals.questionnaire');
     }
+
+    /**
+     * @param $id
+     * @return void
+     */
+    public function showContactForm($id)
+    {
+        $animal = Animal::find($id);
+        return view('pages.animals.contacts', ['animal' => $animal]);
+    }
+
+
 }

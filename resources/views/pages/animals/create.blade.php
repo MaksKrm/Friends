@@ -20,8 +20,8 @@
             <label class="col-sm-3 col-form-label" for="name">Кличка: </label>
             <div class="col-sm-9">
                 <input type="text" name="name" id="name" class="form-control"
-                placeholder="Введите кличку животного">
-                <strong></strong>
+                       placeholder="Введите кличку животного">
+                <strong id="name_block_strong"></strong>
             </div>
         </div>
         <div class="row form-group{{ $errors->has('species') ? ' has-error' : '' }}" id="species_block">
@@ -32,14 +32,14 @@
                     <option value="1">Кошки</option>
                     <option value="2">Собаки</option>
                 </select>
-                <strong></strong>
+                <strong id="species_block_strong"></strong>
             </div>
         </div>
         <div class="row form-group{{ $errors->has('breed') ? ' has-error' : '' }}" id="breed_block">
             <label class="col-sm-3 col-form-label" for="breed">Порода: </label>
             <div class="col-sm-9">
                 <input type="text" name="breed" id="breed" class="form-control" placeholder="Введите породу животного">
-                <strong></strong>
+                <strong id="breed_block_strong"></strong>
             </div>
         </div>
         <div class="row form-group{{ $errors->has('sex') ? ' has-error' : '' }}" id="sex_block">
@@ -50,21 +50,21 @@
                     <option value="1">Мужской</option>
                     <option value="2">Женский</option>
                 </select>
-                <strong></strong>
+                <strong id="sex_block_strong"></strong>
             </div>
         </div>
         <div class="row form-group{{ $errors->has('age') ? ' has-error' : '' }}" id="age_block">
             <label class="col-sm-3 col-form-label" for="age">Возраст: </label>
             <div class="col-sm-9">
                 <input type="text" name="age" id="age" class="form-control" placeholder="Введите возраст">
-                <strong></strong>
+                <strong id="age_block_strong"></strong>
             </div>
         </div>
         <div class="row form-group{{ $errors->has('notes') ? ' has-error' : '' }}" id="notes_block">
             <label class="col-sm-3 col-form-label" for="notes">Примечания: </label>
             <div class="col-sm-9">
                 <textarea name="notes" id="notes" class="form-control"></textarea>
-                <strong></strong>
+                <strong id="notes_block_strong"></strong>
             </div>
         </div>
         <div class="row form-group{{ $errors->has('contacts') ? ' has-error' : '' }}" id="contacts_block">
@@ -72,21 +72,21 @@
             <div class="col-sm-9">
                 <input type="text" name="contacts" id="contacts" class="form-control"
                        placeholder="Введите ваши контакты" required>
-                <strong></strong>
+                <strong id="contacts_block_strong"></strong>
             </div>
         </div>
         <div class="row form-group{{ $errors->has('main_foto') ? ' has-error' : '' }}" id="main_foto_block">
             <label class="col-sm-3 col-form-label" for="main_foto">Главное фото: * </label>
             <div class="col-sm-9">
                 <input type="file" name="main_foto" id="main_foto" class="form-control" required>
-                <strong></strong>
+                <strong id="main_foto_block_strong"></strong>
             </div>
         </div>
         <div class="row form-group{{ $errors->has('other_foto') ? ' has-error' : '' }}" id="otherfoto_block">
             <label class="col-sm-3 col-form-label" for="otherfoto">Другие фото: </label>
             <div class="col-sm-9">
                 <input type = "file" id = "otherfoto" name = "files[]" multiple = "multiple">
-                <strong></strong>
+                <strong id="otherfoto_block_strong"></strong>
             </div>
         </div>
         <div class="modal-footer">
@@ -95,7 +95,7 @@
         </div>
     </form>
 </div>
-<script src="/js/animals/create_form.js"></script>
+<script src="/js/animals/pages_form.js"></script>
 
 
 

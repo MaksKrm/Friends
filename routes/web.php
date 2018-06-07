@@ -31,12 +31,15 @@ Auth::routes();
 
 //Контроллеры страниц сайта
 Route::get('/', 'PageController@getIndexPage')->name('index');
-Route::resource('pets', 'Animals\IndexController')->only([ 'index', 'show', 'edit' ]);
+Route::resource('pets', 'Animals\IndexController');
 Route::resource('information', 'Information\IndexController')->only([ 'index', 'show' ]);
 Route::resource('news', 'News\IndexController')->only([ 'index', 'show' ]);
 Route::resource('shop', 'Goods\IndexController')->only([ 'index', 'show' ]);
 
 Route::get('/help', 'PageController@getHelp')->name('help');
+Route::post('/animalmail', 'Animals\IndexController@send');
+Route::get('/showform', 'Animals\IndexController@showFormEmail');
+Route::get('/showcontact/{id}', 'Animals\IndexController@showContactForm');
 Route::get('/contacts', 'PageController@getContacts')->name('contacts');
 Route::get('/reports', 'PageController@getAllReports')->name('reports');
 
