@@ -308,6 +308,12 @@ button, button:focus, button:visited {
     text-indent: -99999px;
 }
 
+@media all and (min-width: 1200px) {
+    .header i {
+        font-size: 1.4rem;
+    }
+}
+
 @media all and (max-width: 760px) {
     .header h1 a {
         display: inline-block;
@@ -1078,6 +1084,60 @@ button, button:focus, button:visited {
     display: inline-block;
 }
 
+#sendmessage, #senderror {
+    border: 1px solid #e6e6e6;
+    background: #f6f6f6;
+    display: none;
+    text-align: center;
+    padding: 15px 12px 15px 65px;
+    margin: 10px 0;
+    font-weight: 600;
+    margin-bottom: 30px;
+}
+
+#senderror {
+    color: #f00;
+}
+
+#senderror span {
+    font-weight: bold;
+}
+
+.donate .modal-content {
+    display: block;
+}
+
+.donate .button-block {
+    margin-bottom: 30px;
+    clear: both;
+}
+
+.donate .block {
+    vertical-align: top;
+}
+
+.donate .modal-header {
+    background: #ffeae5;
+}
+
+.donate p.modal-title {
+    text-transform: uppercase;
+    color: #262626;
+    letter-spacing: .2em;
+    font-weight: 700;
+    line-height: 1;
+}
+
+.donate .button-cancel {
+    background: #da251c;
+    border-bottom: 4px solid #268658;
+    color: #fff;
+}
+
+.donate .modal-footer {
+    justify-content: space-around;
+}
+
 .progress-bar {
     border: 10px solid #e3e3e3;
     background: #d7d8d7;
@@ -1229,6 +1289,62 @@ button, button:focus, button:visited {
         margin: 0 0 30px;
         max-width: 400px;
     }
+}
+
+.price-box {
+    margin-bottom: 0;
+    margin-top: -18px;
+}
+
+.price-box .table {
+    background-color: #fff;
+}
+
+.price-box tr th {
+    background-color: #afbb71;
+    text-transform: uppercase;
+    color: #262626;
+    line-height: 3rem;
+    letter-spacing: .2em;
+}
+
+.price-box .table th {
+    border: none;
+}
+
+.price-box .pagination {
+    font: 1rem "Grand Hotel", cursive;
+    outline: none;
+}
+
+.price-box .page-item.active .page-link {
+    background-color: #da251c;
+    border-color: #da251c;
+}
+
+.price-box .page-item.disabled .page-link {
+    color: #000;
+    background-color: transparent;
+    border-color: transparent;
+}
+
+.price-box .page-item:last-child .page-link,
+.price-box .page-item:first-child .page-link {
+    color: #fff;
+    background-color: transparent;
+    border-color: transparent;
+}
+
+.price-box select {
+    border: 1px solid #ffd5cc;
+    background: transparent;
+    font-family: "Open Sans", sans-serif;
+    font-size: 14px;
+    color: #ffd5cc;
+    padding: 10px;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
 }
 
 .volunteer p {
@@ -1486,6 +1602,27 @@ button, button:focus, button:visited {
     position: relative;
 }
 
+.news__main .card-body h3 {
+    min-height: 90px;
+    margin-bottom: 0;
+}
+
+.news__main .card {
+    -webkit-box-shadow: 1px 1px 10px 5px rgba(255,213,204,1);
+    -moz-box-shadow: 1px 1px 10px 5px rgba(255,213,204,1);
+    box-shadow: 1px 1px 10px 5px rgba(255,213,204,1);
+}
+
+.news__main .news__link_all {
+    font: 1.5rem "Grand Hotel", cursive;
+    text-decoration: underline;
+    color: #fff;
+}
+
+.news__main .news__link_all:hover {
+    color: #ffd5cc;
+}
+
 .news div:hover:before {
     color: #fefdfb;
 }
@@ -1615,6 +1752,7 @@ button, button:focus, button:visited {
     background: #2a2522 url("../img/background-contact.jpg") no-repeat 50% 0 fixed;
     color: #ffd5cc;
     text-align: center;
+    margin-top: -18px;
     padding-top: 115px;
     padding-bottom: 45px;
     -webkit-background-size: cover;
@@ -1874,7 +2012,7 @@ button, .button, .goods__btn_inform {
 
 .footer .contact-info .social a.fa-facebook,
 .footer .contact-info .social a.fa {
-    padding: 15px;
+    padding: 12px 17px;
     font-size: 1.5rem;
 }
 .footer .contact-info .social a.fa-vk {
@@ -1949,9 +2087,8 @@ button, .button, .goods__btn_inform {
 .card {
     text-align: left;
     color: #000;
-    border-radius: 1.25rem;
+    border-radius: 0;
 }
-
 
 /* Animals */
 /*
@@ -2327,3 +2464,22 @@ div.animals {
 }
 
 /* End shop section */
+
+/* Pagination */
+
+.pagination {
+    font: 1.1rem "Grand Hotel", cursive;
+}
+.container .page-item.active .page-link {
+    color: #da251c;
+    background-color: transparent;
+    border: none;
+}
+.container .page-link {
+    border: none;
+    color: #268658;
+}
+
+.container .page-link:focus, .page-link:active {
+    outline: none;
+}

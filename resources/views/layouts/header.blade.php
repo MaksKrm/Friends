@@ -3,7 +3,7 @@
     <div class="container">
         <div class="row align-items-center">
             <div class="col-12 col-sm-6 col-md-5 col-lg-3">
-                <h1><a href="#">Благотворительный фонд "Друг"</a></h1>
+                <h1><a href="{{ route('index')}}">Благотворительный фонд "Друг"</a></h1>
             </div>
             <div class="col-12 pb-1 col-sm-6 col-md-3 col-lg-3">
                 <div class="slogan">Вместе спасём жизнь тех, кто просит о помощи</div>

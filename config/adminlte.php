@@ -150,17 +150,6 @@ return [
             'url'  => 'admin/goods',
             'icon'        => 'fas fa-shopping-cart',
         ],
-        'НАСТРОЙКИ АККАУНТА',
-        [
-            'text' => 'Профиль',
-            'url'  => 'admin/settings',
-            'icon' => 'user',
-        ],
-        [
-            'text' => 'Изменить пароль',
-            'url'  => 'admin/settings',
-            'icon' => 'lock',
-        ],
     ],
 
     /*

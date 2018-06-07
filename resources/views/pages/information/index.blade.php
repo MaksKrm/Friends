@@ -67,7 +67,7 @@
                 <div class="row mt-5 mb-2">
                     @foreach ($information as $article)
                         <div class="col-md-10">
-                            <div class="card flex-md-row mb-4 box-shadow h-md-250">
+                            <div class="card fadeInUp wow flex-md-row mb-4 box-shadow h-md-250">
                                 {{--  <img class="card-img-right flex-auto d-none d-lg-block"
                                        alt="Фото информации"
                                        src="{{ asset("storage/$article->file")  }}"

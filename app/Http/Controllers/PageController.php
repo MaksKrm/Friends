@@ -18,7 +18,8 @@ class PageController extends Controller
         $news = News::orderBy('id', 'desc')
             ->take(4)
             ->get();
-        return view('index', ['news' => $news]);
+        $animalsCount = Animal::where('published', 1)->count();
+        return view('index', ['news' => $news, 'animalsCount' => $animalsCount]);
     }
 
     public function getHelp()

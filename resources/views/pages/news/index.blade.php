@@ -28,7 +28,7 @@
             <div class="row mb-2">
                 @foreach ($news as $article)
                     <div class="col-md-10">
-                        <div class="card flex-md-row mb-4 box-shadow h-md-250">
+                        <div class="card flipInX wow flex-md-row mb-4 box-shadow h-md-250">
                         {{--    <img class="card-img-right flex-auto d-none d-lg-block"
                                  alt="Фото новости"
                                  src="{{ asset("storage/$article->file")  }}"
@@ -52,8 +52,10 @@
         </div>
     </div>
     <div class="page top-pattern">
-        <div class="container">
-            {{ $news->links() }}
+        <div class="container j">
+            <div class="row justify-content-center">
+                {{ $news->links() }}
+            </div>
         </div>
     </div>
 @endsection

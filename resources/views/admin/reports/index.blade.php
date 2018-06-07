@@ -5,9 +5,9 @@
             <div class="col-xs-12">
                 <div class="box">
                     <div class="box-header">
-                        <h3 class="box-title">отчеты на гугл диске</h3>
+                        <h3 class="box-title">Отчеты на гугл диске</h3>
                         <a class="btn btn-default pull-right"
-                           href="{{route('reports.create')}}">Добавить фалы отчетов <i class="fa fa-plus"></i></a>
+                           href="{{route('reports.create')}}">Добавить файлы отчетов <i class="fa fa-plus"></i></a>
                     </div>
                     <!-- /.box-header -->
                     <div class="box-body">

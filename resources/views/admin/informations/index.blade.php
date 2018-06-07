@@ -32,7 +32,7 @@
                                     @foreach ($informations as $information)
                                         <tr>
                                             <td>{{ $information->tittle }}</td>
-                                            <td>{{ $information->article }}</td>
+                                            <td>{{ str_limit($information->article, $limit = 100, $end = '...') }}</td>
                                             <td><img class="card-img-right flex-auto d-none d-md-block"
                                                      data-src="holder.js/200x250?theme=thumb"
                                                      alt="Thumbnail [200x250]"
