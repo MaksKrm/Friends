@@ -60,9 +60,7 @@ $(document).ready(function () {
 
     $('#contactform').submit(function (e) {
         e.preventDefault();
-        $("#subbut").attr('disabled',true);
-        $('#subbut').text('ожидайте результата');
-        $('#subbut').css({'background' : '#787674', 'border-bottom':'#268658'});
+        $("#subbut").attr('disabled',true).text('ожидайте результата').css({'background' : '#787674', 'border-bottom':'#268658'});
         $.ajax({
             type: 'POST',
             url: '/sendmail',
@@ -73,9 +71,7 @@ $(document).ready(function () {
                 resetError();
             },
             error: function (response) {
-                $("#subbut").removeAttr('disabled');
-                $('#subbut').text('отправить повторно')
-                $('#subbut').css({'background' : '#268658'});
+                $("#subbut").removeAttr('disabled').text('отправить повторно').css({'background' : '#268658'});
                 errorFields(response);
             }
         });
@@ -98,5 +94,44 @@ $(document).ready(function () {
         $('.form-group').removeClass("has-error");
         $('.form-group strong').text('');
     }
+
+    $(function () {
+        $('#subbut').live('click', function (e) {
+            e.preventDefault();
+            var url = $(this).attr('href');
+            getReport(url);
+        });
+
+        function getReport(url) {
+            $.ajax({
+                url: url,
+                data: $('#date_report').serialize(),
+            }).done(function (data) {
+                $('#types').html(data);
+            }).fail(function () {
+                alert('ошибка загрузки отчета');
+            });
+        }
+    });
+    $(function () {
+        $('.pagination a').live('click', function (e) {
+            e.preventDefault();
+
+            $('#load a').css('color', '#dfecf6');
+            var url = $(this).attr('href');
+            getArticles(url);
+            window.history.pushState("", "", url);
+        });
+
+        function getArticles(url) {
+            $.ajax({
+                url: url
+            }).done(function (data) {
+                $('.types').html(data);
+            }).fail(function () {
+                alert('ошибка загрузки');
+            });
+        }
+    });
 
 });
