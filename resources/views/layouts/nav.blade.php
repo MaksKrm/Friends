@@ -3,9 +3,9 @@
             aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
-    <div class="collapse navbar-collapse links" id="navbarSupportedContent">
+    <div class="collapse navbar-collapse links" id="navbarMainMenu">
         <ul class="navbar-nav menu">
-            <li class="active"><a href="{{route('index')}}">Главная <span class="sr-only">(current)</span></a></li>
+            <li><a class="active" href="{{route('index')}}">Главная <span class="sr-only">(current)</span></a></li>
             <li><a href="{{route('information.index')}}">Полезная информация</a></li>
             <li><a href="{{route('help')}}">Помощь</a></li>
             <li><a href="{{route('pets.index')}}">Ищут хозяев</a></li>

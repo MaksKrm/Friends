@@ -13,7 +13,7 @@
             text-align: center;
             font: 2.5rem "Grand Hotel", cursive;
             color: #ffd5cc;
-            margin-bottom: 50px;
+            margin-bottom: 80px;
         }
 
         .animal__profile {
@@ -90,10 +90,10 @@
                                 <li><span>Дополнительная информация:</span>{{ $animal->notes }}</li>
                             </ul>
                             <div class="button-holder animal__button_block">
-                                <button class="btn btn-default btn__add-animal pull-right" data-toggle="modal"
+                                <button class="button btn__add-animal pull-right" data-toggle="modal"
                                         data-target="#modal-update" onclick="showform()">Курировать
                                 </button>
-                                <button class="btn btn-default btn__add-animal pull-right" data-toggle="modal"
+                                <button class="goods__btn_inform btn__add-animal pull-right" data-toggle="modal"
                                         data-target="#modal-update" onclick="showContact({{$animal->id}})">Приютить
                                 </button>
                             </div>

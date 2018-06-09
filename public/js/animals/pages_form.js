@@ -1,5 +1,5 @@
-$( document ).ready(function() {
-    $('#enter').click(function (){
+$(document).ready(function () {
+    $('#enter').click(function () {
         $('.form-group').removeClass("has-error");
         $('.form-group strong').text('');
         var formData = new FormData();
@@ -26,8 +26,8 @@ $( document ).ready(function() {
             processData: false,
             contentType: false,
             cache: false,
-            success: function(responce){
-                if(responce.status == "ok"){
+            success: function (responce) {
+                if (responce.status == "ok") {
                     alert('Объявление добавлено, вы увидите его на сайте - после одобрения модератором');
                     window.location.reload();
                 }
@@ -35,12 +35,25 @@ $( document ).ready(function() {
             error: function (getErrors) {
                 var errors = JSON.parse(getErrors.responseText);
                 errors = errors.errors;
-                $.each(errors, function(index, value){
-                    $('#'+index+'_block').addClass("has-error");
+                $.each(errors, function (index, value) {
+                    $('#' + index + '_block').addClass("has-error");
                     var id = index + '_block_strong';
                     document.getElementById(id).innerHTML = value;
                 });
             }
         });
+    });
+
+    //Стилизация поля input['file'] модального окна
+    $('.custom-file-input').change(function () {
+        $(this).next('.form-control-file').addClass("selected").html($(this).val().replace(/\\/g, '/').replace(/.*\//, ''));
+    });
+
+    $('.multiple .custom-file-input').change(function () {
+        var names = [];
+        for (var i = 0; i < $(this).get(0).files.length; ++i) {
+            names.push($(this).get(0).files[i].name);
+        }
+        $(this).next('.form-control-file').addClass("selected").html("Добавлено " + names.length + " фото");
     });
 });
