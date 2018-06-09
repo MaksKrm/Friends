@@ -54,6 +54,12 @@
 
     </style>
     <div class="wrapper">
+        <div id="modal-update" class="modal fade">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                </div>
+            </div>
+        </div>
         <h2 class="animal__page-title">Страничка питомца</h2>
         <div class="page top-pattern">
             <div class="animal__profile">
@@ -84,8 +90,12 @@
                                 <li><span>Дополнительная информация:</span>{{ $animal->notes }}</li>
                             </ul>
                             <div class="button-holder animal__button_block">
-                                <a href="#" class="button">Курировать</a>
-                                <a href="#" class="button btn-home">Приютить</a>
+                                <button class="btn btn-default btn__add-animal pull-right" data-toggle="modal"
+                                        data-target="#modal-update" onclick="showform()">Курировать
+                                </button>
+                                <button class="btn btn-default btn__add-animal pull-right" data-toggle="modal"
+                                        data-target="#modal-update" onclick="showContact({{$animal->id}})">Приютить
+                                </button>
                             </div>
                             <h4>Дополнительные фотографии</h4>
                             <div class="row parent-container">
@@ -107,6 +117,26 @@
     </div>
 
     <script>
+        function showform() {
+            $.ajax({
+                type: 'GET',
+                url: '/showform',
+                success: function (response) {
+                    $('.modal-content').empty().append(response);
+                }
+            });
+        }
+
+        function showContact(id) {
+            $.ajax({
+                type: 'GET',
+                url: '/showcontact/'+id,
+                success: function (response) {
+                    $('.modal-content').empty().append(response);
+                }
+            });
+        }
+
         $('.without-caption').magnificPopup({
             type: 'image',
             closeOnContentClick: true,

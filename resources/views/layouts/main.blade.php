@@ -51,7 +51,6 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/flexslider/2.7.0/jquery.flexslider.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/3.0.6/isotope.pkgd.min.js"></script>
 <script src="/js/script.js"></script>
-<script src="/js/global.js"></script>
 <script src="/js/jquery.magnific-popup.js"></script>
 <!-- Scripts Ends! -->
 </body>

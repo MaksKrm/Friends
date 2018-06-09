@@ -4,6 +4,7 @@ namespace App\Http\Controllers\admin\animals;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\AnimalsRequest;
+use App\Http\Requests\UpdateAnimalsRequest;
 use App\Models\Animal;
 use Illuminate\Http\Request;
 
@@ -16,7 +17,7 @@ class AdminAnimalsController extends Controller
      */
     public function index()
     {
-        $animals = Animal::where('published', 1)->get();
+        $animals = Animal::where('published', 1)->paginate(10);
         $expectations = Animal::where('published', null)->get();
 
         return view('admin/animals/index', ['animals' => $animals, 'expectations' => $expectations]);
@@ -42,9 +43,9 @@ class AdminAnimalsController extends Controller
      */
     public function store(AnimalsRequest $request, Animal $model)
     {
-        if (!empty($request['other_foto'])) {
+        if (!empty($request['files_'])) {
             $other_path = [];
-            foreach ($request->other_foto as $foto) {
+            foreach ($request->files_ as $foto) {
                 $other_path[] = $model->saveLocalFoto($foto);
             }
             $model->other_foto = implode(",", $other_path);
@@ -52,8 +53,10 @@ class AdminAnimalsController extends Controller
         $model->main_foto = $model->saveLocalFoto($request->file('main_foto'));
         $model->fill($request->only('name', 'species', 'breed', 'sex', 'age', 'notes', 'contacts'));
         $model->save();
+        $responseJson = [ 'status'=>'ok'] ;
+        $response = json_encode($responseJson);
 
-        return redirect()->route('animals.index');
+        return $response;
     }
 
     /**
@@ -87,16 +90,18 @@ class AdminAnimalsController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param Request $request
+     * @param UpdateAnimalsRequest $request
      * @param Animal $model
      * @return void
      */
-    public function update(Request $request, Animal $model)
+    public function update(UpdateAnimalsRequest $request, Animal $model)
     {
+        dd($request->name);
         $animal=$model->find($request['id']);
-        if (!empty($request['other_foto'])) {
+        dd($animal);
+        if (!empty($request['files_'])) {
             $other_path = [];
-            foreach ($request->other_foto as $foto) {
+            foreach ($request->files_ as $foto) {
                 $other_path[] = $model->saveLocalFoto($foto);
             }
             $animal->other_foto = implode(",", $other_path);
@@ -104,8 +109,10 @@ class AdminAnimalsController extends Controller
         $animal->main_foto = $model->saveLocalFoto($request['main_foto']);
         $animal->fill($request->only('name', 'species', 'breed', 'sex', 'age', 'notes', 'contacts'));
         $animal->save();
+        $responseJson = [ 'status'=>'ok'] ;
+        $response = json_encode($responseJson);
 
-        return redirect()->route('animals.index');
+        return $response;
     }
 
     /**

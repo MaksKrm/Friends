@@ -20,6 +20,7 @@
                     <div class="box-body">
                         <div class="row">
                             <div class="col-12 col-md-12">
+                                {{$animals->render()}}
                                 <table id="example1" class="table table-bordered table-striped table-responsive">
                                     <thead>
                                     <tr>
@@ -71,11 +72,13 @@
                                                      alt="Главное фото животного">
                                             </td>
                                             <td>
-                                                @foreach(explode(',', $animal->other_foto) as $foto)
-                                                    <img src="{{ asset("storage/$foto") }}"
-                                                         alt="Другие фото животного"
-                                                         id="other_foto">
-                                                @endforeach
+                                                @if(!empty($animal->other_foto))
+                                                    @foreach(explode(',', $animal->other_foto) as $foto)
+                                                        <img src="{{ asset("storage/$foto") }}"
+                                                             alt="Другие фото животного"
+                                                             id="other_foto">
+                                                    @endforeach
+                                                @endif
                                             </td>
                                             <td>
                                                 <button class="btn btn-info" onclick="edit({{$animal->id}})">
@@ -92,6 +95,7 @@
                                     @endforeach
                                     </tbody>
                                 </table>
+                                {{$animals->render()}}
                             </div>
                         </div>
                     </div>

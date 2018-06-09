@@ -2,10 +2,9 @@
 
 namespace App\Http\Requests;
 
-use http\Env\Request;
 use Illuminate\Foundation\Http\FormRequest;
 
-class AnimalsRequest extends FormRequest
+class UpdateAnimalsRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,15 +23,12 @@ class AnimalsRequest extends FormRequest
      */
     public function rules()
     {
-//        dd($this->header());
         return [
             'name' => 'bail|max:100',
-            'species' => 'bail|required',
             'breed' => 'bail|max:100',
-            'sex' => 'bail|required',
             'age' => 'bail|max:100',
-            'contacts' => 'bail|required|max:100',
-            'main_foto' => 'bail|required|image|mimes:jpeg,png,jpg,gif,svg|max:8048',
+            'contacts' => 'bail|max:100',
+            'main_foto' => 'bail|image|mimes:jpeg,png,jpg,gif,svg|max:8048',
             'files_.*' => 'bail|image|mimes:jpeg,png,jpg,gif,svg|max:8048',
         ];
     }

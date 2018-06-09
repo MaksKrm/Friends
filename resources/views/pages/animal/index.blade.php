@@ -1,6 +1,12 @@
 @extends('layouts.main')
 
 @section('content')
+    <div id="modal-update" class="modal fade">
+        <div class="modal-dialog">
+            <div class="modal-content">
+            </div>
+        </div>
+    </div>
     <div class="animals">
         <div class="container">
             <div class="page top-pattern">
@@ -13,6 +19,12 @@
                         <li><a href="#" data-filter="dogs">Пёсики</a></li>
                         <li><a href="#" data-filter="boys">Мальчики</a></li>
                         <li><a href="#" data-filter="girls">Девочки</a></li>
+                        <li>
+                            <button class="btn btn-default btn__add-animal pull-right" data-toggle="modal"
+                                    data-target="#modal-update"
+                                    onclick="create()">Добавить животное
+                            </button>
+                        </li>
                     </ul>
                     <div class="filtered">
                         @include('pages.animal.load')
@@ -23,6 +35,15 @@
     </div>
 
     <script type="text/javascript">
+        function create() {
+            $.ajax({
+                type: 'GET',
+                url: '/pets/create',
+                success: function (response) {
+                    $('.modal-content').empty().append(response);
+                }
+            });
+        }
         $(window).on('hashchange', function () {
             if (window.location.hash) {
                 var page = window.location.hash.replace('#', '');

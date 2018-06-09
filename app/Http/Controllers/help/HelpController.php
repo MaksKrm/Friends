@@ -24,7 +24,7 @@ class HelpController extends Controller
 
         Mail::send('emails.default', ['request' => $request], function ($message) use ($request) {
             $message->from($request->email, $request->name);
-            $message->to('vlad30101991@gmail.com');
+            $message->to('maks.ukraine13@gmail.com');
             $message->subject($request->theme);
         });
 

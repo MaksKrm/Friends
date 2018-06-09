@@ -81,11 +81,13 @@
                                                      alt="Главное фото животного">
                                             </td>
                                             <td>
-                                                @foreach(explode(',', $animal->other_foto) as $foto)
-                                                    <img src="{{ asset("storage/$foto") }}"
-                                                         alt="Другие фото животного"
-                                                         id="other_foto">
-                                                @endforeach
+                                                @if(!empty($animal->other_foto))
+                                                    @foreach(explode(',', $animal->other_foto) as $foto)
+                                                        <img src="{{ asset("storage/$foto") }}"
+                                                             alt="Другие фото животного"
+                                                             id="other_foto">
+                                                    @endforeach
+                                                @endif
                                             </td>
                                             <td>
                                                 <button class="btn btn-default" data-toggle="modal"
@@ -104,6 +106,7 @@
                                     @endforeach
                                     </tbody>
                                 </table>
+                                {{$animals->render()}}
                             </div>
                         </div>
                     </div>
