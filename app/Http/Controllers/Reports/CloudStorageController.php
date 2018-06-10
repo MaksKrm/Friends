@@ -9,6 +9,10 @@ use Illuminate\Support\Facades\Storage;
 
 class CloudStorageController extends Controller
 {
+    /**
+     * load report from google disk
+     * @return mixed
+     */
     public function loadFromDisk($id)
     {
         $report=CloudStorage::find($id);

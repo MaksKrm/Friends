@@ -8,6 +8,10 @@ use App\Http\Controllers\Controller;
 
 class ReportsController extends Controller
 {
+    /**
+     * choose reports period
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
     public function choose(Request $request)
     {
         $choose_date=$request->year.'-'.'0'.$request->month;

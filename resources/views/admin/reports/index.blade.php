@@ -98,6 +98,13 @@
                                                         <strong>{{ Session::get('success') }}</strong>
                                                     </div>
                                                 @endif
+
+                                                @if ( Session::has('error') )
+                                                    <div class="alert alert-error alert-dismissible" role="alert">
+                                                        <strong>{{ Session::get('error') }}</strong>
+                                                    </div>
+                                                @endif
+
                                                 @if ($errors->first('excel'))
                                                     <div class="alert alert-danger">{{  $errors->first('excel') }}</div>
                                                 @endif

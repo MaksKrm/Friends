@@ -95,7 +95,7 @@
         </div>
     </form>
 </div>
-<script src="/js/animals/create_form.js"></script>
+<script src="/js/admin/animals/create_form.js"></script>
 
 
 

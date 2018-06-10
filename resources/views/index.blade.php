@@ -89,9 +89,4 @@
         </div>
     </div>
 
-    <script>
-        $(document).ready(function () {
-            $('.card').addClass("fadeInUp animated");
-        })
-    </script>
 @endsection

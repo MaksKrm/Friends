@@ -2,16 +2,57 @@
     textarea {
         max-width: 420px;
     }
-    .has-error{
-        bordred: 1px solid red;
+
+    .has-error input,
+    .has-error select {
+        border: 2px solid red;
+    }
+
+    .animals__modal_header {
+        background: #afbb71;
+        width: 100%;
+    }
+
+    .animals__modal_header .modal-title {
+        color: #fefdfb;
+        line-height: 2;
+    }
+
+    .custom-file {
+        overflow: hidden;
+    }
+
+    .animals .form-control {
+        font-size: 14px;
+    }
+
+    .animals strong {
+        color: #da251c;
+    }
+
+    .modal-body .custom-file-label,
+    .col-form-label {
+        text-align: left;
+    }
+
+    .modal-body .custom-file-label::after {
+        content: "Обзор"
+    }
+
+    .goods__btn_danger {
+        background-color: #da251c;
+    }
+
+    .modal-body .goods__btn_inform {
+        padding: 10px 20px;
     }
 </style>
 
-<div class="modal-header bg-success">
-    <button type="button" class="close" data-dismiss="modal"
-            aria-label="Close"><span aria-hidden="true">&times;</span>
+<div class="modal-header animals__modal_header">
+    <h5 class="modal-title">Добавление объявления</h5>
+    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
     </button>
-    <h4 class="modal-title">Добавление объявления</h4>
 </div>
 <div class="modal-body">
     <form action="" method="POST" enctype="multipart/form-data" class="form-horizontal">
@@ -78,20 +119,29 @@
         <div class="row form-group{{ $errors->has('main_foto') ? ' has-error' : '' }}" id="main_foto_block">
             <label class="col-sm-3 col-form-label" for="main_foto">Главное фото: * </label>
             <div class="col-sm-9">
-                <input type="file" name="main_foto" id="main_foto" class="form-control" required>
+                <div class="custom-file">
+                    <input type="file" name="main_foto" id="main_foto" class="custom-file-input" required>
+                    <label class="custom-file-label form-control-file" for="main_foto">Выберите главное фото</label>
+                </div>
                 <strong id="main_foto_block_strong"></strong>
             </div>
         </div>
         <div class="row form-group{{ $errors->has('other_foto') ? ' has-error' : '' }}" id="otherfoto_block">
             <label class="col-sm-3 col-form-label" for="otherfoto">Другие фото: </label>
             <div class="col-sm-9">
-                <input type = "file" id = "otherfoto" name = "files[]" multiple = "multiple">
-                <strong id="otherfoto_block_strong"></strong>
+                <div class="custom-file multiple">
+                    <input type="file" name="files[]" id="otherfoto" multiple="multiple" class="custom-file-input"
+                           required>
+                    <label class="custom-file-label form-control-file" for="otherfoto">Добавьте другие фото</label>
+                    <strong id="otherfoto_block_strong"></strong>
+                </div>
             </div>
         </div>
-        <div class="modal-footer">
-            <input class="btn btn-primary pull-left" type="button" id="enter" value="Добавить">
-            <button class="btn btn-danger" type="button" data-dismiss="modal"> Закрыть</button>
+        <div class="modal-footer justify-content-between">
+            <input class="btn btn-primary goods__btn_inform" type="button" id="enter" value="Добавить">
+            <button class="btn btn-danger goods__btn_inform goods__btn_danger" type="button" data-dismiss="modal">
+                Закрыть
+            </button>
         </div>
     </form>
 </div>

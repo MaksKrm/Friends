@@ -126,4 +126,4 @@
         </div>
     </form>
 </div>
-<script src="/js/animals/update_form.js"></script>
+<script src="/js/admin/animals/update_form.js"></script>

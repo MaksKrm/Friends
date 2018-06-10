@@ -79,17 +79,17 @@ class IndexController extends Controller
     {
 
         switch ($category) {
-            case "cats":
-                $animals = Animal::where('published', 1)->where('species', 1)->orderBy('id', 'desc')->paginate(10);
+            case "tomcats":
+                $animals = Animal::where('published', 1)->where('species', 1)->where('sex', 1)->orderBy('id', 'desc')->paginate(10);
                 break;
             case "dogs":
-                $animals = Animal::where('published', 1)->where('species', 2)->orderBy('id', 'desc')->paginate(10);
+                $animals = Animal::where('published', 1)->where('species', 2)->where('sex', 1)->orderBy('id', 'desc')->paginate(10);
                 break;
-            case "boys":
-                $animals = Animal::where('published', 1)->where('sex', 1)->orderBy('age', 'desc')->paginate(10);
+            case "cats":
+                $animals = Animal::where('published', 1)->where('species', 1)->where('sex', 2)->orderBy('age', 'desc')->paginate(10);
                 break;
-            case "girls":
-                $animals = Animal::where('published', 1)->where('sex', 2)->orderBy('age', 'desc')->paginate(10);
+            case "female-dogs":
+                $animals = Animal::where('published', 1)->where('species', 2)->where('sex', 2)->orderBy('age', 'desc')->paginate(10);
                 break;
             default:
                 $animals = Animal::where('published', 1)->orderBy('id', 'desc')->paginate(10);

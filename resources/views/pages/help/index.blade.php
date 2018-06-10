@@ -1,5 +1,4 @@
 @extends('layouts.main')
-
 @section('content')
     <div class="donate">
         <!-- Price List -->
@@ -206,4 +205,5 @@
         </div>
         <!-- Types II Ends! -->
     </div>
+    <script src="/js/help/send_mail.js"></script>
 @endsection

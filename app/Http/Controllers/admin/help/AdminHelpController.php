@@ -77,8 +77,7 @@ class AdminHelpController extends Controller
     public function update(Request $request, $id)
     {
         $data = $request->all();
-        $help = Constant::findOrFail($id);
-        $help = Constant::find($id)->update($data);
+        $help = Constant::findOrFail($id)->update($data);
         return redirect()->route('help.index');
     }
 

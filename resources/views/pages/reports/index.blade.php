@@ -45,44 +45,5 @@
             @include('pages.reports.load')
         </section>
     @endif
-    <script>
-
-        $(function report () {
-            $('#subbut').live('click', function (e) {
-                e.preventDefault();
-                var url = $(this).attr('href');
-                getReport(url);
-            });
-
-            function getReport(url) {
-                $.ajax({
-                    url: url,
-                    data: $('#date_report').serialize(),
-                }).done(function (data) {
-                    $('#types').html(data);
-                }).fail(function () {
-                    alert('ошибка загрузки отчета');
-                });
-            }
-        });
-        $(function files () {
-            $('.pagination a').live('click', function (e) {
-                e.preventDefault();
-
-                $('#load a').css('color', '#dfecf6');
-                var url = $(this).attr('href');
-                getArticles(url);
-            });
-
-            function getArticles(url) {
-                $.ajax({
-                    url: url
-                }).done(function (data) {
-                    $('.types').html(data);
-                }).fail(function () {
-                    alert('ошибка загрузки');
-                });
-            }
-        });
-    </script>
+    <script src="/js/reports/ajax_reports.js"></script>
 @endsection

@@ -373,8 +373,12 @@ button, button:focus, button:visited {
     transition: all 0.2s ease-in-out;
 }
 
-.menu li a:hover, .menu li a.active {
+.menu li a:hover {
     color: #00903c;
+}
+
+.menu li.active a {
+    color: #da251c;
 }
 
 .navbar {
@@ -2233,7 +2237,7 @@ button, .button, .goods__btn_inform {
 }
 
 .animals .adopt {
-    min-height: 1480px;
+    min-height: 1565px;
 }
 
 div.animals {
@@ -2332,7 +2336,7 @@ div.animals {
 .animals .page:before {
     content: "";
     position: absolute;
-    width: 137%;
+    width: 144.5%;
     height: 102%;
     top: 0;
     left: 7px;
@@ -2348,10 +2352,10 @@ div.animals {
 .animals .page:after {
     content: "";
     position: absolute;
-    width: 138%;
+    width: 146%;
     height: 102%;
     top: 0;
-    right: 3px;
+    right: 0;
     z-index: -1;
     background: url(../img/halfcircle_pattern2.png) 0 0 repeat-x;
     -webkit-transform: rotate(-30deg);

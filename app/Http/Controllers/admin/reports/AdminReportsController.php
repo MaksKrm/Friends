@@ -4,6 +4,7 @@ namespace App\Http\Controllers\admin\reports;
 
 use App\Http\Controllers\Controller;
 use App\Models\CloudStorage;
+use App\Models\Report;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
@@ -25,7 +26,7 @@ class AdminReportsController extends Controller
     }
 
     /**
-     * Show the form for creating a new resource.
+     * Show the form for creating.
      *
      * @return \Illuminate\Http\Response
      */
@@ -35,7 +36,7 @@ class AdminReportsController extends Controller
     }
 
     /**
-     * Store a newly created resource in storage.
+     * add report to google disk.
      *
      * @param  \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
@@ -48,8 +49,7 @@ class AdminReportsController extends Controller
                 'message' => 'required',
             ]);
             if (!empty($request->file_name)) {
-                $all = $request->all();
-                $data = basename($request->file('file_name')->store('public'));
+                $data = basename($request->file_name->store('public'));
                 $path = Storage::disk('public')->getDriver()->getAdapter()->getPathPrefix();
                 $fileData = File::get($path . $data);
                 $request->file_name = $data;
@@ -99,7 +99,7 @@ class AdminReportsController extends Controller
     }
 
     /**
-     * Remove the specified resource from storage.
+     * Remove report from google disk.
      *
      * @param  int $id
      * @return \Illuminate\Http\Response
@@ -107,7 +107,6 @@ class AdminReportsController extends Controller
     public function destroy($id)
     {
         $file = CloudStorage::find($id);
-
         $filename = $file->file_name;
         $dir = '/';
         $recursive = false;
@@ -122,12 +121,15 @@ class AdminReportsController extends Controller
         return redirect()->route('reports.index');
     }
 
+    /**
+     * add reports from excel file
+     * @return \Illuminate\Http\RedirectResponse
+     */
     public function import(Request $request)
     {
         $this->validate($request, [
             'excel' => 'required|mimes:xls,xlsx',
         ]);
-        $extension = File::extension($request->excel->getClientOriginalName());
         $path = $request->excel->getRealPath();
         $data = Excel::load($path, function ($reader) {
         })->get();
@@ -138,16 +140,20 @@ class AdminReportsController extends Controller
                     break;
                 }
                 if (!empty($value->accounting_period)) {
-                    $period = $value->accounting_period;
-                    $period=date('Y-m-d', strtotime($period));
+                    $period = date('Y-m-d', strtotime($value->accounting_period));
                 }
-                $insert[] = [
-                    'accounting_period' => $period,
-                    'income' => $value->income,
-                    'income_val' => $value->income_val,
-                    'expense' => $value->expense,
-                    'expense_val' => $value->expense_val,
-                ];
+                $set = Report::where('accounting_period', $period)->get();
+                if ($set->isEmpty()) {
+
+                    $insert[] = [
+                        'accounting_period' => $period,
+                        'income' => $value->income,
+                        'income_val' => $value->income_val,
+                        'expense' => $value->expense,
+                        'expense_val' => $value->expense_val,
+                    ];
+                }
+            else Session::flash('error', 'Отчет за данный период уже существует');
             }
             if (!empty($insert)) {
                 DB::table('reports')->insert($insert);

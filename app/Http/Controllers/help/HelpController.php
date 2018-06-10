@@ -13,7 +13,7 @@ use Mail;
 class HelpController extends Controller
 {
     /**
-     * @param HelpFormRequest $request
+     * send mail
      * @return \Illuminate\Http\JsonResponse
      */
     public function send(HelpFormRequest $request)
@@ -31,6 +31,10 @@ class HelpController extends Controller
 
     }
 
+    /**
+     * liqpay story
+     */
+    /*
     public function all()
     {
         $api = new \LiqPay('i89477393687', 'EPXLXJjSQLjNsUsPR1QFkUJh8d7m4iIT9Tc2gQYI');
@@ -43,5 +47,5 @@ class HelpController extends Controller
         ));
         $all= Constant::all();
         return view('pages.help.index',['all'=>$all,'array'=>$array]);
-    }
+    }*/
 }
