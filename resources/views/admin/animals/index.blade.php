@@ -81,9 +81,9 @@
                                                      alt="Главное фото животного">
                                             </td>
                                             <td>
-                                                @if(!empty($animal->other_foto))
-                                                    @foreach(explode(',', $animal->other_foto) as $foto)
-                                                        <img src="{{ asset("storage/$foto") }}"
+                                                @if(!empty($animal->images))
+                                                    @foreach($animal->images as $foto)
+                                                        <img src="{{ asset("storage/$foto->name") }}"
                                                              alt="Другие фото животного"
                                                              id="other_foto">
                                                     @endforeach

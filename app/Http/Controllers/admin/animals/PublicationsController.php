@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\Animal;
 use App\Http\Requests\AnimalsRequest;
+use App\Models\Image;
 
 class PublicationsController extends Controller
 {

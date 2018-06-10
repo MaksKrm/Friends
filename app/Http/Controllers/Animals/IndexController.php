@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Animals;
 
 use App\Http\Requests\AnimalsRequest;
 use App\Http\Requests\MailRequest;
+use App\Models\Image;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\Animal;
@@ -37,18 +38,19 @@ class IndexController extends Controller
      *
      * @param AnimalsRequest $request
      * @param Animal $model
+     * @param Image $image
      * @return \Illuminate\Http\Response
      */
-    public function store(AnimalsRequest $request, Animal $model)
+    public function store(AnimalsRequest $request, Animal $model, Image $image)
     {
         if (!empty($request['files_'])) {
             $other_path = [];
             foreach ($request->files_ as $foto) {
-                $other_path[] = $model->saveLocalFoto($foto);
+                $other_path[] = $image->saveLocalFoto($foto);
             }
-            $model->other_foto = implode(",", $other_path);
+            $image->name = implode(",", $other_path);
         }
-        $model->main_foto = $model->saveLocalFoto($request->file('main_foto'));
+        $model->main_foto = $image->saveLocalFoto($request->file('main_foto'));
         $model->fill($request->only('name', 'species', 'breed', 'sex', 'age', 'notes', 'contacts'));
         $model->save();
         $responseJson = [ 'status'=>'ok'] ;

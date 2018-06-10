@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\AnimalsRequest;
 use App\Http\Requests\UpdateAnimalsRequest;
 use App\Models\Animal;
+use App\Models\Image;
 use Illuminate\Http\Request;
 
 class AdminAnimalsController extends Controller
@@ -39,22 +40,26 @@ class AdminAnimalsController extends Controller
      *
      * @param AnimalsRequest $request
      * @param Animal $model
+     * @param Image $image
      * @return void
      */
-    public function store(AnimalsRequest $request, Animal $model)
+    public function store(AnimalsRequest $request, Animal $model, Image $image)
     {
-        if (!empty($request['files_'])) {
-            $other_path = [];
-            foreach ($request->files_ as $foto) {
-                $other_path[] = $model->saveLocalFoto($foto);
-            }
-            $model->other_foto = implode(",", $other_path);
-        }
-        $model->main_foto = $model->saveLocalFoto($request->file('main_foto'));
+        $model->main_foto = $image->saveLocalFoto($request->file('main_foto'));
         $model->fill($request->only('name', 'species', 'breed', 'sex', 'age', 'notes', 'contacts'));
         $model->save();
+        if (!empty($request['files_'])) {
+            foreach ($request->files_ as $foto) {
+                $other_path = $image->saveLocalFoto($foto);
+                $image->insert([
+                    'name' => $other_path,
+                    'animal_id' => $model['id'],
+                ]);
+            }
+        }
         $responseJson = [ 'status'=>'ok'] ;
         $response = json_encode($responseJson);
+
 
         return $response;
     }
@@ -91,22 +96,27 @@ class AdminAnimalsController extends Controller
      * Update the specified resource in storage.
      *
      * @param UpdateAnimalsRequest $request
+     * @param $id
      * @param Animal $model
+     * @param Image $image
      * @return void
      */
-    public function update(UpdateAnimalsRequest $request, Animal $model)
+    public function update(UpdateAnimalsRequest $request, $id, Animal $model, Image $image)
     {
-        dd($request->name);
-        $animal=$model->find($request['id']);
-        dd($animal);
+        dd(1);
+        $animal=$model->find($id);
         if (!empty($request['files_'])) {
-            $other_path = [];
             foreach ($request->files_ as $foto) {
-                $other_path[] = $model->saveLocalFoto($foto);
+                $other_path = $image->saveLocalFoto($foto);
+                $image->insert([
+                    'name' => $other_path,
+                    'animal_id' => $model['id'],
+                ]);
             }
-            $animal->other_foto = implode(",", $other_path);
         }
-        $animal->main_foto = $model->saveLocalFoto($request['main_foto']);
+        if (!empty($request['main_foto'])){
+            $animal->main_foto = $image->saveLocalFoto($request['main_foto']);
+        }
         $animal->fill($request->only('name', 'species', 'breed', 'sex', 'age', 'notes', 'contacts'));
         $animal->save();
         $responseJson = [ 'status'=>'ok'] ;

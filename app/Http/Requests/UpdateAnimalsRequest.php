@@ -24,7 +24,7 @@ class UpdateAnimalsRequest extends FormRequest
     public function rules()
     {
         return [
-            'name' => 'bail|max:100',
+            'name' => 'bail|required|max:100',
             'breed' => 'bail|max:100',
             'age' => 'bail|max:100',
             'contacts' => 'bail|max:100',

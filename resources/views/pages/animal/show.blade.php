@@ -99,15 +99,16 @@
                             </div>
                             <h4>Дополнительные фотографии</h4>
                             <div class="row parent-container">
-                                @foreach(explode(',', $animal->other_foto) as $foto)
-                                    <div class="col-md-3">
-                                        <a class="without-caption image-link"
-                                           href="{{ asset("storage/$foto") }}">
-                                            <img src="{{ asset("storage/$foto") }}"
-                                                 alt="Другие фото животного"
-                                                 id="other_foto"></a>
-                                    </div>
-                                @endforeach
+                                @if(!empty($animal->images))
+                                    @foreach($animal->images as $foto)
+                                        <div class="col-md-3">
+                                            <a class="without-caption image-link" href="{{ asset("storage/$foto->name") }}">
+                                                <img src="{{ asset("storage/$foto->name") }}"
+                                                     alt="Другие фото животного"
+                                                     id="other_foto"></a>
+                                        </div>
+                                    @endforeach
+                                @endif
                             </div>
                         </div>
                     </div>

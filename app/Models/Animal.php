@@ -14,14 +14,9 @@ class Animal extends Model
      * @param $foto
      * @return string
      */
-    public function saveLocalFoto($foto)
-    {
-        if(is_string($foto)){
-            return $foto;
-        }
-        $file_name = str_random(7) . '_' . time() . '.' . $foto->getClientOriginalExtension();
-        $foto->move(storage_path('app/public'), $file_name);
 
-        return $file_name;
+    public function images()
+    {
+        return $this->hasMany('App\Models\Image');
     }
 }
