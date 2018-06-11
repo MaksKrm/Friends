@@ -17,7 +17,7 @@ class AdminNewsController extends Controller
      */
     public function index()
     {
-        $news = News::all();
+        $news = News::paginate(10);
         return view('admin.news.index', ['news' => $news]);
     }
 
@@ -66,7 +66,7 @@ class AdminNewsController extends Controller
     public function edit($id)
     {
         $article = News::find($id);
-        return view('admin.news.edit', ['article' => $article]);
+        return view('admin/news/edit', ['article' => $article]);
     }
 
     /**
@@ -78,7 +78,6 @@ class AdminNewsController extends Controller
      */
     public function update(NewsRequest $request, $id)
     {
-        // dd($request);
         $data = $request->all();
         $data['file'] = basename($request->file('file')->store('public'));
         $article = News::findOrFail($id);

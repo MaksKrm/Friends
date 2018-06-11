@@ -21,7 +21,7 @@
                         <li><a href="#" data-filter="female-dogs">Собачки</a></li>
                     </ul>
                     <div class="filtered">
-                        @include('pages.animal.load')
+                        @include('pages.animals.load')
                     </div>
                     <button class="goods__btn_inform slideInUp wow" data-toggle="modal"
                             data-target="#modal-animal"

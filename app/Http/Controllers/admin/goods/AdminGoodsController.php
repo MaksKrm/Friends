@@ -17,7 +17,7 @@ class AdminGoodsController extends Controller
      */
     public function index()
     {
-        $goods = Good::all();
+        $goods = Good::paginate(10);
         return view('admin.goods.index', ['goods' => $goods]);
     }
 
@@ -39,7 +39,6 @@ class AdminGoodsController extends Controller
      */
     public function store(GoodsRequest $request)
     {
-       // dd($request->all());
         $data = $request->all();
         $data['photo'] = basename($request->file('photo')->store('public'));
         Good::create($data);
@@ -83,9 +82,6 @@ class AdminGoodsController extends Controller
         $data['photo'] = basename($request->file('photo')->store('public'));
         $good = Good::findOrFail($id);
         $good = Good::find($id)->update($data);
-        //$animal->main_foto = $model->saveLocalFoto($request['main_foto']);
-      //  $animal->fill($request->only('name', 'species', 'breed', 'sex', 'age', 'notes', 'contacts'));
-      //  $animal->save();
         return redirect()->route('admin.goods.index');
     }
 

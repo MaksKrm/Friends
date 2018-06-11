@@ -20,7 +20,7 @@ class IndexController extends Controller
     public function index()
     {
         $animals = Animal::where('published', 1)->orderBy('id', 'desc')->paginate(10);
-        return view('pages.animal.index', ['animals' => $animals]);
+        return view('pages.animals.index', ['animals' => $animals]);
     }
 
     /**
@@ -68,7 +68,7 @@ class IndexController extends Controller
     public function show($id)
     {
         $animal = Animal::find($id);
-        return view('pages.animal.show', ['animal' => $animal]);
+        return view('pages.animals.show', ['animal' => $animal]);
     }
 
     /**
@@ -99,9 +99,9 @@ class IndexController extends Controller
         }
 
         if ($request->ajax()) {
-            return view('pages.animal.load', compact('animals'));
+            return view('pages.animals.load', compact('animals'));
         }
-        return view('pages.animal.index', compact('animals'));
+        return view('pages.animals.index', compact('animals'));
 
     }
 
