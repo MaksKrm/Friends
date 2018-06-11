@@ -18,5 +18,6 @@ class DatabaseSeeder extends Seeder
         $this->call(ContactsTableSeeder::class);
         $this->call(ConstantsTableSeeder::class);
         $this->call(GoodsTableSeeder::class);
+        $this->call(CloudStoragesTableSeeder::class);
     }
 }

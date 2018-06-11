@@ -1,4 +1,4 @@
-<div class="table-responsive mt-2">
+<div class="table-responsive mt-2 slideInUp wow">
     <table class="table">
         <thead>
         <tr>

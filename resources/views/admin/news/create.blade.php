@@ -13,13 +13,13 @@
         <div class="form-group {{ $errors->has('title') ? ' has-error' : '' }}" id="div_title">
             <label for="inputTitle">Название новости</label>
             <input type="text" class="form-control" id="inputTitle" name="title"
-                   placeholder="Название товара">
+                   placeholder="Название новости">
             <span class="help-block"><strong>{{ $errors->first('title') }}</strong></span>
         </div>
         <div class="form-group {{ $errors->has('text') ? ' has-error' : '' }}" id="div_text">
             <label for="exampleFormControlTextarea1">Описание новости</label>
             <textarea class="form-control" name="text" id="exampleFormControlTextarea1"
-                      rows="3"></textarea>
+                      rows="3" placeholder="Описание новости"></textarea>
             <span class="help-block"><strong>{{ $errors->first('text') }}</strong></span>
         </div>
         <div class="form-group {{ $errors->has('file') ? ' has-error' : '' }}" id="div_file">

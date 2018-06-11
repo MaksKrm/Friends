@@ -57,9 +57,4 @@
 
 
     <script type="text/javascript" src="//vk.com/js/api/openapi.js?154"></script>
-        <!-- VK Widget -->
-    <div id="vk_groups"></div>
-    <script type="text/javascript">
-        VK.Widgets.Group("vk_groups", {mode: 3, color3: '386DA9', width: '300', height: '500', no_cover: 1}, 32288609);
-    </script>
 @endsection

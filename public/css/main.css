@@ -11,13 +11,11 @@
 /* 9. Adopt Section */
 /* 10. Foster Section */
 /* 11. Educate Section */
-/* 12. Sponsors Section */
-/* 13. Stripe */
-/* 14. Contact Section */
-/* 15. Footer Section */
-/* 16. Map Section */
-/* 17. Animal Section */
-/* 18 Shop Section */
+/* 12. Stripe */
+/* 13. Contact Section */
+/* 14. Footer Section */
+/* 15. Animal Section */
+/* 16 Shop Section */
 /* -------------------- */
 /* 1. Imports & Clears */
 
@@ -260,15 +258,10 @@ button, button:focus, button:visited {
 }
 
 .main-container .container {
-    /*  max-width: 960px;*/
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     box-sizing: border-box;
 }
-
-/*  @media all and (max-width: 990px) {
-    .main-container .container {
-      width: 96%; } }*/
 
 /* 5. Header */
 /* -------------------- */
@@ -324,14 +317,6 @@ button, button:focus, button:visited {
     color: #262626;
     letter-spacing: 0.1em;
 }
-
-/*
-.header__block {
-  display: flex;
-  justify-content: space-between;
-  flex-direction: row;
-  align-items: center;
-}*/
 
 .links {
     justify-content: center;
@@ -401,79 +386,11 @@ button, button:focus, button:visited {
     position: relative;
     background: #00903c url("../img/paw_pattern.png");
     margin-top: -18px;
-    /*.flex-direction-nav {
-      position: absolute;
-      top: 50%;
-      width: 100%;
-      margin-top: -26px;
-
-      a {
-        font-family: FontAwesome;
-        font-size: 3em; //replace fa-3x
-        color: $white;
-        text-align: center;
-        display: block;
-        position: absolute;
-        width: 50px;
-        height: 52px;
-
-        &.flex-prev:before {
-          content:"\f104";
-        }
-
-        &.flex-next:before{
-          content:"\f105";
-        }
-
-        &:hover {
-          opacity: .9;
-        }
-      }
-
-      .flex-prev {
-        left: 50px / 960px * 100%;
-      }
-      .flex-next {
-        right: 50px / 960px * 100%;
-      }
-    }*/
 }
 
 .slider .container {
     position: relative;
     max-width: 100%;
-    /*
-    .item {
-      padding: 12.5% 0;
-      text-align: center;
-      color: $white;
-      font-size: 21px;
-      font-weight: bold;
-      text-transform: uppercase;
-
-      span {
-        display: inline-block;
-        margin: 0 4%;
-      }
-
-      strong {
-        font-size: 80px;
-
-        @media all and (max-width: 800px) {
-          font-size: 60px;
-        }
-
-        @media all and (max-width: 600px) {
-          font-size: 40px;
-        }
-      }
-
-      em {
-        color: $default_color;
-        font-style: normal;
-      }
-    }
-    */
 }
 
 @media all and (max-width: 990px) {
@@ -489,18 +406,6 @@ button, button:focus, button:visited {
 .slider .container ul.bg-image li {
     min-height: 550px;
     position: relative;
-    /*
-    $:before {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      z-index: 2;
-      background: #afbb71;
-      opacity: 0.1;
-      content: ""; }
-      */
 }
 
 .slider .container ul.center-overimage {
@@ -698,14 +603,6 @@ button, button:focus, button:visited {
 .page ul li, .donate ul li {
     margin-bottom: 5px;
 }
-/*
-.page ul li:before, .page ul dt:before, .page dl li:before, .page dl dt:before, .donate ul li:before, .donate ul dt:before, .donate dl li:before, .donate dl dt:before {
-    content: "\f00c";
-    font-family: FontAwesome;
-    margin-right: 10px;
-    color: #afbb71;
-}
-*/
 
 .donate ul li:before, .donate ul dt:before, .donate dl li:before, .donate dl dt:before {
     content: "\f00c";
@@ -714,9 +611,12 @@ button, button:focus, button:visited {
     color: #afbb71;
 }
 
+.donate ul.pagination li:before {
+    content: "";
+}
+
 .page.top-pattern {
     padding-bottom: 0;
-    /* padding-top: 190px;*/
     background: url("../img/halfcircle_pattern2.png") center top repeat-x;
     position: relative;
     z-index: 1;
@@ -1142,74 +1042,6 @@ button, button:focus, button:visited {
     justify-content: space-around;
 }
 
-.progress-bar {
-    border: 10px solid #e3e3e3;
-    background: #d7d8d7;
-    margin-bottom: 25px;
-    margin-top: 30px;
-    -webkit-border-radius: 2px;
-    border-radius: 2px;
-    background-clip: padding-box;
-}
-
-.progress-bar div {
-    background: #afbb71;
-    position: relative;
-    height: 20px;
-    float: left;
-    -webkit-animation: progress 2s 1 forwards;
-    -moz-animation: progress 2s 1 forwards;
-    -ms-animation: progress 2s 1 forwards;
-    animation: progress 2s 1 forwards;
-}
-
-.progress-bar div:after {
-    background: url("../img/progress-anim.gif") repeat-x;
-    content: '';
-    position: absolute;
-    left: 0;
-    height: 20px;
-    width: 100%;
-    opacity: 0.25;
-    filter: alpha(opacity=25);
-}
-
-@-webkit-keyframes progress {
-    from {
-        width: 0%;
-    }
-    to {
-        width: 66%;
-    }
-}
-
-@-moz-keyframes progress {
-    from {
-        width: 0%;
-    }
-    to {
-        width: 66%;
-    }
-}
-
-@-ms-keyframes progress {
-    from {
-        width: 0%;
-    }
-    to {
-        width: 66%;
-    }
-}
-
-@keyframes progress {
-    from {
-        width: 0%;
-    }
-    to {
-        width: 66%;
-    }
-}
-
 .raised {
     font-family: "Grand Hotel", cursive;
     font-size: 35px;
@@ -1248,6 +1080,7 @@ button, button:focus, button:visited {
 
 .price-box .block {
     width: 28%;
+    min-height: 370px;
     margin: 0 2%;
     display: inline-block;
     background: #fefdfb;
@@ -1394,8 +1227,6 @@ button, button:focus, button:visited {
 }
 
 .volunteers .flex-viewport img {
-   /* width: 100%;*/
- /*   height: auto;*/
     width: 250px;
     height: 250px;
     background: #ffd5cc;
@@ -1448,10 +1279,6 @@ button, button:focus, button:visited {
 .success-story h4, .educate h4 {
     color: #009a3e;
 }
-/*
-.success-story h4, .educate h4 {
-    color: #fefdfb;
-}*/
 
 .success-story a, .success-story a:hover, .educate a, .educate a:hover {
     color: #fefdfb;
@@ -1681,68 +1508,6 @@ button, button:focus, button:visited {
     max-width: 250px;
 }
 
-/* 12. Sponsors */
-/* -------------------- */
-.sponsors {
-    margin: 40px 0;
-}
-
-.sponsors .title {
-    margin-bottom: 40px;
-}
-
-.sponsors ul {
-    margin-bottom: 0;
-}
-
-.sponsors ul li {
-    margin-bottom: 0;
-    padding: 0 10px;
-    width: 25%;
-    min-height: 60px;
-    text-align: center;
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    box-sizing: border-box;
-}
-
-@media all and (max-width: 800px) {
-    .sponsors ul li {
-        width: 50%;
-    }
-}
-
-@media all and (max-width: 500px) {
-    .sponsors ul li {
-        width: 100%;
-    }
-}
-
-.sponsors ul li:before {
-    content: none;
-}
-
-.sponsors ul li a {
-    display: block;
-}
-
-.sponsors ul li a img {
-    -webkit-filter: grayscale(100%);
-    filter: grayscale(100%);
-    filter: gray;
-    opacity: .5;
-    -webkit-transition: all 0.3s ease-in-out;
-    -moz-transition: all 0.3s ease-in-out;
-    -o-transition: all 0.3s ease-in-out;
-    transition: all 0.3s ease-in-out;
-}
-
-.sponsors ul li a img:hover {
-    -webkit-filter: grayscale(0);
-    filter: none;
-    opacity: 1;
-}
-
 /* 14. Stripe */
 /* -------------------- */
 .stripe {
@@ -1764,10 +1529,6 @@ button, button:focus, button:visited {
     -o-background-size: cover;
     background-size: cover;
 }
-/*
-.contact .container {
-    max-width: 488px;
-}*/
 
 .contact h2, .contact h3, .contact h4 {
     margin-bottom: 35px;
@@ -1855,10 +1616,6 @@ button, .button, .goods__btn_inform {
     color: #fefdfb;
 }
 
-/*
-.button {
-  float: left; }*/
-
 /* 15. Footer Section */
 /* -------------------- */
 .footer {
@@ -1905,27 +1662,6 @@ button, .button, .goods__btn_inform {
 .back a:hover {
     bottom: -6px;
 }
-
-/* 16. Map Section */
-/* -------------------- */
-#map {
-    height: 450px;
-    position: relative;
-    width: 100%;
-}
-
-#map:before {
-    position: absolute;
-    z-index: 2;
-    width: 100%;
-    height: 22px;
-    bottom: 0;
-    left: 0;
-    content: "";
-    background: url("../img/halfcircle_pattern2.png") repeat-x 0 0;
-}
-
-/*# sourceMappingURL=style.css.map */
 
 .footer {
     background: #363b3f;
@@ -2095,141 +1831,6 @@ button, .button, .goods__btn_inform {
 }
 
 /* Animals */
-/*
-.animals .page.top-pattern {
-    margin: -30px 0 0 30px;
-    min-height: 1500px;
-}
-
-.animals .adopt {
-    min-height: 1485px;
-}
-
-.animals {
-    padding: 190px 75px 0;
-    background: #009a3e url(../img/paw_pattern.png);
-    color: #1d2124;
-    margin-top: -18px;
-    text-align: center;
-    z-index: 1;
-}
-
-.animals h3 {
-    color: #009a3e;
-}
-
-.animals .adopt img {
-    width: auto;
-    max-height: 280px;
-}
-
-.animal {
-    position: relative;
-}
-
-.animal-block {
-    overflow: hidden;
-}
-
-.animal-block a {
-    display: block;
-    width: 85%;
-    height: 280px;
-    position: absolute;
-    top: -1%;
-    left: 10%;
-    background: url(../img/sprite-group-full.png) no-repeat 0 0;
-    color: #009a3e;
-    font-weight: bold;
-    font: 1.5rem "Grand Hotel", cursive;
-
-}
-
-@media all and (max-width: 1200px) {
-    .animal-block a {
-        width: 66%;
-        left: 17%;
-    }
-}
-
-@media all and (max-width: 992px) {
-    .animal-block a {
-        width: 90%;
-        left: 7%;
-    }
-}
-
-@media all and (max-width: 768px) {
-    .animal-block a {
-        width: 60%;
-        left: 20%;
-    }
-
-    .adopt img {
-        max-height: 230px;
-    }
-}
-
-@media all and (max-width: 480px) {
-    .animal-block a {
-        width: 70%;
-        left: 12%;
-    }
-}
-
-@media all and (max-width: 380px) {
-    .animal-block a {
-        width: 92%;
-        left: 3%;
-    }
-}
-
-.animals .crop {
-    overflow: hidden;
-    width: 270px;
-    height: 275px;
-}
-
-.animals .adopt {
-    background: #fff;
-    position: relative;
-    z-index: 1;
-    padding-top: 45px;
-    margin-top: -55px;
-}
-
-.animals .page:before {
-    content: "";
-    position: absolute;
-    width: 137%;
-    height: 102%;
-    top: 0;
-    left: 7px;
-    z-index: -1;
-    background: url(../img/halfcircle_pattern2.png) 0 0 repeat-x;
-    -webkit-transform: rotate(-90deg);
-    -moz-transform: rotate(-90deg);
-    -ms-transform: rotate(-90deg);
-    -o-transform: rotate(-90deg);
-    transform: rotate(-90deg);
-}
-
-.animals .page:after {
-    content: "";
-    position: absolute;
-    width: 138%;
-    height: 102%;
-    top: 0;
-    right: 3px;
-    z-index: -1;
-    background: url(../img/halfcircle_pattern2.png) 0 0 repeat-x;
-    -webkit-transform: rotate(-30deg);
-    -moz-transform: rotate(-30deg);
-    -ms-transform: rotate(-30deg);
-    -o-transform: rotate(-30deg);
-    transform: rotate(90deg);
-}
-*/
 
 .animals .page.top-pattern {
     margin: -30px 0 0 30px;
