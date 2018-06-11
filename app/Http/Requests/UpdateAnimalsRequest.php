@@ -24,12 +24,12 @@ class UpdateAnimalsRequest extends FormRequest
     public function rules()
     {
         return [
-            'name' => 'bail|required|max:100',
-            'breed' => 'bail|max:100',
-            'age' => 'bail|max:100',
-            'contacts' => 'bail|max:100',
-            'main_foto' => 'bail|image|mimes:jpeg,png,jpg,gif,svg|max:8048',
-            'files_.*' => 'bail|image|mimes:jpeg,png,jpg,gif,svg|max:8048',
+            'name' => 'max:100',
+            'breed' => 'max:100',
+            'age' => 'max:100',
+            'contacts' => 'max:100',
+            'main_foto' => 'bail|nullable|image|mimes:jpeg,png,jpg,gif,svg|max:8048',
+            'files_.*' => 'bail|nullable|image|mimes:jpeg,png,jpg,gif,svg|max:8048',
         ];
     }
 }

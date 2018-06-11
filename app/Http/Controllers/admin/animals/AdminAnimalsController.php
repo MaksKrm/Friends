@@ -7,7 +7,7 @@ use App\Http\Requests\AnimalsRequest;
 use App\Http\Requests\UpdateAnimalsRequest;
 use App\Models\Animal;
 use App\Models\Image;
-use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class AdminAnimalsController extends Controller
 {
@@ -43,23 +43,22 @@ class AdminAnimalsController extends Controller
      * @param Image $image
      * @return void
      */
-    public function store(AnimalsRequest $request, Animal $model, Image $image)
+    public function store(AnimalsRequest $request, Animal $animal, Image $image)
     {
-        $model->main_foto = $image->saveLocalFoto($request->file('main_foto'));
-        $model->fill($request->only('name', 'species', 'breed', 'sex', 'age', 'notes', 'contacts'));
-        $model->save();
+        $animal->main_foto = $image->saveLocalFoto($request->file('main_foto'));
+        $animal->fill($request->only('name', 'species', 'breed', 'sex', 'age', 'notes', 'contacts'));
+        $animal->save();
         if (!empty($request['files_'])) {
             foreach ($request->files_ as $foto) {
                 $other_path = $image->saveLocalFoto($foto);
                 $image->insert([
                     'name' => $other_path,
-                    'animal_id' => $model['id'],
+                    'animal_id' => $animal['id'],
                 ]);
             }
         }
         $responseJson = [ 'status'=>'ok'] ;
         $response = json_encode($responseJson);
-
 
         return $response;
     }
@@ -101,23 +100,28 @@ class AdminAnimalsController extends Controller
      * @param Image $image
      * @return void
      */
-    public function update(UpdateAnimalsRequest $request, $id, Animal $model, Image $image)
+    public function update(UpdateAnimalsRequest $request, Animal $animal, Image $image)
     {
-        dd(1);
-        $animal=$model->find($id);
+        $animal->find($request['id']);
         if (!empty($request['files_'])) {
             foreach ($request->files_ as $foto) {
                 $other_path = $image->saveLocalFoto($foto);
                 $image->insert([
                     'name' => $other_path,
-                    'animal_id' => $model['id'],
+                    'animal_id' => $animal['id'],
                 ]);
             }
         }
         if (!empty($request['main_foto'])){
             $animal->main_foto = $image->saveLocalFoto($request['main_foto']);
         }
-        $animal->fill($request->only('name', 'species', 'breed', 'sex', 'age', 'notes', 'contacts'));
+        if (is_int($request->sex)){
+            $animal->sex=$request->sex;
+        }
+        if (is_int($request->species)){
+            $animal->species=$request->species;
+        }
+        $animal->fill($request->only('name', 'breed', 'age', 'notes', 'contacts'));
         $animal->save();
         $responseJson = [ 'status'=>'ok'] ;
         $response = json_encode($responseJson);
@@ -133,6 +137,13 @@ class AdminAnimalsController extends Controller
      */
     public function destroy($id)
     {
+        $files = Image::where('animal_id',$id)->get();
+        foreach ($files as $file) {
+            Storage::disk('public')->delete($file["name"]);
+        }
+        $animal = Animal::find($id);
+        Storage::disk('public')->delete($animal["main_foto"]);
         Animal::destroy($id);
     }
+
 }

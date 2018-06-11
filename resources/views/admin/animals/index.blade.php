@@ -80,12 +80,15 @@
                                                      src="{{ asset("storage/$animal->main_foto") }}"
                                                      alt="Главное фото животного">
                                             </td>
-                                            <td>
+                                            <td id="other_foto">
                                                 @if(!empty($animal->images))
                                                     @foreach($animal->images as $foto)
-                                                        <img src="{{ asset("storage/$foto->name") }}"
-                                                             alt="Другие фото животного"
-                                                             id="other_foto">
+                                                        <div id="image_{{ $foto->id }}">
+                                                            <img src="{{ asset("storage/$foto->name") }}"
+                                                                  alt="Другие фото животного"
+                                                                >
+                                                            <button onclick="destroyImage({{ $foto->id }})">✖</button>
+                                                        </div>
                                                     @endforeach
                                                 @endif
                                             </td>
@@ -146,8 +149,21 @@
             });
         }
 
+        function destroyImage(id) {
+            $.ajax({
+                type: 'DELETE',
+                url: '/admin/image/'+id,
+                headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
+                success: function (responce) {
+                    console.log(responce);
+                   $('#image_'+ id ).remove();
+                },
+            });
+        }
+
         function show(id) {
             $.ajax({
+                headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
                 type: 'GET',
                 url: '/admin/animals/' + id,
                 success: function (response) {

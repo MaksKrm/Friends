@@ -41,7 +41,7 @@ class IndexController extends Controller
      * @param Image $image
      * @return \Illuminate\Http\Response
      */
-    public function store(AnimalsRequest $request, Animal $model, Image $image)
+    public function store(AnimalsRequest $request, Animal $animal, Image $image)
     {
         if (!empty($request['files_'])) {
             $other_path = [];
@@ -50,9 +50,9 @@ class IndexController extends Controller
             }
             $image->name = implode(",", $other_path);
         }
-        $model->main_foto = $image->saveLocalFoto($request->file('main_foto'));
-        $model->fill($request->only('name', 'species', 'breed', 'sex', 'age', 'notes', 'contacts'));
-        $model->save();
+        $animal->main_foto = $image->saveLocalFoto($request->file('main_foto'));
+        $animal->fill($request->only('name', 'species', 'breed', 'sex', 'age', 'notes', 'contacts'));
+        $animal->save();
         $responseJson = [ 'status'=>'ok'] ;
         $response = json_encode($responseJson);
 

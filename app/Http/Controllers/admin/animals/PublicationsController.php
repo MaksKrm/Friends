@@ -2,11 +2,10 @@
 
 namespace App\Http\Controllers\admin\animals;
 
-use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\Animal;
-use App\Http\Requests\AnimalsRequest;
 use App\Models\Image;
+use Illuminate\Support\Facades\Storage;
 
 class PublicationsController extends Controller
 {
@@ -57,6 +56,12 @@ class PublicationsController extends Controller
      */
     public function destroy($id)
     {
+        $files = Image::where('animal_id',$id)->get();
+        foreach ($files as $file) {
+            Storage::disk('public')->delete($file["name"]);
+        }
+        $animal = Animal::find($id);
+        Storage::disk('public')->delete($animal["main_foto"]);
         Animal::destroy($id);
     }
 }

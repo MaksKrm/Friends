@@ -15,6 +15,7 @@ $( document ).ready(function() {
         for (var x = 0; x < ins; x++) {
             formData.append("files []", document.getElementById('otherfoto').files [x]);
         }
+        console.log(formData);
         $.ajax({
             headers: {
                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')

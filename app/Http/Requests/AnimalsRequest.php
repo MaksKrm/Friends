@@ -24,7 +24,6 @@ class AnimalsRequest extends FormRequest
      */
     public function rules()
     {
-//        dd($this->header());
         return [
             'name' => 'bail|max:100',
             'species' => 'bail|required',

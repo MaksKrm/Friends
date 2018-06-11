@@ -17,6 +17,8 @@ Route::get('/admin', 'HomeController@index')->name('home');
 Route::group(['prefix' => 'admin', 'middleware' => ['admin']], function()
 {
         Route::resource('animals', 'admin\animals\AdminAnimalsController');
+        Route::post('animals/{animal}', 'admin\animals\AdminAnimalsController@update');
+        Route::resource('image', 'admin\animals\ImageController');
         Route::resource('help', 'admin\help\AdminHelpController');
         Route::resource('publication', 'admin\animals\PublicationsController');
         Route::resource('news', 'admin\news\AdminNewsController', ['as'=>'admin']);
