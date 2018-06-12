@@ -79,7 +79,11 @@ class AdminNewsController extends Controller
     public function update(NewsRequest $request, $id)
     {
         $data = $request->all();
-        $data['file'] = basename($request->file('file')->store('public'));
+        if (!empty($request['file'])){
+            $file = News::select(['file'])->where('id', $id)->first();
+            Storage::disk('public')->delete($file["file"]);
+            $data['file'] = basename($request->file('file')->store('public'));
+        }
         $article = News::findOrFail($id);
         $article = News::find($id)->update($data);
         return redirect()->route('admin.news.index');

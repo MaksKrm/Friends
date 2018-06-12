@@ -23,7 +23,6 @@ class AnimalsTableSeeder extends Seeder
                 'notes' => $faker->sentence,
                 'contacts' => $faker->phoneNumber,
                 'main_foto' => $faker->imageUrl(500, 500, 'cats'),
-                'other_foto' => $faker->randomNumber . '.jpg',
                 'published' => 1,
             ];
         }

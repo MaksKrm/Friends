@@ -79,7 +79,11 @@ class AdminInformationController extends Controller
     public function update(InformationsRequest $request, $id)
     {
         $data = $request->all();
-        $data['file'] = basename($request->file('file')->store('public'));
+        if (!empty($request['file'])){
+            $file = information::select(['file'])->where('id', $id)->first();
+            Storage::disk('public')->delete($file["file"]);
+            $data['file'] = basename($request->file('file')->store('public'));
+        }
         $information = information::findOrFail($id);
         $information = information::find($id)->update($data);
         return redirect()->route('admin.informations.index');

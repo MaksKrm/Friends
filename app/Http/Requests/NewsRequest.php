@@ -23,12 +23,32 @@ class NewsRequest extends FormRequest
      */
     public function rules()
     {
-
-        return [
-            'title' => 'bail|required|string|min:5|max:100',
-            'text' => 'bail|required|string|min:10',
-            'file' => 'bail|required|image|mimes:jpeg,png,jpg,gif,svg|max:8048'
-        ];
+        switch ($this->method()) {
+            case 'GET':
+            case 'DELETE':
+                {
+                    return [];
+                }
+            case 'POST':
+                {
+                    return [
+                        'title' => 'bail|required|string|min:5|max:100',
+                        'text' => 'bail|required|string|min:10',
+                        'file' => 'bail|required|image|mimes:jpeg,png,jpg,gif,svg|max:8048'
+                    ];
+                }
+            case 'PUT':
+            case 'PATCH':
+                {
+                    return [
+                        'title' => 'bail|required|string|min:5|max:100',
+                        'text' => 'bail|required|string|min:10',
+                        'file' => 'bail|nullable|image|mimes:jpeg,png,jpg,gif,svg|max:8048'
+                    ];
+                }
+            default:
+                break;
+        }
     }
 
 }

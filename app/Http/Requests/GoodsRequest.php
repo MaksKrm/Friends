@@ -24,11 +24,31 @@ class GoodsRequest extends FormRequest
      */
     public function rules(Request $request)
     {
-       // dd($request->all());
-        return [
-            'title' => 'required|string|min:3|max:100',
-            'description' => 'required|string|min:10',
-            'photo' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:8048'
-        ];
+        switch ($this->method()) {
+            case 'GET':
+            case 'DELETE':
+                {
+                    return [];
+                }
+            case 'POST':
+                {
+                    return [
+                        'title' => 'bail|required|string|min:3|max:100',
+                        'description' => 'bail|required|string|min:10',
+                        'photo' => 'bail|required|image|mimes:jpeg,png,jpg,gif,svg|max:8048'
+                    ];
+                }
+            case 'PUT':
+            case 'PATCH':
+                {
+                    return [
+                        'title' => 'bail|required|string|min:3|max:100',
+                        'description' => 'bail|required|string|min:10',
+                        'photo' => 'bail|nullable|image|mimes:jpeg,png,jpg,gif,svg|max:8048'
+                    ];
+                }
+            default:
+                break;
+        }
     }
 }

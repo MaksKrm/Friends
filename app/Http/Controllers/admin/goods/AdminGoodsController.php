@@ -79,7 +79,11 @@ class AdminGoodsController extends Controller
     public function update(GoodsRequest $request, $id)
     {
         $data = $request->all();
-        $data['photo'] = basename($request->file('photo')->store('public'));
+        if (!empty($request['photo'])){
+            $photo = Good::select(['photo'])->where('id', $id)->first();
+            Storage::disk('public')->delete($photo["photo"]);
+            $data['photo'] = basename($request->file('photo')->store('public'));
+        }
         $good = Good::findOrFail($id);
         $good = Good::find($id)->update($data);
         return redirect()->route('admin.goods.index');
