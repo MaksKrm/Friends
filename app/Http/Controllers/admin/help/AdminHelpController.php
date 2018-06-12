@@ -52,7 +52,8 @@ class AdminHelpController extends Controller
      */
     public function show($id)
     {
-        //
+        $help = Constant::find($id);
+        return view('admin/help/show', ['help' => $help]);
     }
 
     /**
@@ -74,10 +75,10 @@ class AdminHelpController extends Controller
      * @param  int $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(AdminHelpFormRequest $request, $id)
     {
         $data = $request->all();
-        $help = Constant::findOrFail($id)->update($data);
+        $help = Constant::find($id)->update($data);
         return redirect()->route('help.index');
     }
 

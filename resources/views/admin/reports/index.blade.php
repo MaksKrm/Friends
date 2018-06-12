@@ -1,13 +1,16 @@
 @extends('adminlte::page')
+
 @section('content')
     <section class="content">
         <div class="row">
             <div class="col-xs-12">
                 <div class="box">
                     <div class="box-header">
+                        <meta name="csrf-token" content="{{ csrf_token() }}"/>
                         <h3 class="box-title">Отчеты на гугл диске</h3>
-                        <a class="btn btn-default pull-right"
-                           href="{{route('reports.create')}}">Добавить файлы отчетов <i class="fa fa-plus"></i></a>
+                        <button onclick="createReport()" class="btn btn-default pull-right" data-toggle="modal"
+                                data-target="#modal-update">Создать
+                            Отчет <i class="fa fa-plus"></i></button>
                     </div>
                     <!-- /.box-header -->
                     <div class="box-body">
@@ -30,42 +33,11 @@
                                             <td>{{ $file->message }}</td>
                                             <td>{{ $file->file_name }}</td>
                                             <td>
-                                                <button type="button" class="btn btn-default" data-toggle="modal"
-                                                        data-target="#exampleModal{{ $file->id }}">
+                                                <button type="button" onclick="deleteReport({{ $file->id }})"
+                                                        class="btn btn-default" data-toggle="modal"
+                                                        data-target="#modal-update">
                                                     <i class="fa fa-trash-o"></i>
                                                 </button>
-                                                <!-- Modal -->
-                                                <div class="modal fade" id="exampleModal{{ $file->id }}"
-                                                     tabindex="-1" role="dialog"
-                                                     aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                                    <div class="modal-dialog" role="document">
-                                                        <div class="modal-content">
-                                                            <div class="modal-header">
-                                                                <button type="button" class="close" data-dismiss="modal"
-                                                                        aria-label="Close"><span aria-hidden="true">&times;</span>
-                                                                </button>
-                                                                <h4 class="modal-title">Удаление просьбы о помощи</h4>
-                                                            </div>
-                                                            <div class="modal-body">
-                                                                Вы уверены, что хотите удалить данный отчет?
-                                                                <div>"{{ $file->message }}"</div>
-                                                            </div>
-                                                            <div class="modal-footer">
-                                                                <form action="{{ route('reports.destroy', $file->id) }}"
-                                                                      method="POST">
-                                                                    {!! csrf_field() !!}
-                                                                    <input type="hidden" name="_method" value="DELETE">
-                                                                    <button type="button" class="btn btn-secondary"
-                                                                            data-dismiss="modal">Закрыть
-                                                                    </button>
-                                                                    <button type="submit" class="btn btn-primary">
-                                                                        Удалить
-                                                                    </button>
-                                                                </form>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
                                             </td>
                                         </tr>
                                     @endforeach
@@ -126,4 +98,12 @@
         </div>
         <!-- /.row -->
     </section>
+    <div id="modal-update" class="modal fade">
+        <div class="modal-dialog">
+            <div class="modal-content">
+            </div>
+        </div>
+    </div>
+
+    <script src="{{ asset('js/admin/reports/ajax_reports.js') }}"></script>
 @endsection

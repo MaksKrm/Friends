@@ -72,7 +72,8 @@ class AdminReportsController extends Controller
      */
     public function show($id)
     {
-        //
+        $files = CloudStorage::find($id);
+        return view('admin.reports.show', ['files' => $files]);
     }
 
     /**
