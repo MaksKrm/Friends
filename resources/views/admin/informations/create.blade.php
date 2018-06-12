@@ -1,31 +1,34 @@
-@extends('adminlte::page')
- 
-@section('content')
-    <h1>Добавить информацию</h1>
-    <hr>
-    <form action="{{ route('admin.informations.store') }}" method="POST" enctype="multipart/form-data">
-		{{ csrf_field() }}
-		<div class="form-group">
-			<label for="tittle">Заголовок</label>
-			<input type="text" class="form-control" id="informationTitle"  name="tittle">
-		</div>
-		<div class="form-group">
-			<label for="article">Текст</label>
-			<textarea name="article" class="form-control" rows="10"></textarea>
-		</div>
-		<div class="form-group">
-			<label for="image">Выбрать изображение</label>
-			<input type="file" name="file" id="image">
-		</div>
-		@if ($errors->any())
-        <div class="alert alert-danger">
-            <ul>
-                @foreach ($errors->all() as $error)
-                    <li>{{ $error }}</li>
-                @endforeach
-            </ul>
+<div class="modal-header bg-success">
+    <button type="button" class="close" data-dismiss="modal"
+            aria-label="Close"><span aria-hidden="true">&times;</span>
+    </button>
+    <h4 class="modal-title">Добавить новую информацию</h4>
+</div>
+<div class="modal-body">
+    <form method="POST" id="store-informations" enctype="multipart/form-data" role="form">
+        {{ csrf_field() }}
+        <div class="form-group">
+            <input type="hidden" name="id">
         </div>
-		@endif
-		<button type="submit" class="btn btn-primary">Добавить</button>
+        <div class="form-group {{ $errors->has('tittle') ? ' has-error' : '' }}" id="div_tittle">
+            <label for="inputTitle">Название информации</label>
+            <input type="text" class="form-control" id="inputTitle" name="tittle">
+            <span class="help-block"><strong>{{ $errors->first('tittle') }}</strong></span>
+        </div>
+        <div class="form-group {{ $errors->has('article') ? ' has-error' : '' }}" id="div_article">
+            <label for="exampleFormControlTextarea1">Описание информации</label>
+            <textarea class="form-control" name="article" id="exampleFormControlTextarea1"
+                rows="3"></textarea>
+            <span class="help-block"><strong>{{ $errors->first('article') }}</strong></span>
+        </div>
+        <div class="form-group {{ $errors->has('file') ? ' has-error' : '' }}" id="div_file">
+            <label for="inputPhotoFile">Загрузить фото информации</label>
+            <input type="file" id="inputPhotoFile" name="file">
+            <span class="help-block"><strong>{{ $errors->first('file') }}</strong></span>
+        </div>
+        <div class="form-group">
+            <button type="submit" class="btn btn-primary">Отправить</button>
+            <button class="btn btn-danger" type="button" data-dismiss="modal"> Закрыть</button>
+        </div>
     </form>
-@endsection
+</div>

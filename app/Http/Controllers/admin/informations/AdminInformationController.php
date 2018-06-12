@@ -17,7 +17,7 @@ class AdminInformationController extends Controller
      */
     public function index()
     {
-        $informations = Information::all();
+        $informations = Information::paginate(10);
 		return view('admin.informations.index', ['informations' => $informations]);
     }
 

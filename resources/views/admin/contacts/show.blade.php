@@ -2,9 +2,9 @@
     <button type="button" class="close" data-dismiss="modal"
         aria-label="Close"><span aria-hidden="true">&times;</span>
     </button>
-    <h4 class="modal-title">Удаление информации</h4>
+    <h4 class="modal-title">Удаление контакта</h4>
 </div>
-<div class="modal-body">Вы уверены, что хотите удалить информацию {{ $information->tittle }}?</div>
+<div class="modal-body">Вы уверены, что хотите удалить контакт {{ $contact->name }}?</div>
 <div class="modal-footer">
     <form>
         <input name="_method" type="hidden" value="DELETE">

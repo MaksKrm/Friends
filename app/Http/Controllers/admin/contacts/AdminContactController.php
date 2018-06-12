@@ -16,7 +16,7 @@ class AdminContactController extends Controller
      */
     public function index()
     {
-        $contacts = Contact::all();
+        $contacts = Contact::paginate(15);
         return view('admin.contacts.index', ['contacts' => $contacts]);
     }
 
@@ -48,9 +48,10 @@ class AdminContactController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(contact $information)
+    public function show($id)
     {
-
+		$contact = contact::find($id);
+        return view('admin.contacts.show', ['contact' => $contact]);
     }
 
     /**
