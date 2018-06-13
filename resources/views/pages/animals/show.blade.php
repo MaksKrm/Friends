@@ -72,7 +72,7 @@
                                               alt="Фото животного">--}}
                                 <img class="flex-auto d-md-block"
                                      alt="Фото животного"
-                                     src="{{ $animal->main_foto }}">
+                                     src="{{$animal->main_foto}}">
                             </div>
                         </div>
                         <div class="col-md-6">
@@ -102,11 +102,11 @@
                                 @if(!empty($animal->images))
                                     @foreach($animal->images as $foto)
                                         <div class="col-md-3 mb-2">
-                                            {{--                <a class="without-caption image-link"
-                                                               href="{{ asset("storage/$foto->name") }}">
-                                                                <img src="{{ asset("storage/$foto->name") }}"
-                                                                     alt="Другие фото животного"
-                                                                     id="other_foto"></a>--}}
+                                            {{--<a class="without-caption image-link"--}}
+                                               {{--href="{{ asset("storage/$foto->name") }}">--}}
+                                                {{--<img src="{{ asset("storage/$foto->name") }}"--}}
+                                                     {{--alt="Другие фото животного"--}}
+                                                     {{--id="other_foto"></a>--}}
                                             <a class="without-caption image-link"
                                                href="{{ $foto->name }}">
                                                 <img src="{{ $foto->name }}"

@@ -46,6 +46,7 @@
                         <div class="row">
                             <div class="col-12 col-md-12">
                                 <div class="table-responsive">
+                                    {{$animals->render()}}
                                     <table id="example1" class="table table-bordered table-striped table-responsive">
                                         <thead>
                                         <tr>
@@ -92,15 +93,22 @@
                                                     {{ str_limit($animal->notes, $limit = 100, $end = '...') }}
                                                 </td>
                                                 <td>{{ $animal->contacts }}</td>
-                                                <td><img class="card-img-right flex-auto d-none d-md-block"
-                                                         src="{{ asset("storage/$animal->main_foto") }}"
+                                                <td>
+                                                    {{--<img class="card-img-right flex-auto d-none d-md-block"--}}
+                                                         {{--src="{{ asset("storage/$animal->main_foto") }}"--}}
+                                                         {{--alt="Главное фото животного">--}}
+                                                    <img class="card-img-right flex-auto d-none d-md-block"
+                                                         src="{{$animal->main_foto}}"
                                                          alt="Главное фото животного">
                                                 </td>
                                                 <td id="other_foto">
                                                     @if(!empty($animal->images))
                                                         @foreach($animal->images as $foto)
                                                             <div class="other__photo" id="image_{{ $foto->id }}">
-                                                                <img src="{{ asset("storage/$foto->name") }}"
+                                                                {{--<img src="{{ asset("storage/$foto->name") }}"--}}
+                                                                     {{--alt="Другие фото животного"--}}
+                                                                {{-->--}}
+                                                                <img src="{{$foto->name}}"
                                                                      alt="Другие фото животного"
                                                                 >
                                                                 <button class="other__photo_btn"

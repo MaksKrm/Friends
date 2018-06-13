@@ -97,7 +97,8 @@
         <div class="form-group{{ $errors->has('main_foto') ? ' has-error' : '' }}" id="main_foto_block">
             <label class="col-sm-3 col-form-label" for="main_foto">Главное фото: * </label>
             <div class="col-sm-9">
-                <img src="{{ asset("storage/$animal->main_foto") }}" alt="Главное фото животного">
+                {{--<img src="{{ asset("storage/$animal->main_foto") }}" alt="Главное фото животного">--}}
+                <img src="{{$animal->main_foto}}" alt="Главное фото животного">
                 <input type="file" name="main_foto" id="main_foto" class="form-control">
                 <strong id="main_foto_block_strong" ></strong>
             </div>
@@ -107,7 +108,9 @@
             <div class="col-sm-9">
                 @if(!empty($animal->images))
                     @foreach($animal->images as $foto)
-                        <img src="{{ asset("storage/$foto->name") }}"
+                        {{--<img src="{{ asset("storage/$foto->name") }}"--}}
+                             {{--alt="Другие фото животного">--}}
+                        <img src="{{$foto->name}}"
                              alt="Другие фото животного">
                     @endforeach
                 @endif

@@ -31,8 +31,8 @@ class AnimalsRequest extends FormRequest
             'sex' => 'bail|required',
             'age' => 'bail|max:100',
             'contacts' => 'bail|required|max:100',
-            'main_foto' => 'bail|required|image|mimes:jpeg,png,jpg,gif,svg|max:8048',
-            'files_.*' => 'bail|image|mimes:jpeg,png,jpg,gif,svg|max:8048',
+            'main_foto' => 'bail|required|image|mimes:jpeg,png,jpg,gif,svg|max:8048|dimensions:min_width=280,min_height=280',
+            'files_.*' => 'bail|image|mimes:jpeg,png,jpg,gif,svg|max:8048|dimensions:min_width=280,min_height=280',
         ];
     }
 }
