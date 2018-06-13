@@ -38,7 +38,7 @@
         <div class="container">
             <div class="volunteer goods__block_inform">
                 <p class="title">товары нашего фонда</p>
-                <h3>Ярмарка помощи</h3>
+                <h3>Ярмарка добра</h3>
                 <p>Приобретая товар вы вносите свой весомый вклад в развитие фонда</p>
                 <div class="volunteers mb-3">
                     <div class="flex-viewport goods__box_inform">
