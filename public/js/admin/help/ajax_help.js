@@ -18,7 +18,7 @@ function createHelp() {
                 $.ajax({
                     method: 'POST',
                     url: 'help',
-                    data: $('#store-help').serialize(),
+                    data: formData,
                     contentType: false,
                     processData: false,
                     success: function () {

@@ -15,10 +15,13 @@ class AdminHelpController extends Controller
      * @return \Illuminate\Http\Response
      */
 
-    public function index()
+    public function index(Request $request)
     {
         $helps = Constant::paginate(5);
-        return view('admin.help.index', ['helps' => $helps]);
+        if ($request->ajax()) {
+            return view('admin.help.load', ['helps' => $helps])->render();
+        }
+        return view('admin.help.index',['helps'=>$helps]);
     }
 
     /**

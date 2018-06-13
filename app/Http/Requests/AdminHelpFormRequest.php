@@ -24,7 +24,8 @@ class AdminHelpFormRequest extends FormRequest
     public function rules()
     {
         return [
-            'help' => 'required',
+            'help' => 'bail|required',
+            'contact'=>'bail|required',
             'message' => 'bail|required'
         ];
     }

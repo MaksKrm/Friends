@@ -16,14 +16,6 @@ class IndexController extends Controller
      */
     public function index()
     {
-/*        if ($request->ajax()) {
-            return view('pages.reports.load', ['reports' => $reports])->render();
-        }
-        $now=date('Y-m');
-        $all=Report::where('accounting_period','like','%'.$now.'%')->get();
-        $mounths=Report::select('accounting_period')->get();
-        return view('pages.reports.index',['all'=>$all,'reports'=>$reports,'mounths'=>$mounths]);*/
-
         $information = Information::orderBy('id', 'desc')->paginate(8);
         $goods = Good::orderBy('id', 'desc')
             ->take(8)
