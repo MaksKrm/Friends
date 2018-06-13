@@ -378,7 +378,6 @@ button, button:focus, button:visited {
     }
 }
 
-
 /* 6. Slider */
 /* -------------------- */
 .slider {
@@ -475,6 +474,16 @@ button, button:focus, button:visited {
     position: absolute;
     bottom: 0;
     right: 0;
+}
+
+@media all and (max-width: 576px) {
+    .slider .container .item img {
+        display: none;
+    }
+
+    .slider .container .item span {
+        font-size: 60px;
+    }
 }
 
 .slider .flex-control-nav.flex-control-paging {
@@ -1372,6 +1381,7 @@ button, button:focus, button:visited {
     color: #da251c;
     text-decoration: none;
 }
+
 .educate {
     margin-top: -18px;
     padding-top: 190px;
@@ -1380,6 +1390,7 @@ button, button:focus, button:visited {
 .educate h2, .educate h3 {
     margin-bottom: 60px;
 }
+
 .educate .card h2, .educate .card h3 {
     margin-bottom: 30px;
     line-height: 0.6;
@@ -1439,9 +1450,9 @@ button, button:focus, button:visited {
 }
 
 .news__main .card {
-    -webkit-box-shadow: 1px 1px 10px 5px rgba(255,213,204,1);
-    -moz-box-shadow: 1px 1px 10px 5px rgba(255,213,204,1);
-    box-shadow: 1px 1px 10px 5px rgba(255,213,204,1);
+    -webkit-box-shadow: 1px 1px 10px 5px rgba(255, 213, 204, 1);
+    -moz-box-shadow: 1px 1px 10px 5px rgba(255, 213, 204, 1);
+    box-shadow: 1px 1px 10px 5px rgba(255, 213, 204, 1);
 }
 
 .news__main .news__link_all {
@@ -1492,6 +1503,7 @@ button, button:focus, button:visited {
     -webkit-border-radius: 10px;
     border-radius: 10px;
 }
+
 .news__item_block {
     display: flex;
     flex-direction: row;
@@ -1755,6 +1767,7 @@ button, .button, .goods__btn_inform {
     padding: 12px 17px;
     font-size: 1.5rem;
 }
+
 .footer .contact-info .social a.fa-vk {
     padding: 12px;
 }
@@ -1965,6 +1978,16 @@ div.animals {
     -o-transform: rotate(-30deg);
     transform: rotate(90deg);
 }
+
+@media all and (max-width: 1250px) {
+
+    .animals .page:before,
+    .animals .page:after {
+        background: none;
+    }
+
+}
+
 /* End Animals section */
 
 /* Start Shop section */
@@ -2037,9 +2060,11 @@ div.animals {
 .shop .card-title {
     min-height: 45px;
 }
+
 .shop .card-text {
     min-height: 60px;
 }
+
 .shop__contact {
     font: 1.5rem "Grand Hotel", cursive;
     padding-right: 15px;
@@ -2075,11 +2100,13 @@ div.animals {
 .pagination {
     font: 1.1rem "Grand Hotel", cursive;
 }
+
 .container .page-item.active .page-link {
     color: #da251c;
     background-color: transparent;
     border: none;
 }
+
 .container .page-link {
     border: none;
     color: #268658;

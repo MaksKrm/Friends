@@ -67,12 +67,12 @@
                     <div class="row">
                         <div class="col-md-6">
                             <div class="animal__photo_main">
+                                {{--         <img class="flex-auto d-md-block"
+                                              src="{{asset("storage/$animal->main_foto")}}"
+                                              alt="Фото животного">--}}
                                 <img class="flex-auto d-md-block"
-                                     src="{{asset("storage/$animal->main_foto")}}"
-                                     alt="Фото животного">
-                                {{-- <img class="flex-auto d-md-block"
-                                      alt="Фото животного"
-                                      src="{{ $animal->main_foto }}">--}}
+                                     alt="Фото животного"
+                                     src="{{ $animal->main_foto }}">
                             </div>
                         </div>
                         <div class="col-md-6">
@@ -101,9 +101,15 @@
                             <div class="row parent-container">
                                 @if(!empty($animal->images))
                                     @foreach($animal->images as $foto)
-                                        <div class="col-md-3">
-                                            <a class="without-caption image-link" href="{{ asset("storage/$foto->name") }}">
-                                                <img src="{{ asset("storage/$foto->name") }}"
+                                        <div class="col-md-3 mb-2">
+                                            {{--                <a class="without-caption image-link"
+                                                               href="{{ asset("storage/$foto->name") }}">
+                                                                <img src="{{ asset("storage/$foto->name") }}"
+                                                                     alt="Другие фото животного"
+                                                                     id="other_foto"></a>--}}
+                                            <a class="without-caption image-link"
+                                               href="{{ $foto->name }}">
+                                                <img src="{{ $foto->name }}"
                                                      alt="Другие фото животного"
                                                      id="other_foto"></a>
                                         </div>
@@ -131,7 +137,7 @@
         function showContact(id) {
             $.ajax({
                 type: 'GET',
-                url: '/showcontact/'+id,
+                url: '/showcontact/' + id,
                 success: function (response) {
                     $('.modal-content').empty().append(response);
                 }

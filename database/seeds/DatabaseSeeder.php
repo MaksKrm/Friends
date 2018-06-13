@@ -19,5 +19,6 @@ class DatabaseSeeder extends Seeder
         $this->call(ConstantsTableSeeder::class);
         $this->call(GoodsTableSeeder::class);
         $this->call(CloudStoragesTableSeeder::class);
+        $this->call(ImagesTableSeeder::class);
     }
 }
