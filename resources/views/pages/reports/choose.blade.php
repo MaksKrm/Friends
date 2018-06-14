@@ -4,9 +4,9 @@
         <tr>
             <th scope="col">Отчетный период</th>
             <th scope="col">Поступления</th>
-            <th scope="col">Количество</th>
+            <th scope="col">Сумма грн.</th>
             <th scope="col">Расходы</th>
-            <th scope="col">Количество</th>
+            <th scope="col">Сумма грн.</th>
         </tr>
         </thead>
         <tbody>
