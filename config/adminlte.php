@@ -150,6 +150,11 @@ return [
             'url'  => 'admin/goods',
             'icon'        => 'fas fa-shopping-cart',
         ],
+        [
+            'text'    => 'Настройки',
+            'url'  => 'admin/settings',
+            'icon'        => 'fas fa-cog',
+        ],
     ],
 
     /*

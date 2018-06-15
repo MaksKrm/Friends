@@ -6,6 +6,8 @@ use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\Facades\View;
 use App\Models\News;
+use App\Models\Image;
+use App\Models\Contact;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -18,7 +20,9 @@ class AppServiceProvider extends ServiceProvider
     {
         Schema::defaultStringLength(191);
         $latestNews = News::orderBy('id', 'desc')->first();
-        View::share(['latestNews' => $latestNews]);
+        $logo = Image::where('animal_id', '=', 99999)->first();
+        $contact = Contact::where('id', '=', 99999)->first();
+        View::share(['latestNews' => $latestNews, 'logo' => $logo, 'contact' => $contact]);
     }
 
     /**

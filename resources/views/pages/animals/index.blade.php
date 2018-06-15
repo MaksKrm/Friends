@@ -32,5 +32,5 @@
         </div>
     </div>
 
-    <script src="{{ asset('js/animals/index.js') }}"></script>
+    <script src="{{ asset('js/animals/script.js') }}"></script>
 @endsection

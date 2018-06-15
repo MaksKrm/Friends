@@ -26,6 +26,7 @@ Route::group(['prefix' => 'admin', 'middleware' => ['admin']], function()
         Route::resource('contacts', 'admin\contacts\AdminContactController', ['as'=>'admin']);
         Route::resource('goods', 'admin\goods\AdminGoodsController', ['as'=>'admin']);
         Route::resource('reports', 'admin\reports\AdminReportsController');
+        Route::resource('settings', 'admin\settings\AdminSettingsController', ['as'=>'admin']);
         Route::post('/import', 'admin\reports\AdminReportsController@import')->name('import');
 });
 
