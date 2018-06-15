@@ -3,16 +3,27 @@
     <div class="container">
         <div class="row align-items-center">
             <div class="col-12 col-sm-6 col-md-5 col-lg-3">
-                <h1><a href="{{ route('index')}}"><img alt="Благотворительный фонд Друг"
-                                                       src="{{ asset("storage/$logo->name") }}"></a></h1>
+                <h1><a href="{{ route('index')}}">
+                        @if(!empty($logo))
+                            <img alt="Благотворительный фонд Друг"
+                                 src="{{ asset("storage/$logo->name") }}">
+                        @else
+                            <img alt="Благотворительный фонд Друг"
+                                 src="{{ asset("img/logo-drug.png") }}">
+                        @endif </a></h1>
             </div>
             <div class="col-12 pb-1 col-sm-6 col-md-3 col-lg-3">
                 <div class="slogan">Вместе спасём жизнь тех, кто просит о помощи</div>
             </div>
             <div class="col-7 my-3 pb-3 col-xs-4 col-sm-4 col-md-3 col-lg-2">
                 <ul class="contacts">
-                    <li>{{ $contact->phone }}</li>
-                    <li>{{ $contact->phone }}</li>
+                    @if(!empty($contact))
+                        <li>{{ $contact->phone }}</li>
+                        <li>{{ $contact->phone }}</li>
+                    @else
+                        <li>+380507050176</li>
+                        <li>+380507050176</li>
+                    @endif
                 </ul>
             </div>
             <div class="col-12 order-1 my-4 col-sm-4 push-sm-4 col-md-12 col-lg-1">

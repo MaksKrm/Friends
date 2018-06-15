@@ -21,6 +21,19 @@
         .contact thead {
             color: #ffd5cc;
         }
+
+        .contact .social {
+            max-width: 200px;
+        }
+
+        .contact .caption {
+            font: 1.5rem "Grand Hotel", cursive;
+            color: #fff;
+        }
+
+        .contact .caption:hover {
+            color: #009a3e;
+        }
     </style>
 
     <div class="contact">
@@ -49,6 +62,21 @@
                     @endforeach
                     </tbody>
                 </table>
+            </div>
+            <div class="row">
+                <div class="col-md-6 my-2 zoomIn wow">
+                    <a class="d-block hvr-buzz" href="https://www.facebook.com/groups/krmdrug/" target="_blank"><img class="social" alt="facebook"
+                                    src="{{ asset("img/facebook.png") }}">
+                        <span class="d-block caption">Facebook</span>
+                    </a>
+                </div>
+                <div class="col-md-6 my-2 zoomIn wow">
+                    <a class="d-block hvr-buzz" href="https://vk.com/protectionanimals" target="_blank">
+                        <img class="social" alt="Благотворительный фонд Друг"
+                             src="{{ asset("img/vk.png") }}">
+                        <span class="caption d-block">VK</span>
+                    </a>
+                </div>
             </div>
         </div>
     </div>
