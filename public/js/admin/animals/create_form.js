@@ -15,7 +15,6 @@ $( document ).ready(function() {
         for (var x = 0; x < ins; x++) {
             formData.append("files []", document.getElementById('otherfoto').files [x]);
         }
-        console.log(formData);
         $.ajax({
             headers: {
                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
@@ -36,6 +35,10 @@ $( document ).ready(function() {
                 var errors = JSON.parse(getErrors.responseText);
                 errors = errors.errors;
                 $.each(errors, function(index, value){
+                    if (index.search(/files/i)!=-1) {
+                        $('#otherfoto_block').addClass("has-error");
+                        $("#otherfoto_block strong").text(value);
+                    }
                     $('#'+index+'_block').addClass("has-error");
                     $('#'+index+'_block strong').text(value);
                 });

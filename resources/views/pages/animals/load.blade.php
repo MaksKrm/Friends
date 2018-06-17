@@ -4,8 +4,7 @@
             <div class="animal flipInX animated">
                 <div class="{{ $animal->species }} animal-block">
                     <div class="crop">
-                      {{--  <img src="{{asset("storage/$animal->main_foto")}}" alt="Фото животного">--}}
-                       <img src="{{$animal->main_foto}}">
+                        <img src="{{asset("storage/$animal->main_foto")}}" alt="Фото животного">
                     </div>
                     <p class="title"></p>
                     <a href="{{route('pets.show', $animal->id)}}"

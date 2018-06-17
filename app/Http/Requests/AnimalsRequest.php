@@ -35,4 +35,12 @@ class AnimalsRequest extends FormRequest
             'files_.*' => 'bail|image|mimes:jpeg,png,jpg,gif,svg|max:8048|dimensions:min_width=280,min_height=280',
         ];
     }
+    public function messages()
+    {
+        return [
+            'files_.*.image' => 'Загружаемые файлы должны быть фотографией',
+            'files_.*.mimes' => 'Загружаемые файлы не допустимого формата',
+            'files_.*.dimensions' => 'Загружаемые файлы слишком маленького расширения , минимально (280х280)',
+        ];
+    }
 }

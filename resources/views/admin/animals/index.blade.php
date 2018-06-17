@@ -94,21 +94,15 @@
                                                 </td>
                                                 <td>{{ $animal->contacts }}</td>
                                                 <td>
-                                                    {{--<img class="card-img-right flex-auto d-none d-md-block"--}}
-                                                         {{--src="{{ asset("storage/$animal->main_foto") }}"--}}
-                                                         {{--alt="Главное фото животного">--}}
                                                     <img class="card-img-right flex-auto d-none d-md-block"
-                                                         src="{{$animal->main_foto}}"
+                                                         src="{{ asset("storage/$animal->main_foto") }}"
                                                          alt="Главное фото животного">
                                                 </td>
                                                 <td id="other_foto">
                                                     @if(!empty($animal->images))
                                                         @foreach($animal->images as $foto)
                                                             <div class="other__photo" id="image_{{ $foto->id }}">
-                                                                {{--<img src="{{ asset("storage/$foto->name") }}"--}}
-                                                                     {{--alt="Другие фото животного"--}}
-                                                                {{-->--}}
-                                                                <img src="{{$foto->name}}"
+                                                                <img src="{{ asset("storage/$foto->name") }}"
                                                                      alt="Другие фото животного"
                                                                 >
                                                                 <button class="other__photo_btn"

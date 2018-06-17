@@ -2,8 +2,9 @@
     textarea {
         max-width: 420px;
     }
-    .has-error{
-        bordred: 1px solid red;
+    .has-error, strong {
+        color: #ff0000;
+        bordred: 1px solid #ff0000;
     }
 </style>
 

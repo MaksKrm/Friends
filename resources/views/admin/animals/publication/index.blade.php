@@ -67,7 +67,8 @@
                                                 {{ str_limit($animal->notes, $limit = 80, $end = '...') }}
                                             </td>
                                             <td>{{ $animal->contacts }}</td>
-                                            <td><img class="card-img-right flex-auto d-none d-md-block"
+                                            <td>
+                                                <img class="card-img-right flex-auto d-none d-md-block"
                                                      src="{{asset("storage/$animal->main_foto")}}"
                                                      alt="Главное фото животного">
                                             </td>
