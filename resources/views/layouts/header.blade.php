@@ -6,7 +6,7 @@
                 <h1><a href="{{ route('index')}}">
                         @if(!empty($logo))
                             <img alt="Благотворительный фонд Друг"
-                                 src="{{ asset("storage/$logo->name") }}">
+                                 src="{{ asset("storage/$logo->name") }}" >
                         @else
                             <img alt="Благотворительный фонд Друг"
                                  src="{{ asset("img/logo-drug.png") }}">
