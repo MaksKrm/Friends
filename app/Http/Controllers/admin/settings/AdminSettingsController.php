@@ -18,9 +18,11 @@ class AdminSettingsController extends Controller
      */
     public function index()
     {
-        $contact = Contact::where('id', '=', 99999)->first();
+        $contacts = Contact::orderBy('id')->take(2)->get();
+        $keyed = $contacts->keyBy('id');
+        $keyed->all();
         $logo = Image::where('animal_id', '=', 99999)->first();
-        return view('admin.settings.index', ['logo' => $logo, 'contact' => $contact]);
+        return view('admin.settings.index', ['logo' => $logo, 'contacts' => $keyed]);
     }
 
     /**
@@ -82,7 +84,7 @@ class AdminSettingsController extends Controller
      */
     public function update(AdminSettingsRequest $request, $id)
     {
-        if ($id == 99999) {
+        if ($id == 1 || $id == 2) {
             $contact = Contact::find($id)->update($request->all());
         } else {
             $data = $request->all();

@@ -1,20 +1,19 @@
 @extends('layouts.main')
 
 @section('content')
-
     <!-- Slider -->
     <div class="slider">
         <div class="container">
             <ul class="slides">
                 <li>
                     <div class="item">
-                        <span>{{ $animalsCount }}животных</span><br/>находятся в приюте
+                        <span>{{ $animalsCount }} животных</span><br/>находятся в приюте
                         <img src="/img/slider_1.png" alt="Количество животных в приюте Друг"/>
                     </div>
                 </li>
                 <li>
                     <div class="item">
-                        <span>11 животных</span><br/>нашли свой дом
+                        <span><a href="{{ route('shop.index')}}">Ярмарка добра</a></span><br/>помогите нашим питомцам
                         <img src="/img/slider_0.png" alt="Животные благотворительного фонда Друг"/>
                     </div>
                 </li>
@@ -27,14 +26,14 @@
         <div class="container">
             <div class="row">
                 <div class="col-12 volunteer fadeInLeft wow">
-                    <h1>Благотворительный фонд "Друг" Краматорск</h1>
-                    <p>
-                        <strong>Благотворительный фонд "Друг"</strong>  - организация единомышленников-волонтеров,
+                    <h1 class="text-center">Благотворительный фонд "Друг" Краматорск</h1>
+                    <p class="text-justify">
+                        <strong>Благотворительный фонд "Друг"</strong> - организация единомышленников-волонтеров,
                         которые работают над решением проблемы бездомных животных. Мы отдаем своему делу огромное
                         количество времени, энергии и любви.<em>"Друг"</em> продвигает идеи гуманного отношения,
                         прикладывая огромные усилия, активно работая с 2011 года.
                     </p>
-                    <p>
+                    <p class="text-justify">
                         Мы спасли, вылечили, стерилизовали и отдали в семьи несколько тысяч кошек и собак.
                         Мы неоднократно привлекали внимание общественности, власти - к проблеме брошеных на произвол
                         судьбы питомцам, путем резонансных публикаций в СМИ, на широких круглых столах и депутатских
@@ -43,7 +42,7 @@
                         всех школах города. Провели много акций общегородского масштаба для популяризации отзывчивого
                         отношения к нашим маленьким друзьям.
                     </p>
-                    <p>
+                    <p class="text-justify">
                         <em>Фонд "Друг"</em> осуществляет свою деятельность за счет собственных средств и пожертвований
                         горожан, приветствуеься любая помощь и поддержка.
                         Присоединяйтесь к нам, добро делать легко! Особенно, когда видишь ответное счастье сияющих глаз
@@ -64,13 +63,9 @@
                     @foreach ($news as $article)
                         <div class="col-md-6">
                             <div class="card fadeInRight wow flex-md-row mb-4 box-shadow h-md-250">
-                                {{--       <img class="card-img-right flex-auto d-none d-lg-block"
-                                            alt="Фото новости"
-                                            src="{{ asset("storage/$article->file")  }}"
-                                            data-holder-rendered="true">--}}
                                 <img class="card-img-right flex-auto d-none d-lg-block"
                                      alt="Фото новости"
-                                     src="{{ $article->file }}"
+                                     src="{{ asset("storage/$article->file")  }}"
                                      data-holder-rendered="true">
                                 <div class="card-body d-flex flex-column align-items-start">
                                     <strong class="d-inline-block mb-2 text-primary">{{ date( "d.m.Y", strtotime($article->created_at) ) }}</strong>
@@ -85,7 +80,7 @@
                         </div>
                     @endforeach
                 </div>
-                <div class="row justify-content-end">
+                <div class="row justify-content-center">
                     <a class="news__link_all" href="{{ route('news.index')}}">Все новости</a>
                 </div>
             </div>

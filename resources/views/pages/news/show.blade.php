@@ -30,7 +30,7 @@
                             <div class="col-md-4">
                                 <img class="card-img-left flex-auto d-none d-md-block"
                                      alt="Фото новости"
-                                     src="{{ $article->file }}">
+                                     src="{{ asset("storage/$article->file")  }}">
                             </div>
                         </div>
                     </div>

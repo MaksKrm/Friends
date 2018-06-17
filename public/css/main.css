@@ -291,6 +291,11 @@ button, button:focus, button:visited {
     color: #fefdfb;
 }
 
+.slider .container .item span a {
+    color: #fefdfb;
+    font-size: 92px;
+}
+
 @media all and (max-width: 1400px) {
     .slider .container .item span {
         font-size: 110px;
@@ -307,6 +312,21 @@ button, button:focus, button:visited {
     position: absolute;
     bottom: 0;
     right: 0;
+}
+@media all and (max-width: 1200px) {
+    .slider .container .item img {
+        width: 39%;
+    }
+}
+
+@media all and (max-width: 996px) {
+    .slider .container .item img {
+        width: 47%;
+    }
+    .slider .container .item span a {
+        color: #fefdfb;
+        font-size: 60px;
+    }
 }
 
 @media all and (max-width: 576px) {
@@ -471,6 +491,11 @@ button, button:focus, button:visited {
     font-weight: bold;
     margin-bottom: 0;
     letter-spacing: .1em;
+}
+
+.page .volunteer p {
+    text-indent: 40px;
+    padding: 0 40px;
 }
 
 /* 8. Mission Section & Services */

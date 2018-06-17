@@ -6,7 +6,7 @@
                 <h1><a href="{{ route('index')}}">
                         @if(!empty($logo))
                             <img alt="Благотворительный фонд Друг"
-                                 src="{{ asset("storage/$logo->name") }}" >
+                                 src="{{ asset("storage/$logo->name") }}">
                         @else
                             <img alt="Благотворительный фонд Друг"
                                  src="{{ asset("img/logo-drug.png") }}">
@@ -17,13 +17,13 @@
             </div>
             <div class="col-7 my-3 pb-3 col-xs-4 col-sm-4 col-md-3 col-lg-2">
                 <ul class="contacts">
-                    @if(!empty($contact))
-                        <li>{{ $contact->phone }}</li>
-                        <li>{{ $contact->phone }}</li>
-                    @else
-                        <li>+380507050176</li>
-                        <li>+380507050176</li>
-                    @endif
+                    @for ($i = 0; $i < 2; $i++)
+                        @if(!empty($companyContacts[$i]))
+                            <li>{{ $companyContacts[$i]->phone }}</li>
+                        @else
+                            <li>+380507050176</li>
+                        @endif
+                    @endfor
                 </ul>
             </div>
             <div class="col-12 order-1 my-4 col-sm-4 push-sm-4 col-md-12 col-lg-1">

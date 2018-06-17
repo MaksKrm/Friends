@@ -116,52 +116,57 @@
                         <div class="box-body">
                             <div class="row">
                                 <div class="col-12 col-md-12">
-                                    @if(!empty($contact))
-                                        <form method="POST" action="{{ route('admin.settings.update', $contact->id) }}">
-                                            {{ csrf_field() }}
-                                            <input type="hidden" name="_method" value="PUT">
-                                            <div class="form-group row">
-                                                <label for="inputPhone" class="col-sm-2 col-form-label">Контактный
-                                                    телефон</label>
-                                                <div class="col-sm-10">
-                                                    <input type="text" name="phone" class="form-control" id="inputPhone"
-                                                           value="{{ $contact->phone }}" placeholder="Телефон">
-                                                    <input type="hidden" name="id" value="{{ $contact->id }}">
-                                                    <input type="hidden" name="name" value="admin">
+                                    @for ($i = 1; $i < 3; $i++)
+                                        @if(!empty($contacts[$i]))
+                                            <form method="POST"
+                                                  action="{{ route('admin.settings.update', $contacts[$i]->id) }}">
+                                                {{ csrf_field() }}
+                                                <input type="hidden" name="_method" value="PUT">
+                                                <div class="form-group row">
+                                                    <label for="inputPhone" class="col-sm-3 col-form-label">Контактный
+                                                        телефон {{ $contacts[$i]->id }} </label>
+                                                    <div class="col-sm-6">
+                                                        <input type="text" name="phone" class="form-control"
+                                                               id="inputPhone"
+                                                               value="{{ $contacts[$i]->phone }}" placeholder="Телефон">
+                                                        <input type="hidden" name="id" value="{{ $contacts[$i]->id }}">
+                                                        <input type="hidden" name="name" value="Друг. Контакт {{ $i }}">
+                                                    </div>
+                                                    <div class="form-group row">
+                                                        <div class="col-sm-3">
+                                                            <button type="submit" class="btn btn-primary">Изменить
+                                                            </button>
+                                                        </div>
+                                                    </div>
                                                 </div>
-                                            </div>
-                                            @if ($errors->first('phone'))
-                                                <div class="alert alert-danger">{{  $errors->first('phone') }}</div>
-                                            @endif
-                                            <div class="form-group row">
-                                                <div class="col-sm-10">
-                                                    <button type="submit" class="btn btn-primary">Изменить</button>
+                                                @if ($errors->first('phone'))
+                                                    <div class="alert alert-danger">{{  $errors->first('phone') }}</div>
+                                                @endif
+                                            </form>
+                                        @else
+                                            <form action="{{ route('admin.settings.store') }}" method="POST">
+                                                {{ csrf_field() }}
+                                                <div class="form-group row">
+                                                    <label for="inputPhone" class="col-sm-3 col-form-label">Контактный
+                                                        телефон {{ $i }}</label>
+                                                    <div class="col-sm-6">
+                                                        <input type="text" name="phone" class="form-control"
+                                                               id="inputPhone"
+                                                               placeholder="Телефон">
+                                                        <input type="hidden" name="id" value="{{ $i }}">
+                                                        <input type="hidden" name="name" value="Друг. Контакт {{ $i }}">
+                                                        <input type="hidden" name="email" value="admin@gmail.com">
+                                                    </div>
+                                                    <div class="col-sm-3">
+                                                        <button type="submit" class="btn btn-primary">Изменить</button>
+                                                    </div>
                                                 </div>
-                                            </div>
-                                        </form>
-                                    @else
-                                        <form action="{{ route('admin.settings.store') }}" method="POST">
-                                            {{ csrf_field() }}
-                                            <div class="form-group row">
-                                                <label for="inputPhone" class="col-sm-2 col-form-label">Контактный
-                                                    телефон</label>
-                                                <div class="col-sm-10">
-                                                    <input type="text" name="phone" class="form-control" id="inputPhone"
-                                                           placeholder="Телефон">
-                                                    <input type="hidden" name="id" value="99999">
-                                                    <input type="hidden" name="name" value="admin">
-                                                </div>
-                                            </div>
-                                            @if ($errors->first('phone'))
-                                                <div class="alert alert-danger">{{  $errors->first('phone') }}</div>
-                                            @endif
-                                            <div class="form-group row">
-                                                <div class="col-sm-10">
-                                                    <button type="submit" class="btn btn-primary">Изменить</button>
-                                                </div>
-                                            </div>
-                                        </form>
-                                    @endif
+                                                @if ($errors->first('phone'))
+                                                    <div class="alert alert-danger">{{  $errors->first('phone') }}</div>
+                                                @endif
+                                            </form>
+                                        @endif
+                                    @endfor
                                 </div>
                             </div>
                         </div>

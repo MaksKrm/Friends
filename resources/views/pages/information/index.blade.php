@@ -46,8 +46,8 @@
                             @foreach ($goods as $good)
                                 <li style="float: left; display: block; width: 260px;">
                                     <div>
-                                        {{--  <img src="{{ asset("storage/$good->photo")  }}" alt="Фото товара" draggable="false">--}}
-                                        <img src="{{ $good->photo }}" alt="" draggable="false">
+                                        <img src="{{ asset("storage/$good->photo")  }}" alt="Фото товара"
+                                             draggable="false">
                                     </div>
                                     <strong class="goods__title_inform">{{ $good->title }}</strong>
                                 </li>
@@ -68,13 +68,9 @@
                     @foreach ($information as $article)
                         <div class="col-md-10">
                             <div class="card fadeInUp wow flex-md-row mb-4 box-shadow h-md-250">
-                                {{--  <img class="card-img-right flex-auto d-none d-lg-block"
-                                       alt="Фото информации"
-                                       src="{{ asset("storage/$article->file")  }}"
-                                       data-holder-rendered="true">--}}
                                 <img class="card-img-right flex-auto d-none d-lg-block"
                                      alt="Фото информации"
-                                     src="{{ $article->file  }}"
+                                     src="{{ asset("storage/$article->file")  }}"
                                      data-holder-rendered="true">
                                 <div class="card-body d-flex flex-column align-items-start">
                                     <h3>

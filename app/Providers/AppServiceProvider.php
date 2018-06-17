@@ -21,8 +21,8 @@ class AppServiceProvider extends ServiceProvider
         Schema::defaultStringLength(191);
         $latestNews = News::orderBy('id', 'desc')->first();
         $logo = Image::where('animal_id', '=', 99999)->first();
-        $contact = Contact::where('id', '=', 99999)->first();
-        View::share(['latestNews' => $latestNews, 'logo' => $logo, 'contact' => $contact]);
+        $companyContacts = Contact::orderBy('id')->take(2)->get();
+        View::share(['latestNews' => $latestNews, 'logo' => $logo, 'companyContacts' => $companyContacts]);
     }
 
     /**

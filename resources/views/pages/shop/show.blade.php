@@ -6,11 +6,10 @@
 </div>
 <div class="modal-body">
     <span class="shop__id pb-2">id: {{ $good->id }}</span>
-{{--    <img class="card-img-top"
+    <img class="card-img-top"
          alt="Фото товара"
-         src="{{ asset("storage/$good->photo")  }}"
-         data-holder-rendered="true">--}}
-    <img class="card-img-top" src="{{ $good->photo }}" alt="Card image cap">
+         src="{{ asset("storage/$good->photo") }}"
+         data-holder-rendered="true">
     <p class="mt-3">{{ $good->description }}</p>
     <p class="shop__order">Для получения дальнейшей информации и заказа обратитесь по номеру</p>
     <p class="shop__contact">+38 050 705 01 76</p>
