@@ -15,11 +15,6 @@
             <input type="text" class="form-control" id="inputName" name="name">
             <span class="help-block"><strong>{{ $errors->first('name') }}</strong></span>
         </div>
-        <div class="form-group {{ $errors->has('address') ? ' has-error' : '' }}" id="div_address">
-            <label for="inputAddress">Адрес</label>
-            <input type="text" class="form-control" id="inputAddress" name="address">
-            <span class="help-block"><strong>{{ $errors->first('address') }}</strong></span>
-        </div>
         <div class="form-group {{ $errors->has('email') ? ' has-error' : '' }}" id="div_email">
             <label for="inputEmail">Email</label>
             <input type="text" class="form-control" id="inputEmail" name="email">

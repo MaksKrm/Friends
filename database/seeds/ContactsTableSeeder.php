@@ -17,8 +17,7 @@ class ContactsTableSeeder extends Seeder
             $contacts[] = [
                 'name' => $faker->firstName,
                 'email' => $faker->email,
-                'phone' => $faker->phoneNumber,
-                'address' => $faker->address
+                'phone' => $faker->phoneNumber
             ];
         }
         DB::table('contacts')->insert($contacts);

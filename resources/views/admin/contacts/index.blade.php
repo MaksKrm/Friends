@@ -20,10 +20,9 @@
                                     <table id="example1" class="table table-bordered table-striped table-responsive">
                                         <thead>
                                         <tr>
-                                            <th class="col-xs-3">ФИО</th>
-                                            <th class="col-xs-3">Адрес</th>
-                                            <th class="col-xs-2">Email</th>
-                                            <th class="col-xs-1">Телефон</th>
+                                            <th class="col-xs-4">ФИО</th>
+                                            <th class="col-xs-3">Email</th>
+                                            <th class="col-xs-3">Телефон</th>
                                             <th colspan="2" class="col-xs-1">Управление</th>
                                         </tr>
                                         </thead>
@@ -31,21 +30,20 @@
                                         @foreach ($contacts as $contact)
                                             <tr>
                                                 <td>{{ $contact->name }}</td>
-                                                <td>{{ $contact->address }}</td>
                                                 <td>{{ $contact->email }}</td>
                                                 <td>{{ $contact->phone }}</td>
                                                 <td>
                                                     <meta name="csrf-token" content="{{ csrf_token() }}"/>
                                                     <button type="button" onclick="editContacts({{ $contact->id }})"
-                                                        class="btn btn-default" data-toggle="modal"
-                                                        data-target="#modal-update">
+                                                            class="btn btn-default" data-toggle="modal"
+                                                            data-target="#modal-update">
                                                         <i class="fa fa fa-pencil"></i>
                                                     </button>
                                                 </td>
                                                 <td>
                                                     <button type="button" onclick="deleteContacts({{ $contact->id }})"
-                                                        class="btn btn-default" data-toggle="modal"
-                                                        data-target="#modal-update">
+                                                            class="btn btn-default" data-toggle="modal"
+                                                            data-target="#modal-update">
                                                         <i class="fa fa-trash-o"></i>
                                                     </button>
                                                 </td>

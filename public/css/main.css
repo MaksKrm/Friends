@@ -957,6 +957,7 @@ button, button:focus, button:visited {
     padding: 25px;
     background: #ffeae5;
     color: #afbb71;
+    height: 110px;
     font-weight: 700;
     line-height: 1.8em;
 }
@@ -970,6 +971,7 @@ button, button:focus, button:visited {
 
 .price-box .block ul {
     margin: 0 10px 30px;
+    height: 100px;
 }
 
 .price-box .block ul li {

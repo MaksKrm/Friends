@@ -10,7 +10,6 @@
                     <tr>
                         <th scope="col">#</th>
                         <th scope="col">ФИО</th>
-                        <th scope="col">Адрес</th>
                         <th scope="col">Email</th>
                         <th scope="col">Телефон</th>
                     </tr>
@@ -20,7 +19,6 @@
                         <tr>
                             <th scope="row">{{ $contact->id }}</th>
                             <td>{{ $contact->name }}</td>
-                            <td>{{ $contact->address }}</td>
                             <td>{{ $contact->email }}</td>
                             <td>{{ $contact->phone }}</td>
                         </tr>

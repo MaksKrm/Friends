@@ -123,41 +123,54 @@
                                                 {{ csrf_field() }}
                                                 <input type="hidden" name="_method" value="PUT">
                                                 <div class="form-group row">
-                                                    <label for="inputPhone" class="col-sm-3 col-form-label">Контактный
-                                                        телефон {{ $contacts[$i]->id }} </label>
-                                                    <div class="col-sm-6">
+                                                    <label for="inputPhone" class="col-sm-2 col-form-label">Контакт {{ $contacts[$i]->id }}</label>
+                                                    <div class="col-sm-2">
                                                         <input type="text" name="phone" class="form-control"
                                                                id="inputPhone"
-                                                               value="{{ $contacts[$i]->phone }}" placeholder="Телефон">
+                                                               value="{{ $contacts[$i]->phone }}"
+                                                               placeholder="Телефон">
                                                         <input type="hidden" name="id" value="{{ $contacts[$i]->id }}">
-                                                        <input type="hidden" name="name" value="Друг. Контакт {{ $i }}">
                                                     </div>
-                                                    <div class="form-group row">
-                                                        <div class="col-sm-3">
-                                                            <button type="submit" class="btn btn-primary">Изменить
-                                                            </button>
-                                                        </div>
+                                                    <label for="inputName" class="col-sm-1 col-form-label">ФИО</label>
+                                                    <div class="col-sm-2">
+                                                        <input type="text" class="form-control"
+                                                               value="{{ $contacts[$i]->name }}"
+                                                               name="name" id="inputName" placeholder="Введите ФИО">
                                                     </div>
+                                                    <label for="inputEmail" class="col-sm-1 col-form-label">Email</label>
+                                                    <div class="col-sm-2">
+                                                        <input type="email" class="form-control" name="email"
+                                                               value="{{ $contacts[$i]->email }}"
+                                                               id="inputEmail" placeholder="Введите email">
+                                                    </div>
+                                                    <div class="col-sm-2">
+                                                        <button type="submit" class="btn btn-primary">Изменить</button>
+                                                    </div>
+                                                    @if ($errors->first('phone'))
+                                                        <div class="alert alert-danger">{{  $errors->first('phone') }}</div>
+                                                    @endif
                                                 </div>
-                                                @if ($errors->first('phone'))
-                                                    <div class="alert alert-danger">{{  $errors->first('phone') }}</div>
-                                                @endif
                                             </form>
                                         @else
                                             <form action="{{ route('admin.settings.store') }}" method="POST">
                                                 {{ csrf_field() }}
                                                 <div class="form-group row">
-                                                    <label for="inputPhone" class="col-sm-3 col-form-label">Контактный
-                                                        телефон {{ $i }}</label>
-                                                    <div class="col-sm-6">
+                                                    <label for="inputPhone" class="col-sm-2 col-form-label">Контакт {{ $i }}</label>
+                                                    <div class="col-sm-2">
                                                         <input type="text" name="phone" class="form-control"
                                                                id="inputPhone"
                                                                placeholder="Телефон">
                                                         <input type="hidden" name="id" value="{{ $i }}">
-                                                        <input type="hidden" name="name" value="Друг. Контакт {{ $i }}">
-                                                        <input type="hidden" name="email" value="admin@gmail.com">
                                                     </div>
-                                                    <div class="col-sm-3">
+                                                    <label for="inputName" class="col-sm-1 col-form-label">ФИО</label>
+                                                    <div class="col-sm-2">
+                                                        <input type="text" class="form-control" name="name" id="inputName" placeholder="Введите ФИО">
+                                                    </div>
+                                                    <label for="inputEmail" class="col-sm-1 col-form-label">Email</label>
+                                                    <div class="col-sm-2">
+                                                        <input type="email" class="form-control" name="email" id="inputEmail" placeholder="Введите email">
+                                                    </div>
+                                                    <div class="col-sm-2">
                                                         <button type="submit" class="btn btn-primary">Изменить</button>
                                                     </div>
                                                 </div>
