@@ -129,12 +129,11 @@
         <div class="row form-group{{ $errors->has('other_foto') ? ' has-error' : '' }}" id="otherfoto_block">
             <label class="col-sm-3 col-form-label" for="otherfoto">Другие фото: </label>
             <div class="col-sm-9">
-                <div class="custom-file multiple">
-                    <input type="file" name="files[]" id="otherfoto" multiple="multiple" class="custom-file-input"
-                           required>
-                    <label class="custom-file-label form-control-file" for="otherfoto">Добавьте другие фото</label>
-                    <strong id="otherfoto_block_strong"></strong>
+                <div class="custom-file">
+                    <input type="file" name="files[]" id="otherfoto" class="custom-file-input" multiple = "multiple">
+                    <label class="custom-file-label form-control-file" for="</div>">Добавьте другие фото</label>
                 </div>
+                <strong id="otherfoto_block_strong"></strong>
             </div>
         </div>
         <div class="modal-footer justify-content-between">

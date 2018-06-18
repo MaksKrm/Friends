@@ -36,6 +36,11 @@ $(document).ready(function () {
                 var errors = JSON.parse(getErrors.responseText);
                 errors = errors.errors;
                 $.each(errors, function (index, value) {
+                    if (index.search(/files/i)!=-1) {
+                        $("#otherfoto_block").addClass("has-error");
+                        var id ='otherfoto_block_strong';
+                        document.getElementById(id).innerHTML = value;
+                    }
                     $('#' + index + '_block').addClass("has-error");
                     var id = index + '_block_strong';
                     document.getElementById(id).innerHTML = value;

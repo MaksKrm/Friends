@@ -28,8 +28,17 @@ class UpdateAnimalsRequest extends FormRequest
             'breed' => 'max:100',
             'age' => 'max:100',
             'contacts' => 'max:100',
-            'main_foto' => 'bail|nullable|image|mimes:jpeg,png,jpg,gif,svg|max:8048',
-            'files_.*' => 'bail|nullable|image|mimes:jpeg,png,jpg,gif,svg|max:8048',
+            'main_foto' => 'bail|nullable|image|mimes:jpeg,png,jpg,gif,svg|max:8048|dimensions:min_width=280,min_height=280',
+            'files_.*' => 'bail|nullable|image|mimes:jpeg,png,jpg,gif,svg|max:8048|dimensions:min_width=280,min_height=280',
+        ];
+    }
+    public function messages()
+    {
+        return [
+            'main_foto.dimensions' => 'Загружаемый файл слишком маленького разрешения , минимально (280х280)',
+            'files_.*.image' => 'Загружаемые файлы должны быть фотографией',
+            'files_.*.mimes' => 'Загружаемые файлы не допустимого формата',
+            'files_.*.dimensions' => 'Загружаемые файлы слишком маленького разрешения , минимально (280х280)',
         ];
     }
 }

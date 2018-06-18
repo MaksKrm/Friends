@@ -34,11 +34,13 @@ $( document ).ready(function() {
             error: function (getErrors) {
                 var errors = JSON.parse(getErrors.responseText);
                 errors = errors.errors;
+                console.log(errors);
                 $.each(errors, function(index, value){
                     if (index.search(/files/i)!=-1) {
                         $('#otherfoto_block').addClass("has-error");
                         $("#otherfoto_block strong").text(value);
                     }
+                    console.log(errors);
                     $('#'+index+'_block').addClass("has-error");
                     $('#'+index+'_block strong').text(value);
                 });
