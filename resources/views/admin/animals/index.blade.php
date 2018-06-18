@@ -1,31 +1,6 @@
 @extends('adminlte::page')
 
 @section('content')
-    <style>
-        img {
-            width: 100%;
-            height: auto;
-        }
-
-        .btn__add-animal {
-            margin-left: 15px;
-        }
-
-        .other__photo {
-            position: relative;
-            margin: 10px 0;
-        }
-
-        .other__photo_btn {
-            position: absolute;
-            top: 0;
-            background: transparent;
-            border: none;
-            color: #da251c;
-            font-size: 16px;
-            right: 0;
-        }
-    </style>
     <section class="content">
         <div class="row">
             <div class="col-xs-12">
@@ -135,13 +110,9 @@
                             </div>
                         </div>
                     </div>
-                    <!-- /.box-body -->
                 </div>
-                <!-- /.box -->
             </div>
-            <!-- /.col -->
         </div>
-        <!-- /.row -->
     </section>
     <div id="modal-update" class="modal fade">
         <div class="modal-dialog">
@@ -149,7 +120,31 @@
             </div>
         </div>
     </div>
+    <style>
+        img {
+            width: 100%;
+            height: auto;
+        }
 
+        .btn__add-animal {
+            margin-left: 15px;
+        }
+
+        .other__photo {
+            position: relative;
+            margin: 10px 0;
+        }
+
+        .other__photo_btn {
+            position: absolute;
+            top: 0;
+            background: transparent;
+            border: none;
+            color: #da251c;
+            font-size: 16px;
+            right: 0;
+        }
+    </style>
     <script type='text/javascript'>
         function create() {
             $.ajax({

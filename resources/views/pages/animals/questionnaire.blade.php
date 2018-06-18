@@ -1,27 +1,3 @@
-<style>
-    .modal-header,
-    .modal-body {
-        width: 100%;
-    }
-
-    h5.modal-title {
-        color: #009a3e;
-        line-height: 2;
-    }
-
-    .form-control {
-        font-size: 14px;
-    }
-
-    .goods__btn_danger {
-        background-color: #da251c;
-    }
-
-    .modal-body .goods__btn_inform {
-        padding: 10px 20px;
-    }
-</style>
-
 <div class="modal-header">
     <h5 class="modal-title" id="exampleModalLabel">Курирование питомцем</h5>
     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -85,3 +61,26 @@
     </form>
 </div>
 <script src="/js/animals/send_mail.js"></script>
+<style>
+    .modal-header,
+    .modal-body {
+        width: 100%;
+    }
+
+    h5.modal-title {
+        color: #009a3e;
+        line-height: 2;
+    }
+
+    .form-control {
+        font-size: 14px;
+    }
+
+    .goods__btn_danger {
+        background-color: #da251c;
+    }
+
+    .modal-body .goods__btn_inform {
+        padding: 10px 20px;
+    }
+</style>

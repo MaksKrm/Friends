@@ -1,53 +1,3 @@
-<style>
-    textarea {
-        max-width: 420px;
-    }
-
-    .has-error input,
-    .has-error select {
-        border: 2px solid red;
-    }
-
-    .animals__modal_header {
-        background: #afbb71;
-        width: 100%;
-    }
-
-    .animals__modal_header .modal-title {
-        color: #fefdfb;
-        line-height: 2;
-    }
-
-    .custom-file {
-        overflow: hidden;
-    }
-
-    .animals .form-control {
-        font-size: 14px;
-    }
-
-    .animals strong {
-        color: #da251c;
-    }
-
-    .modal-body .custom-file-label,
-    .col-form-label {
-        text-align: left;
-    }
-
-    .modal-body .custom-file-label::after {
-        content: "Обзор"
-    }
-
-    .goods__btn_danger {
-        background-color: #da251c;
-    }
-
-    .modal-body .goods__btn_inform {
-        padding: 10px 20px;
-    }
-</style>
-
 <div class="modal-header animals__modal_header">
     <h5 class="modal-title">Добавление объявления</h5>
     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -145,6 +95,55 @@
     </form>
 </div>
 <script src="/js/animals/pages_form.js"></script>
+<style>
+    textarea {
+        max-width: 420px;
+    }
+
+    .has-error input,
+    .has-error select {
+        border: 2px solid red;
+    }
+
+    .animals__modal_header {
+        background: #afbb71;
+        width: 100%;
+    }
+
+    .animals__modal_header .modal-title {
+        color: #fefdfb;
+        line-height: 2;
+    }
+
+    .custom-file {
+        overflow: hidden;
+    }
+
+    .animals .form-control {
+        font-size: 14px;
+    }
+
+    .animals strong {
+        color: #da251c;
+    }
+
+    .modal-body .custom-file-label,
+    .col-form-label {
+        text-align: left;
+    }
+
+    .modal-body .custom-file-label::after {
+        content: "Обзор"
+    }
+
+    .goods__btn_danger {
+        background-color: #da251c;
+    }
+
+    .modal-body .goods__btn_inform {
+        padding: 10px 20px;
+    }
+</style>
 
 
 

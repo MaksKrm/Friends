@@ -1,12 +1,10 @@
 @extends('layouts.main')
 @section('content')
     <div class="donate">
-        <!-- Price List -->
         <div class="price-box">
             <div class="container">
                 <p class="title">спасём жизнь тех</p>
                 <h2>Кто нуждается в помощи</h2>
-                <!-- Price Block -->
                 <div class="block fadeInLeft wow">
                     <p><span>материальная помощь</span> нашим питомцам</p>
                     <ul>
@@ -19,9 +17,6 @@
                         <a href="https://www.liqpay.ua/ru/checkout/i87165963894" target="_blank" class="button">помочь</a>
                     </div>
                 </div>
-                <!-- Price Block Ends! -->
-
-                <!-- Price Block -->
                 <div class="block fadeInRight wow">
                     <p><span>другая помощь</span> нашим питомцам</p>
                     <ul>
@@ -34,7 +29,6 @@
                         <button type="button" class="button" data-toggle="modal" data-target="#exampleModalLong">
                             Помочь
                         </button>
-                        <!-- Modal -->
                         <div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog"
                              aria-labelledby="exampleModalLongTitle" aria-hidden="true">
                             <div class="modal-dialog" role="document">
@@ -88,7 +82,6 @@
                                                     <strong>{{ $errors->first('phone') }}</strong>
                                                 </div>
                                             </div>
-
                                             <div id="div_theme"
                                                  class="form-group {{ $errors->has('theme') ? ' has-error' : '' }} row">
                                                 <label for="example-text-input"
@@ -126,12 +119,8 @@
                         </div>
                     </div>
                 </div>
-                <!-- Price Block Ends! -->
             </div>
         </div>
-        <!-- Price List ends! -->
-
-        <!-- Types II -->
         <div class="types mt-4 pt-4">
             <div class="container">
                 <h4>Что нам необходимо?</h4>
@@ -145,15 +134,11 @@
                 </dl>
             </div>
         </div>
-        <!-- Types II Ends! -->
-
-        <!-- Types -->
         <div class="types">
             <div class="container">
                 <h4>Материальная помощь</h4>
                 <p>На данный момент источник финансирования фонда - членские взносы и добровольные пожертвования. Нас
                     мало, поэтому будем рады любой вашей помощи.</p>
-                <!-- Types of Donation -->
                 <div class="section float-left">
                     <h4>Реквизиты для оказания материальной помощи:</h4>
                     <dl>
@@ -165,9 +150,6 @@
                         <dd>Зоомагазин "Любимчик".</dd>
                     </dl>
                 </div>
-                <!-- Types of Donation Ends! -->
-
-                <!-- Wish list -->
                 <div class="section float-right">
                     <h4>WME-КОШЕЛЁК</h4>
                     <ul>
@@ -177,17 +159,11 @@
                         <li>Евро: WME E567097933882</li>
                     </ul>
                 </div>
-                <!-- Wish list Ends! -->
-
                 <div class="button-holder">
                     <a href="https://www.liqpay.ua/ru/checkout/i87165963894" target="_blank" class="button">Помочь</a>
                 </div>
-
             </div>
         </div>
-        <!-- Types Ends! -->
-
-        <!-- Types II -->
         <div class="types">
             <div class="container">
                 <h4>Что Вы должны знать</h4>
@@ -203,7 +179,6 @@
                 </dl>
             </div>
         </div>
-        <!-- Types II Ends! -->
     </div>
     <script src="/js/help/send_mail.js"></script>
 @endsection

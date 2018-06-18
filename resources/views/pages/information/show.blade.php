@@ -1,18 +1,6 @@
 @extends('layouts.main')
 
 @section('content')
-    <style>
-        .wrapper {
-            background: #009a3e url(../img/paw_pattern.png);
-            color: #1d2124;
-            margin-top: -18px;
-            padding: 90px 0;
-        }
-
-        .card {
-            border-radius: unset;
-        }
-    </style>
     <div class="wrapper">
         <div class="container">
             <div class="row justify-content-center">
@@ -41,4 +29,16 @@
             </div>
         </div>
     </div>
+    <style>
+        .wrapper {
+            background: #009a3e url(../img/paw_pattern.png);
+            color: #1d2124;
+            margin-top: -18px;
+            padding: 90px 0;
+        }
+
+        .card {
+            border-radius: unset;
+        }
+    </style>
 @endsection

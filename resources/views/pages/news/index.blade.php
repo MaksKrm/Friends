@@ -1,26 +1,6 @@
 @extends('layouts.main')
 
 @section('content')
-    <style>
-        .educate {
-            margin-top: -18px;
-            padding-top: 90px;
-        }
-
-        .success-story h2, .success-story h3, .educate h2, .educate h3 {
-            color: #fff;
-        }
-
-        .news__text {
-            padding-bottom: 15px;
-        }
-
-        .card img {
-            padding: 2%;
-            max-height: 250px;
-            width: auto;
-        }
-    </style>
     <div class="educate">
         <div class="container">
             <p class="title">Новости</p>
@@ -57,4 +37,24 @@
             </div>
         </div>
     </div>
+    <style>
+        .educate {
+            margin-top: -18px;
+            padding-top: 90px;
+        }
+
+        .success-story h2, .success-story h3, .educate h2, .educate h3 {
+            color: #fff;
+        }
+
+        .news__text {
+            padding-bottom: 15px;
+        }
+
+        .card img {
+            padding: 2%;
+            max-height: 250px;
+            width: auto;
+        }
+    </style>
 @endsection
