@@ -16,7 +16,7 @@
                         <li>наличными при встрече</li>
                     </ul>
                     <div class="button-holder">
-                        <a href="https://www.liqpay.ua/ru/checkout/380675858104" class="button">помочь</a>
+                        <a href="https://www.liqpay.ua/ru/checkout/i87165963894" target="_blank" class="button">помочь</a>
                     </div>
                 </div>
                 <!-- Price Block Ends! -->
@@ -180,7 +180,7 @@
                 <!-- Wish list Ends! -->
 
                 <div class="button-holder">
-                    <a href="https://www.liqpay.ua/ru/checkout/380675858104" class="button">Помочь</a>
+                    <a href="https://www.liqpay.ua/ru/checkout/i87165963894" target="_blank" class="button">Помочь</a>
                 </div>
 
             </div>

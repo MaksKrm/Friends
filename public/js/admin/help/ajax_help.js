@@ -12,6 +12,10 @@ function createHelp() {
             });
             $('#store-help').on('submit',function (e) {
                 e.preventDefault();
+                $("#subbut").attr('disabled', true).text('ожидайте').css({
+                    'background': '#787674',
+                    'border-bottom': '#268658'
+                });
                 $('.form-group').removeClass("has-error");
                 $('.form-group strong').text('');
                 var formData = new FormData($('#store-help')[0]);

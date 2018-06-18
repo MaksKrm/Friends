@@ -29,7 +29,7 @@
             <span class="help-block"><strong>{{ $errors->first('message') }}</strong></span>
         </div>
         <div class="form-group">
-            <button type="submit" class="btn btn-primary">Отправить</button>
+            <button type="submit" class="btn btn-primary" id="subbut">Отправить</button>
             <button class="btn btn-danger" type="button" data-dismiss="modal"> Закрыть</button>
         </div>
     </form>
