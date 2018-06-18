@@ -18,11 +18,19 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
+        if (Schema::hasTable('news')) {
+            $latestNews = News::orderBy('id', 'desc')->first();
+            View::share(['latestNews' => $latestNews]);
+        }
+        if (Schema::hasTable('images')) {
+            $logo = Image::where('animal_id', '=', 99999)->first();
+            View::share(['logo' => $logo]);
+        }
+        if (Schema::hasTable('images')) {
+            $companyContacts = Contact::orderBy('id')->take(2)->get();
+            View::share(['companyContacts' => $companyContacts]);
+        }
         Schema::defaultStringLength(191);
-        $latestNews = News::orderBy('id', 'desc')->first();
-        $logo = Image::where('animal_id', '=', 99999)->first();
-        $companyContacts = Contact::orderBy('id')->take(2)->get();
-        View::share(['latestNews' => $latestNews, 'logo' => $logo, 'companyContacts' => $companyContacts]);
     }
 
     /**
