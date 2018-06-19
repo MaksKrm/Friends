@@ -43,16 +43,18 @@ class IndexController extends Controller
      */
     public function store(AnimalsRequest $request, Animal $animal, Image $image)
     {
-        if (!empty($request['files_'])) {
-            $other_path = [];
-            foreach ($request->files_ as $foto) {
-                $other_path[] = $image->saveLocalFoto($foto);
-            }
-            $image->name = implode(",", $other_path);
-        }
         $animal->main_foto = $image->saveLocalFoto($request->file('main_foto'));
         $animal->fill($request->only('name', 'species', 'breed', 'sex', 'age', 'notes', 'contacts'));
         $animal->save();
+        if (!empty($request['files_'])) {
+            foreach ($request->files_ as $foto) {
+                $other_path = $image->saveLocalFoto($foto);
+                $image->insert([
+                    'name' => $other_path,
+                    'animal_id' => $animal['id'],
+                ]);
+            }
+        }
         $responseJson = [ 'status'=>'ok'] ;
         $response = json_encode($responseJson);
 

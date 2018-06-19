@@ -66,6 +66,8 @@
     </script>
     <noscript><div><img src="https://mc.yandex.ru/watch/49297009" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
     <!-- /Yandex.Metrika counter -->
+    <meta name="google-site-verification" content="J6Ox1h5OQMpTzycsBYUTBNi0-Wpx63Yar0wU084gVw8" />
+    <meta name="yandex-verification" content="4dbe6c03aadef6e2" />
 </head>
 <body>
 <div id="app" class="main-container">
