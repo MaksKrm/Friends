@@ -1,47 +1,23 @@
-<!doctype html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Сообщение от пользователя</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-</head>
+<html>
+<head></head>
 <body>
-<h4>Поступила заявка</h4>
-<table class="table">
-    <thead class="thead-dark">
-    <tr>
-        <th scope="col" colspan="2">Данные пользователя:</th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr>
-        <th scope="row">Имя:</th>
-        <td>{{ $request->name }}</td>
-    </tr>
-    <tr>
-        <th scope="row">Возраст:</th>
-        <td>{{ $request->age }}</td>
-    </tr>
-    <tr>
-        <th scope="row">Пол:</th>
-        <td>{{ $request->sex }}</td>
-    </tr>
-    <tr>
-        <th scope="row">Телефон:</th>
-        <td>{{ $request->phone }}</td>
-    </tr>
-    <tr>
-        <th scope="row">Почта:</th>
-        <td>{{ $request->email }}</td>
-    </tr>
-    <tr>
-        <th scope="row">Сообщение:</th>
-        <td>{{ $request->message }}</td>
-    </tr>
-    </tbody>
-</table>
+<div style="display: table; width: 100%; text-align: center; height: 40px; background: #68A4C4; color: #fff; font-family: 'Open Sans', Arial, sans-serif; font-size: 14px; font-weight: bold;">
+    <div style="display: table-cell; vertical-align: middle;">Новое сообщение от {{ $request->name }}!</div>
+</div>
+<div>
+    <div style="width: 50%; padding: 40px 25%; text-align: center;">{!! $request->message !!}</div>
+</div>
+<div style="display: table; width: 100%; text-align: center; height: 40px; background: #68A4C4; color: #fff; font-family: 'Open Sans', Arial, sans-serif; font-size: 14px; font-weight: bold;">
+    <div style="display: table-cell; vertical-align: middle;">E-mail для связи: {{ $request->email }}</div>
+</div>
+<div style="display: table; width: 100%; text-align: center; height: 40px; background: #68A4C4; color: #fff; font-family: 'Open Sans', Arial, sans-serif; font-size: 14px; font-weight: bold;">
+    <div style="display: table-cell; vertical-align: middle;">телефон для связи: {{ $request->phone }}</div>
+</div>
+<div style="display: table; width: 100%; text-align: center; height: 40px; background: #68A4C4; color: #fff; font-family: 'Open Sans', Arial, sans-serif; font-size: 14px; font-weight: bold;">
+    <div style="display: table-cell; vertical-align: middle;">возраст: {{ $request->age }}</div>
+</div>
+<div style="display: table; width: 100%; text-align: center; height: 40px; background: #68A4C4; color: #fff; font-family: 'Open Sans', Arial, sans-serif; font-size: 14px; font-weight: bold;">
+    <div style="display: table-cell; vertical-align: middle;">пол: {{ $request->sex }}</div>
+</div>
 </body>
 </html>

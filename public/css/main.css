@@ -1882,6 +1882,10 @@ div.animals {
     border-top: 0;
 }
 
+.shop .card-img-box {
+    height: 250px;
+}
+
 .goods__btn,
 .goods__btn_inform {
     background: #afbb71;

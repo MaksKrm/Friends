@@ -113,7 +113,7 @@ class IndexController extends Controller
     {
         Mail::send('pages.animals.mail', ['request' => $request], function ($message) use ($request) {
             $message->from($request->email, $request->name);
-            $message->to('maks.ukraine13@gmail.com');
+            $message->to('maliyaa@vesco.com.ua');
             $message->subject($request->message);
         });
         $response = [ 'status'=>'ok'] ;

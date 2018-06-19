@@ -10,8 +10,7 @@
         <div class="mb-2">Контакт для связи:</div>
         <div class="modal-shelter_contact">{{ $animal->contacts }}</div>
         <div class="my-2">Контакты фонда:</div>
-        <div class="modal-shelter_phone">+38 050 705 01 76</div>
-        <div class="modal-shelter_phone">+38 050 705 01 76</div>
+        <div class="modal-shelter_phone">maliyaa@vesco.com.ua</div>
         <div class="modal-footer mt-2">
             <button class="button goods__btn_inform goods__btn_danger" type="button" data-dismiss="modal">Закрыть
             </button>

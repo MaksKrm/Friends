@@ -1,6 +1,57 @@
 @extends('layouts.main')
 
 @section('content')
+    <style>
+        .wrapper {
+            background: #009a3e url(../img/paw_pattern.png);
+            color: #1d2124;
+            margin-top: -18px;
+            padding-top: 90px;
+        }
+
+        .animal__page-title {
+            text-align: center;
+            font: 2.5rem "Grand Hotel", cursive;
+            color: #ffd5cc;
+            margin-bottom: 80px;
+        }
+
+        .animal__profile {
+            background-color: #fff;
+            margin-top: -55px;
+            padding: 55px 0;
+        }
+
+        .animal__profile img {
+            width: 100%;
+        }
+
+        .animal__features {
+            line-height: 2;
+        }
+
+        .animal__features span {
+            font: 1.5rem "Grand Hotel", cursive;
+            padding-right: 15px;
+        }
+
+        .animal__button_block {
+            display: flex;
+            justify-content: space-around;
+        }
+
+        .animal__button_block .btn-home {
+            background: #ffd5cc;
+            color: #268658;
+            border-bottom: 4px solid #268658;
+        }
+
+        .animal__button_block .btn-home:hover {
+            background: #268658;
+            border-bottom: 4px solid #da251c;
+            color: #fff;
+        }
+    </style>
     <div class="wrapper">
         <div id="modal-update" class="modal fade">
             <div class="modal-dialog">
@@ -63,55 +114,4 @@
             </div>
         </div>
         <script src="{{ asset('js/animals/show.js') }}"></script>
-        <style>
-            .wrapper {
-                background: #009a3e url(../img/paw_pattern.png);
-                color: #1d2124;
-                margin-top: -18px;
-                padding-top: 90px;
-            }
-
-            .animal__page-title {
-                text-align: center;
-                font: 2.5rem "Grand Hotel", cursive;
-                color: #ffd5cc;
-                margin-bottom: 80px;
-            }
-
-            .animal__profile {
-                background-color: #fff;
-                margin-top: -55px;
-                padding: 55px 0;
-            }
-
-            .animal__profile img {
-                width: 100%;
-            }
-
-            .animal__features {
-                line-height: 2;
-            }
-
-            .animal__features span {
-                font: 1.5rem "Grand Hotel", cursive;
-                padding-right: 15px;
-            }
-
-            .animal__button_block {
-                display: flex;
-                justify-content: space-around;
-            }
-
-            .animal__button_block .btn-home {
-                background: #ffd5cc;
-                color: #268658;
-                border-bottom: 4px solid #268658;
-            }
-
-            .animal__button_block .btn-home:hover {
-                background: #268658;
-                border-bottom: 4px solid #da251c;
-                color: #fff;
-            }
-        </style>
 @endsection

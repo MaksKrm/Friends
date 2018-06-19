@@ -10,10 +10,12 @@
                     @foreach ($goods as $good)
                         <div class="col-xl-3 col-md-4 col-sm-6 col-xs-6 col-6">
                             <div class="card mb-4">
-                                <img class="card-img-top"
-                                     alt="Фото товара"
-                                     src="{{ asset("storage/$good->photo")  }}"
-                                     data-holder-rendered="true">
+                                <div class="card-img-box">
+                                    <img class="card-img-top"
+                                         alt="Фото товара"
+                                         src="{{ asset("storage/$good->photo")  }}"
+                                         data-holder-rendered="true">
+                                </div>
                                 <div class="card-body">
                                     <h5 class="card-title"><a
                                                 href="{{route('shop.show', $good->id)}}">{{ $good->title }}</a></h5>

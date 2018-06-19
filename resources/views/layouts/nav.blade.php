@@ -3,7 +3,7 @@
             aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
-    <div class="collapse navbar-collapse links" id="navbarMainMenu">
+    <div class="collapse navbar-collapse links" id="navbarSupportedContent">
         <ul class="navbar-nav menu">
             <li><a class="active" href="{{route('index')}}">Главная <span class="sr-only">(current)</span></a></li>
             <li><a href="{{route('information.index')}}">Полезная информация</a></li>
