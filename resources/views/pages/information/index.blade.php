@@ -68,10 +68,12 @@
                     @foreach ($information as $article)
                         <div class="col-md-10">
                             <div class="card fadeInUp wow flex-md-row mb-4 box-shadow h-md-250">
-                                <img class="card-img-right flex-auto d-none d-lg-block"
-                                     alt="Фото информации"
-                                     src="{{ asset("storage/$article->file")  }}"
-                                     data-holder-rendered="true">
+                                <a href="{{route('information.show', $article->id)}}">
+                                    <img class="card-img-right flex-auto d-none d-lg-block"
+                                         alt="Фото информации"
+                                         src="{{ asset("storage/$article->file")  }}"
+                                         data-holder-rendered="true">
+                                </a>
                                 <div class="card-body d-flex flex-column align-items-start">
                                     <h3>
                                         <a class="text-dark news__title"
