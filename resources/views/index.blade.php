@@ -61,7 +61,7 @@
         <div class="educate news__main">
             <div class="container">
                 <p class="title">Последние новости</p>
-                <h3>Наша миссия - дарить любовь и теплоту тем, кто этого так жаждет</h3>
+                <h2>Наша миссия - дарить любовь и теплоту тем, кто этого так жаждет</h2>
                 <div class="row mb-2">
                     @foreach ($news as $article)
                         <div class="col-md-6">
