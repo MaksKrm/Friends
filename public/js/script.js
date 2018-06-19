@@ -57,7 +57,7 @@ $(document).ready(function () {
     });
 
     //Активная ссылка меню после перезагрузки страницы
-    $("#navbarMainMenu a").click(function (e) {
+    $("#navbarSupportedContent a").click(function (e) {
         var link = $(this);
         var item = link.parent("li");
         if (item.hasClass("active")) {

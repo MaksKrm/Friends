@@ -1886,6 +1886,23 @@ div.animals {
     height: 250px;
 }
 
+@media all and  (min-width: 481px) and (max-width: 576px) {
+    .shop .card img {
+        max-height: 450px;
+    }
+    .shop .card-img-box {
+        height: 450px;
+    }
+}
+@media all and (max-width: 480px) {
+    .shop .card img {
+        max-height: 350px;
+    }
+    .shop .card-img-box {
+        height: 350px;
+    }
+}
+
 .goods__btn,
 .goods__btn_inform {
     background: #afbb71;
@@ -1926,7 +1943,7 @@ div.animals {
 }
 
 .shop .card-text {
-    min-height: 60px;
+    height: 70px;
 }
 
 .shop__contact {
