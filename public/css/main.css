@@ -178,7 +178,7 @@ button, button:focus, button:visited {
 
 @media all and (max-width: 760px) {
     .menu li {
-        margin: 0 10px;
+        margin: 5px 10px;
     }
 }
 

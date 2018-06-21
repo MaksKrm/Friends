@@ -1,5 +1,10 @@
 @extends('layouts.main')
 
+<style>
+    .card img {
+        width: 100%;
+    }
+</style>
 @section('content')
     <div class="wrapper">
         <div class="container">
@@ -8,18 +13,18 @@
                     <div class="card">
                         <div class="card-body">
                             <div class="row flex-md-row justify-content-start ml-1">
+                                <div class="col-md-4">
+                                    <img class="card-img-right flex-auto d-md-block"
+                                         data-src="holder.js/200x250?theme=thumb"
+                                         alt="Thumbnail [200x250]"
+                                         src="{{ asset("storage/$article->file") }}">
+                                </div>
                                 <div class="col-md-8">
                                     <div class="d-flex justify-content-md-start mb-3">
                                         <span>Статья от {{ date( "d.m.Y", strtotime($article->created_at) ) }}</span>
                                     </div>
                                     <h2 class="card-title"> {{ $article->tittle }}</h2>
                                     <p class="card-text mt-3">{{ $article->article }}</p>
-                                </div>
-                                <div class="col-md-4">
-                                    <img class="card-img-right flex-auto d-none d-md-block"
-                                         data-src="holder.js/200x250?theme=thumb"
-                                         alt="Thumbnail [200x250]"
-                                         src="{{ asset("storage/$article->file") }}">
                                 </div>
                             </div>
                             <hr>
